@@ -88,7 +88,6 @@
 				453700C0DA8C4247323AEA70 /* Pods-RickMorty.debug.xcconfig */,
 				8DFBBA2C88AF41B3EE0C30E3 /* Pods-RickMorty.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +103,8 @@
 				C5D09B702996DC6C00294178 /* Frameworks */,
 				C5D09B712996DC6C00294178 /* Resources */,
 				A843133280D4F6DF720EC716 /* [CP] Embed Pods Frameworks */,
+				C5D09B8A2996EA4900294178 /* SwiftLint */,
+				C5D09B8B2996EBCF00294178 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -199,6 +200,42 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickMorty/Pods-RickMorty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C5D09B8A2996EA4900294178 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C5D09B8B2996EBCF00294178 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" …\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
