@@ -1,0 +1,12 @@
+strings:
+    inputs:
+      - RickMorty/Helpers/LocalizableStrings.strings
+    outputs:
+      - templateName: structured-swift5
+        output: RickMorty/Helpers/Strings.swift
+xcassets:
+  inputs:
+    - RickMorty/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: RickMorty/Helpers/Assets.swift
