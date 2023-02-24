@@ -87,15 +87,15 @@ final class AvatarInformationView: UIView {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            stackView.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 8),
+            stackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            genderLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 8),
+            genderLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
             genderLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             genderLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            typeLabel.topAnchor.constraint(equalTo: genderLabel.topAnchor, constant: 8),
+            typeLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 8),
             typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             typeLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

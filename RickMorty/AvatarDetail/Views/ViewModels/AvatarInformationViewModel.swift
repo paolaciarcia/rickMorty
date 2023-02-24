@@ -7,13 +7,14 @@
 
 import UIKit
 
-enum Status {
-    case active
-    case dead
-    case unknown
+enum Status: String {
+    case active = "Ativo"
+    case dead = "Morto"
+    case unknown = "Desconhecido"
 }
 
 struct AvatarInformationViewModel {
+    let avatarImage: UIImage
     let name: String
 //    var statusIcon: UIImage?
     let status: Status
@@ -26,9 +27,9 @@ struct AvatarInformationViewModel {
         case .active:
             return UIImage(asset: Asset.activeStatus)
         case .dead:
-            return UIImage(asset: Asset.activeStatus)
+            return UIImage(asset: Asset.deadStatus)
         case .unknown:
-            return UIImage(asset: Asset.activeStatus)
+            return UIImage(asset: Asset.unknownStatus)
         }
     }
 }
