@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AvatarInformationView: UIView {
+final class AvatarInformationView: UIStackView {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -20,13 +20,14 @@ final class AvatarInformationView: UIView {
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.spacing = 4
-        stack.axis = .vertical
+        stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
 
     private let statusImage: UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -56,26 +57,34 @@ final class AvatarInformationView: UIView {
         return label
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setup() {
+        setupStackView()
         setupViewHierarchy()
         setupConstraints()
     }
 
+    private func setupStackView() {
+        spacing = 8
+        axis = .vertical
+        alignment = .center
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+
     private func setupViewHierarchy() {
-        addSubview(nameLabel)
-        addSubview(genderLabel)
-        addSubview(typeLabel)
-        addSubview(stackView)
+        addArrangedSubview(nameLabel)
+        addArrangedSubview(stackView)
+        addArrangedSubview(genderLabel)
+        addArrangedSubview(typeLabel)
 
         stackView.addArrangedSubview(statusImage)
         stackView.addArrangedSubview(informationLabel)
@@ -83,21 +92,7 @@ final class AvatarInformationView: UIView {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-
-            stackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-
-            genderLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
-            genderLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            genderLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-
-            typeLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 8),
-            typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            typeLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            statusImage.widthAnchor.constraint(equalToConstant: 7)
         ])
     }
 }
@@ -106,7 +101,7 @@ extension AvatarInformationView: AvatarInformationViewType {
     func show(viewModel: AvatarInformationViewModel) {
         nameLabel.text = viewModel.name
         statusImage.image = viewModel.getIcon
-        informationLabel.text = "\(viewModel.status) - \(viewModel.specie)"
+        informationLabel.text = "\(viewModel.getAvatarStatus) - \(viewModel.specie)"
         genderLabel.text = viewModel.gender
         typeLabel.text = viewModel.type
     }

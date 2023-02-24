@@ -4,7 +4,11 @@ use_frameworks!
 target 'RickMorty' do
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint'
-  pod 'Quick'
+end
+
+target 'RickMortyTests' do
+  pod 'SwiftLint'
+  pod 'Quick', '~> 3.1.1'
   pod 'Nimble'
   pod 'Nimble-Snapshots'
 end

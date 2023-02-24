@@ -13,23 +13,25 @@ final class AvatarDetailView: UIView {
         let image = UIImageView()
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
+        image.layer.borderWidth = 2
+        image.layer.borderColor = CGColor(red: 0, green: 100, blue: 0, alpha: 100)
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     private let rectangleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .secondarySystemFill
-        view.layer.borderWidth = 3
-        view.layer.borderColor = CGColor(red: 48, green: 209, blue: 88, alpha: 1)
+        view.backgroundColor = UIColor.secondarySystemFill
+        view.layer.borderWidth = 2
+        view.layer.borderColor = CGColor(red: 0, green: 100, blue: 0, alpha: 100)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let informationView = AvatarInformationView()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
     
@@ -39,29 +41,31 @@ final class AvatarDetailView: UIView {
     }
 
     private func setup() {
+        backgroundColor = .systemGray5
         setupViewHierarchy()
         setupConstraints()
     }
 
     private func setupViewHierarchy() {
-        addSubview(avatarImage)
         addSubview(rectangleView)
         addSubview(informationView)
+        addSubview(avatarImage)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            avatarImage.topAnchor.constraint(equalTo: topAnchor, constant: 80),
-            avatarImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 64),
-            avatarImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 64),
 
-            rectangleView.topAnchor.constraint(equalTo: avatarImage.topAnchor, constant: avatarImage.frame.height/2),
-            rectangleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            rectangleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            avatarImage.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+            avatarImage.centerXAnchor.constraint(equalTo: informationView.centerXAnchor),
 
             informationView.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 24),
-            informationView.leadingAnchor.constraint(equalTo: rectangleView.leadingAnchor, constant: 50),
-            informationView.trailingAnchor.constraint(equalTo: rectangleView.trailingAnchor, constant: 50)
+            informationView.leadingAnchor.constraint(equalTo: rectangleView.leadingAnchor, constant: 16),
+            informationView.trailingAnchor.constraint(equalTo: rectangleView.trailingAnchor, constant: -16),
+
+            rectangleView.topAnchor.constraint(equalTo: avatarImage.topAnchor, constant: 142),
+            rectangleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            rectangleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            rectangleView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -70)
         ])
     }
 }
