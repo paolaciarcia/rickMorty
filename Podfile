@@ -4,6 +4,7 @@ use_frameworks!
 target 'RickMorty' do
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint'
+  pod 'SkeletonView'
 end
 
 target 'RickMortyTests' do

@@ -10,10 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Não conseguimos carregar os personagens
+  internal static let errorDescription = L10n.tr("LocalizableStrings", "errorDescription", fallback: "Não conseguimos carregar os personagens")
   /// exemplo
   internal static let exemploString = L10n.tr("LocalizableStrings", "exemploString", fallback: "exemplo")
   /// exemploTexto
   internal static let exemploTexto = L10n.tr("LocalizableStrings", "exemploTexto", fallback: "exemploTexto")
+  /// Tentar novamente
+  internal static let tryAgain = L10n.tr("LocalizableStrings", "tryAgain", fallback: "Tentar novamente")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
