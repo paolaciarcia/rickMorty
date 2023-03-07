@@ -20,10 +20,12 @@ final class AvatarLoadingDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarLoadingViewCell.self),
-                                                            for: indexPath) as? AvatarLoadingViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarViewCell.self),
+                                                            for: indexPath) as? AvatarViewCell else {
             return UICollectionViewCell()
         }
+
+        cell.show(viewModel: avatarList[indexPath.item])
         return cell
     }
 }

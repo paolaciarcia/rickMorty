@@ -14,6 +14,28 @@ PODS:
   - SkeletonView (1.30.4)
   - SwiftGen (6.6.2)
   - SwiftLint (0.50.3)
+  - ToolKit (0.17.4):
+    - ToolKit/Caching (= 0.17.4)
+    - ToolKit/DependencyInjection (= 0.17.4)
+    - ToolKit/Extensions (= 0.17.4)
+    - ToolKit/Logging (= 0.17.4)
+    - ToolKit/Managers (= 0.17.4)
+    - ToolKit/Multithreading (= 0.17.4)
+    - ToolKit/Networking (= 0.17.4)
+    - ToolKit/Serializer (= 0.17.4)
+  - ToolKit/Caching (0.17.4):
+    - ToolKit/Extensions
+    - ToolKit/Multithreading
+  - ToolKit/DependencyInjection (0.17.4)
+  - ToolKit/Extensions (0.17.4)
+  - ToolKit/Logging (0.17.4):
+    - ToolKit/Multithreading
+  - ToolKit/Managers (0.17.4)
+  - ToolKit/Multithreading (0.17.4)
+  - ToolKit/Networking (0.17.4):
+    - ToolKit/Multithreading
+    - ToolKit/Serializer
+  - ToolKit/Serializer (0.17.4)
 
 DEPENDENCIES:
   - Nimble
@@ -22,6 +44,7 @@ DEPENDENCIES:
   - SkeletonView
   - SwiftGen (~> 6.0)
   - SwiftLint
+  - ToolKit
 
 SPEC REPOS:
   trunk:
@@ -32,6 +55,7 @@ SPEC REPOS:
     - SkeletonView
     - SwiftGen
     - SwiftLint
+    - ToolKit
 
 SPEC CHECKSUMS:
   iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
@@ -41,7 +65,8 @@ SPEC CHECKSUMS:
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
   SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  ToolKit: 2302d8a8ffd7d4db69173d8cb410e31a1fec151e
 
-PODFILE CHECKSUM: 2371e9d637efef58ad743de067bfb684e9fcae8b
+PODFILE CHECKSUM: 5ea1b5f354ea970a28187c8d780355168ee6a6ad
 
 COCOAPODS: 1.11.3

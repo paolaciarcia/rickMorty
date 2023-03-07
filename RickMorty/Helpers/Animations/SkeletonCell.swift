@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 import SkeletonView
 
-final class AvatarLoadingViewCell: UICollectionViewCell {
+final class SkeletonCell: UICollectionViewCell {
+//    private var width: CGFloat
+//    private var height: CGFloat
+
     private let loadingCellView: UIView = {
         let loadingCell = UIView()
         loadingCell.layer.borderWidth = 16
@@ -19,13 +22,13 @@ final class AvatarLoadingViewCell: UICollectionViewCell {
         loadingCell.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(
             baseColor: UIColor(red: 126, green: 126, blue: 129, alpha: 1),
             secondaryColor: UIColor(red: 72, green: 72, blue: 74, alpha: 1)
-        ))
+        ), transition: .crossDissolve(0.5))
         return loadingCell
     }()
 
-     init() {
-         super.init(frame: .zero)
-         setup()
+    init() {
+        super.init(frame: .zero)
+        setup()
     }
 
     @available(*, unavailable)
@@ -48,6 +51,8 @@ final class AvatarLoadingViewCell: UICollectionViewCell {
             loadingCellView.leadingAnchor.constraint(equalTo: leadingAnchor),
             loadingCellView.trailingAnchor.constraint(equalTo: trailingAnchor),
             loadingCellView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//            loadingCellView.widthAnchor.constraint(equalToConstant: width),
+//            loadingCellView.widthAnchor.constraint(equalToConstant: height)
         ])
     }
 }

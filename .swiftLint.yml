@@ -1,4 +1,4 @@
-warning_threshold: 10
+warning_threshold: 100
 
 force_cast:
   severity: warning

@@ -23,36 +23,32 @@ final class AvatarErrorView: UIView {
     private let errorDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.errorDescription
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .systemGray
-        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 8
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-
-    private let reloadLabel: UILabel = {
-        let label = UILabel()
-        label.text = L10n.tryAgain
-        label.textColor = .systemBlue
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var reloadButton: UIButton = {
         let button = UIButton()
+        button.setTitle(L10n.tryAgain, for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         button.setImage(UIImage(asset: Asset.reloadIcon), for: .normal)
+        button.configuration = configurationButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
+        button.accessibilityIdentifier = "reloadButton"
         return button
     }()
+
+    private func configurationButton() -> UIButton.Configuration {
+        var config = UIButton.Configuration.plain()
+        config.imagePlacement = .trailing
+        config.imagePadding = 5
+        return config
+    }
 
     init() {
         super.init(frame: .zero)
@@ -65,6 +61,7 @@ final class AvatarErrorView: UIView {
     }
 
     private func setup() {
+        backgroundColor = .systemGray5
         setupViewHierarchy()
         setupConstraints()
     }
@@ -72,26 +69,21 @@ final class AvatarErrorView: UIView {
     private func setupViewHierarchy() {
         addSubview(imageView)
         addSubview(errorDescriptionLabel)
-        addSubview(stackView)
-        stackView.addArrangedSubview(reloadLabel)
-        stackView.addArrangedSubview(reloadButton)
-
+        addSubview(reloadButton)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: (self.bounds.height/2) + 10),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
-            errorDescriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 34),
-            errorDescriptionLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
-            errorDescriptionLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -16),
+            errorDescriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24),
+            errorDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            errorDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
-            stackView.topAnchor.constraint(equalTo: errorDescriptionLabel.topAnchor, constant: 26),
-            stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -16)
-//            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -16)
+            reloadButton.topAnchor.constraint(equalTo: errorDescriptionLabel.bottomAnchor, constant: 16),
+            reloadButton.centerXAnchor.constraint(equalTo: errorDescriptionLabel.centerXAnchor)
         ])
     }
 

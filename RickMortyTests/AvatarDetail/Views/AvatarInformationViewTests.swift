@@ -13,7 +13,6 @@ import Nimble_Snapshots
 
 final class AvatarInformationViewTests: QuickSpec {
     override func spec() {
-
         var sut: AvatarInformationView!
 
         beforeEach {
@@ -21,7 +20,6 @@ final class AvatarInformationViewTests: QuickSpec {
         }
 
         describe("AvatarInformationViewType") {
-
             context("#show(viewModel:)") {
 
                 beforeEach {

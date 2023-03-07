@@ -13,6 +13,12 @@
 		C529DE4B29B667C800AC8B9A /* AvatarLoadingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4A29B667C800AC8B9A /* AvatarLoadingDataSource.swift */; };
 		C529DE4E29B669A300AC8B9A /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4D29B669A300AC8B9A /* AvatarListView.swift */; };
 		C529DE5029B66A3E00AC8B9A /* AvatarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */; };
+		C529DE5229B685B900AC8B9A /* AvatarLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */; };
+		C529DE5729B69A4400AC8B9A /* AvatarListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5629B69A4400AC8B9A /* AvatarListViewTests.swift */; };
+		C529DE5929B69A5E00AC8B9A /* AvatarErrorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5829B69A5E00AC8B9A /* AvatarErrorViewTests.swift */; };
+		C529DE5B29B69A7500AC8B9A /* AvatarLoadingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5A29B69A7500AC8B9A /* AvatarLoadingViewTests.swift */; };
+		C529DE5E29B69ABF00AC8B9A /* AvatarViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5D29B69ABF00AC8B9A /* AvatarViewCellTests.swift */; };
+		C529DE6029B69AD800AC8B9A /* AvatarDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5F29B69AD800AC8B9A /* AvatarDataSourceTests.swift */; };
 		C56BF31A29A8F7DD00A95AB1 /* AvatarInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF31929A8F7DD00A95AB1 /* AvatarInformationView.swift */; };
 		C56BF31C29A8FC1A00A95AB1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF31B29A8FC1A00A95AB1 /* Colors.swift */; };
 		C56BF31E29A8FE7C00A95AB1 /* AvatarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF31D29A8FE7C00A95AB1 /* AvatarDetailView.swift */; };
@@ -23,8 +29,9 @@
 		C56BF33B29A9587500A95AB1 /* AvatarDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF33A29A9587500A95AB1 /* AvatarDetailViewTests.swift */; };
 		C56BF34129B61F1B00A95AB1 /* AvatarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */; };
 		C56BF34329B62D7200A95AB1 /* AvatarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34229B62D7100A95AB1 /* AvatarCellViewModel.swift */; };
-		C56BF34529B62E9700A95AB1 /* AvatarLoadingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34429B62E9700A95AB1 /* AvatarLoadingViewCell.swift */; };
+		C56BF34529B62E9700A95AB1 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */; };
 		C56BF34829B6334300A95AB1 /* GradientLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */; };
+		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
 		C5D09B7B2996DC6C00294178 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B7A2996DC6C00294178 /* ViewController.swift */; };
@@ -56,6 +63,12 @@
 		C529DE4A29B667C800AC8B9A /* AvatarLoadingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingDataSource.swift; sourceTree = "<group>"; };
 		C529DE4D29B669A300AC8B9A /* AvatarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListView.swift; sourceTree = "<group>"; };
 		C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarErrorView.swift; sourceTree = "<group>"; };
+		C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingView.swift; sourceTree = "<group>"; };
+		C529DE5629B69A4400AC8B9A /* AvatarListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewTests.swift; sourceTree = "<group>"; };
+		C529DE5829B69A5E00AC8B9A /* AvatarErrorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarErrorViewTests.swift; sourceTree = "<group>"; };
+		C529DE5A29B69A7500AC8B9A /* AvatarLoadingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingViewTests.swift; sourceTree = "<group>"; };
+		C529DE5D29B69ABF00AC8B9A /* AvatarViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewCellTests.swift; sourceTree = "<group>"; };
+		C529DE5F29B69AD800AC8B9A /* AvatarDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDataSourceTests.swift; sourceTree = "<group>"; };
 		C56BF31929A8F7DD00A95AB1 /* AvatarInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarInformationView.swift; sourceTree = "<group>"; };
 		C56BF31B29A8FC1A00A95AB1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C56BF31D29A8FE7C00A95AB1 /* AvatarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailView.swift; sourceTree = "<group>"; };
@@ -67,8 +80,9 @@
 		C56BF33A29A9587500A95AB1 /* AvatarDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailViewTests.swift; sourceTree = "<group>"; };
 		C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewCell.swift; sourceTree = "<group>"; };
 		C56BF34229B62D7100A95AB1 /* AvatarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCellViewModel.swift; sourceTree = "<group>"; };
-		C56BF34429B62E9700A95AB1 /* AvatarLoadingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingViewCell.swift; sourceTree = "<group>"; };
+		C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoadingViewController.swift; sourceTree = "<group>"; };
+		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5D09B782996DC6C00294178 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +131,43 @@
 			children = (
 				C529DE4D29B669A300AC8B9A /* AvatarListView.swift */,
 				C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */,
+				C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C529DE5329B699CD00AC8B9A /* AvatarList */ = {
+			isa = PBXGroup;
+			children = (
+				C529DE5529B69A0500AC8B9A /* Views */,
+				C529DE5429B699FD00AC8B9A /* AvatarCell */,
+			);
+			path = AvatarList;
+			sourceTree = "<group>";
+		};
+		C529DE5429B699FD00AC8B9A /* AvatarCell */ = {
+			isa = PBXGroup;
+			children = (
+				C529DE5C29B69AAB00AC8B9A /* Views */,
+				C529DE5F29B69AD800AC8B9A /* AvatarDataSourceTests.swift */,
+			);
+			path = AvatarCell;
+			sourceTree = "<group>";
+		};
+		C529DE5529B69A0500AC8B9A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C529DE5629B69A4400AC8B9A /* AvatarListViewTests.swift */,
+				C529DE5829B69A5E00AC8B9A /* AvatarErrorViewTests.swift */,
+				C529DE5A29B69A7500AC8B9A /* AvatarLoadingViewTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C529DE5C29B69AAB00AC8B9A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C529DE5D29B69ABF00AC8B9A /* AvatarViewCellTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +202,7 @@
 		C56BF32B29A934E300A95AB1 /* RickMortyTests */ = {
 			isa = PBXGroup;
 			children = (
+				C529DE5329B699CD00AC8B9A /* AvatarList */,
 				C56BF33329A934F800A95AB1 /* AvatarDetail */,
 			);
 			path = RickMortyTests;
@@ -206,7 +258,6 @@
 			children = (
 				C56BF33F29B61EEA00A95AB1 /* ViewModels */,
 				C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */,
-				C56BF34429B62E9700A95AB1 /* AvatarLoadingViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,9 +273,18 @@
 		C56BF34629B6330D00A95AB1 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */,
 				C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		C5B2E52029B77EFA00A6B2AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C5D09B6A2996DC6C00294178 = {
@@ -267,6 +327,7 @@
 		C5D09B8C299AD6F900294178 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C5B2E52029B77EFA00A6B2AD /* Extensions */,
 				C56BF34629B6330D00A95AB1 /* Animations */,
 				C5D09B8F299AD7A000294178 /* LocalizableStrings.strings */,
 				C5D09B91299AD81F00294178 /* Strings.swift */,
@@ -512,7 +573,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56BF33629A9352300A95AB1 /* AvatarInformationViewTests.swift in Sources */,
+				C529DE5729B69A4400AC8B9A /* AvatarListViewTests.swift in Sources */,
+				C529DE5E29B69ABF00AC8B9A /* AvatarViewCellTests.swift in Sources */,
+				C529DE6029B69AD800AC8B9A /* AvatarDataSourceTests.swift in Sources */,
 				C56BF33929A9359100A95AB1 /* AvatarInformationViewModel+Ext.swift in Sources */,
+				C529DE5929B69A5E00AC8B9A /* AvatarErrorViewTests.swift in Sources */,
+				C529DE5B29B69A7500AC8B9A /* AvatarLoadingViewTests.swift in Sources */,
 				C56BF33B29A9587500A95AB1 /* AvatarDetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,10 +593,12 @@
 				C56BF32529A9280800A95AB1 /* AvatarInformationViewModel.swift in Sources */,
 				C56BF32229A927C000A95AB1 /* AvatarDetailProtocol.swift in Sources */,
 				C529DE4E29B669A300AC8B9A /* AvatarListView.swift in Sources */,
+				C529DE5229B685B900AC8B9A /* AvatarLoadingView.swift in Sources */,
 				C56BF31C29A8FC1A00A95AB1 /* Colors.swift in Sources */,
 				C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */,
 				C56BF34129B61F1B00A95AB1 /* AvatarViewCell.swift in Sources */,
 				C56BF34329B62D7200A95AB1 /* AvatarCellViewModel.swift in Sources */,
+				C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */,
 				C529DE5029B66A3E00AC8B9A /* AvatarErrorView.swift in Sources */,
 				C5D09B94299AD8B500294178 /* Assets.swift in Sources */,
 				C5D09B92299AD81F00294178 /* Strings.swift in Sources */,
@@ -538,7 +606,7 @@
 				C529DE4929B64BEE00AC8B9A /* AvatarDataSource.swift in Sources */,
 				C5D09B90299AD7A000294178 /* LocalizableStrings.strings in Sources */,
 				C56BF31A29A8F7DD00A95AB1 /* AvatarInformationView.swift in Sources */,
-				C56BF34529B62E9700A95AB1 /* AvatarLoadingViewCell.swift in Sources */,
+				C56BF34529B62E9700A95AB1 /* SkeletonCell.swift in Sources */,
 				C56BF31E29A8FE7C00A95AB1 /* AvatarDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
