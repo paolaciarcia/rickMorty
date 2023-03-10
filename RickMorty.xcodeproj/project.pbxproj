@@ -11,7 +11,7 @@
 		563242BB74E7F986120D5D67 /* Pods_RickMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AFF926CAC4FF63B3CCFE14 /* Pods_RickMorty.framework */; };
 		C529DE4929B64BEE00AC8B9A /* AvatarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4829B64BEE00AC8B9A /* AvatarDataSource.swift */; };
 		C529DE4B29B667C800AC8B9A /* AvatarLoadingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4A29B667C800AC8B9A /* AvatarLoadingDataSource.swift */; };
-		C529DE4E29B669A300AC8B9A /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4D29B669A300AC8B9A /* AvatarListView.swift */; };
+		C529DE4E29B669A300AC8B9A /* AvatarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4D29B669A300AC8B9A /* AvatarCollectionView.swift */; };
 		C529DE5029B66A3E00AC8B9A /* AvatarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */; };
 		C529DE5229B685B900AC8B9A /* AvatarLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */; };
 		C529DE5729B69A4400AC8B9A /* AvatarListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529DE5629B69A4400AC8B9A /* AvatarListViewTests.swift */; };
@@ -30,7 +30,8 @@
 		C56BF34129B61F1B00A95AB1 /* AvatarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */; };
 		C56BF34329B62D7200A95AB1 /* AvatarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34229B62D7100A95AB1 /* AvatarCellViewModel.swift */; };
 		C56BF34529B62E9700A95AB1 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */; };
-		C56BF34829B6334300A95AB1 /* GradientLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */; };
+		C56BF34829B6334300A95AB1 /* GradientAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BF34729B6334300A95AB1 /* GradientAnimationView.swift */; };
+		C58A768F29BA7A8500B84279 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A768E29BA7A8500B84279 /* AvatarViewController.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
@@ -61,7 +62,7 @@
 		B2AFF926CAC4FF63B3CCFE14 /* Pods_RickMorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickMorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C529DE4829B64BEE00AC8B9A /* AvatarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDataSource.swift; sourceTree = "<group>"; };
 		C529DE4A29B667C800AC8B9A /* AvatarLoadingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingDataSource.swift; sourceTree = "<group>"; };
-		C529DE4D29B669A300AC8B9A /* AvatarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListView.swift; sourceTree = "<group>"; };
+		C529DE4D29B669A300AC8B9A /* AvatarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionView.swift; sourceTree = "<group>"; };
 		C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarErrorView.swift; sourceTree = "<group>"; };
 		C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLoadingView.swift; sourceTree = "<group>"; };
 		C529DE5629B69A4400AC8B9A /* AvatarListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewTests.swift; sourceTree = "<group>"; };
@@ -81,7 +82,8 @@
 		C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewCell.swift; sourceTree = "<group>"; };
 		C56BF34229B62D7100A95AB1 /* AvatarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCellViewModel.swift; sourceTree = "<group>"; };
 		C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
-		C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoadingViewController.swift; sourceTree = "<group>"; };
+		C56BF34729B6334300A95AB1 /* GradientAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAnimationView.swift; sourceTree = "<group>"; };
+		C58A768E29BA7A8500B84279 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 		C529DE4C29B6698100AC8B9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C529DE4D29B669A300AC8B9A /* AvatarListView.swift */,
+				C529DE4D29B669A300AC8B9A /* AvatarCollectionView.swift */,
 				C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */,
 				C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */,
 			);
@@ -239,6 +241,7 @@
 			children = (
 				C529DE4C29B6698100AC8B9A /* Views */,
 				C56BF33D29B61EC400A95AB1 /* AvatarCell */,
+				C58A768E29BA7A8500B84279 /* AvatarViewController.swift */,
 			);
 			path = AvatarList;
 			sourceTree = "<group>";
@@ -274,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				C56BF34429B62E9700A95AB1 /* SkeletonCell.swift */,
-				C56BF34729B6334300A95AB1 /* GradientLoadingViewController.swift */,
+				C56BF34729B6334300A95AB1 /* GradientAnimationView.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -380,7 +383,6 @@
 				C5D09B702996DC6C00294178 /* Frameworks */,
 				C5D09B712996DC6C00294178 /* Resources */,
 				C5D09B8A2996EA4900294178 /* SwiftLint */,
-				C5D09B8B2996EBCF00294178 /* SwiftGen */,
 				919F2C826BA9D641392D985C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -547,24 +549,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		C5D09B8B2996EBCF00294178 /* SwiftGen */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftGen;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -588,11 +572,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5D09B7B2996DC6C00294178 /* ViewController.swift in Sources */,
+				C58A768F29BA7A8500B84279 /* AvatarViewController.swift in Sources */,
 				C529DE4B29B667C800AC8B9A /* AvatarLoadingDataSource.swift in Sources */,
-				C56BF34829B6334300A95AB1 /* GradientLoadingViewController.swift in Sources */,
+				C56BF34829B6334300A95AB1 /* GradientAnimationView.swift in Sources */,
 				C56BF32529A9280800A95AB1 /* AvatarInformationViewModel.swift in Sources */,
 				C56BF32229A927C000A95AB1 /* AvatarDetailProtocol.swift in Sources */,
-				C529DE4E29B669A300AC8B9A /* AvatarListView.swift in Sources */,
+				C529DE4E29B669A300AC8B9A /* AvatarCollectionView.swift in Sources */,
 				C529DE5229B685B900AC8B9A /* AvatarLoadingView.swift in Sources */,
 				C56BF31C29A8FC1A00A95AB1 /* Colors.swift in Sources */,
 				C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */,

@@ -13,7 +13,10 @@ final class AvatarViewCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 16
         view.layer.borderWidth = 3
-        view.layer.borderColor = CGColor(red: 122, green: 182, blue: 59, alpha: 1)
+        view.layer.borderColor = CGColor(red: 122.0/255.0,
+                                         green: 182.0/255.0,
+                                         blue: 59.0/255.0,
+                                         alpha: 1.0)
         view.backgroundColor = .secondarySystemFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -23,7 +26,7 @@ final class AvatarViewCell: UICollectionViewCell {
     private let avatarImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.layer.borderWidth = 80
+        image.layer.cornerRadius = 16
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -32,7 +35,9 @@ final class AvatarViewCell: UICollectionViewCell {
     private let avatarLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -64,14 +69,13 @@ final class AvatarViewCell: UICollectionViewCell {
             mainView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            avatarImage.topAnchor.constraint(equalTo: mainView.topAnchor),
-            avatarImage.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
-            avatarImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
+            avatarLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30),
+            avatarLabel.centerXAnchor.constraint(equalTo: avatarImage.centerXAnchor),
 
-            avatarLabel.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 18),
-            avatarLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 18),
-            avatarLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -18),
-            avatarLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -18)
+            avatarImage.topAnchor.constraint(equalTo: avatarLabel.bottomAnchor, constant: 27),
+            avatarImage.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 27),
+            avatarImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -27),
+            avatarImage.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -27)
 
         ])
     }

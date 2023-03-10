@@ -9,22 +9,32 @@ import Foundation
 import UIKit
 import SkeletonView
 
-final class SkeletonCell: UICollectionViewCell {
-//    private var width: CGFloat
-//    private var height: CGFloat
+//let gradient = SkeletonGradient(baseColor: UIColor(red: 126.0/255.0, green: 126.0/255.0, blue: 129.0/255.0, alpha: 1.0),
+//                                secondaryColor: UIColor(red: 72.0/255.0, green: 72.0/255.0, blue: 74, alpha: 1.0))
 
-    private let loadingCellView: UIView = {
-        let loadingCell = UIView()
-        loadingCell.layer.borderWidth = 16
-        loadingCell.translatesAutoresizingMaskIntoConstraints = false
-//        loadingCell.backgroundColor = UIColor(cgColor: CGColor(red: 151, green: 151, blue: 151, alpha: 1))
-        loadingCell.isSkeletonable = true
-        loadingCell.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(
-            baseColor: UIColor(red: 126, green: 126, blue: 129, alpha: 1),
-            secondaryColor: UIColor(red: 72, green: 72, blue: 74, alpha: 1)
-        ), transition: .crossDissolve(0.5))
-        return loadingCell
+final class SkeletonCell: UICollectionViewCell {
+    private let radiusView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
+let animationView = GradientAnimationView()
+//    private let loadingCellView: UIView = {
+//        let loadingCell = UIView()
+//        loadingCell.isSkeletonable = true
+//
+//        let animation = GradientDirection.leftRight.slidingAnimation()
+//        let gradient = SkeletonGradient(baseColor: .asbestos,
+//                                        secondaryColor: .concrete)
+//        loadingCell.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+//        loadingCell.backgroundColor = .systemGray3
+//
+//
+//        loadingCell.layer.cornerRadius = 16
+//        loadingCell.translatesAutoresizingMaskIntoConstraints = false
+//        return loadingCell
+//    }()
 
     init() {
         super.init(frame: .zero)
@@ -39,20 +49,25 @@ final class SkeletonCell: UICollectionViewCell {
     private func setup() {
         setupViewHierarchy()
         setupConstraints()
+        animationView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupViewHierarchy() {
-        addSubview(loadingCellView)
+        addSubview(radiusView)
+        radiusView.addSubview(animationView)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            loadingCellView.topAnchor.constraint(equalTo: topAnchor),
-            loadingCellView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            loadingCellView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            loadingCellView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//            loadingCellView.widthAnchor.constraint(equalToConstant: width),
-//            loadingCellView.widthAnchor.constraint(equalToConstant: height)
+            radiusView.topAnchor.constraint(equalTo: topAnchor),
+            radiusView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            radiusView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            radiusView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            animationView.topAnchor.constraint(equalTo: radiusView.topAnchor),
+            animationView.leadingAnchor.constraint(equalTo: radiusView.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: radiusView.trailingAnchor),
+            animationView.bottomAnchor.constraint(equalTo: radiusView.bottomAnchor)
         ])
     }
 }

@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-final class AvatarListView: UIView {
-    var didSelectReloadList: (() -> Void)?
+final class AvatarCollectionView: UIView {
+//    var didSelectReloadList: (() -> Void)?
     var didSelectItem: ((Int) -> Void)?
     var didTapSearch: (() -> Void)?
 
