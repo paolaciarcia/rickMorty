@@ -39,13 +39,21 @@ final class GradientAnimationView: UIView {
         ]
         gradientLayer.locations = locations
 
+        let duration = 1.25
+
+        let alphaAnimation = CABasicAnimation(keyPath: "opacity")
+        alphaAnimation.fromValue = 1.0
+        alphaAnimation.toValue = 0.25
+        alphaAnimation.duration = duration
+        alphaAnimation.repeatCount = .infinity
+        gradientLayer.add(alphaAnimation, forKey: "opacity")
+
         let gradientAnimation = CABasicAnimation(keyPath: "locations")
         gradientAnimation.fromValue = [0.0, 0.0, 0.0]
         gradientAnimation.toValue = [0.25, 0.75, 1.0]
-        gradientAnimation.duration = 2.5
+        gradientAnimation.duration = duration
         gradientAnimation.repeatCount = .infinity
-//        gradientAnimation.fillMode = .forwards
-        gradientLayer.add(gradientAnimation, forKey: nil)
+        gradientLayer.add(gradientAnimation, forKey: "locations")
         return gradientLayer
     }()
 
@@ -54,7 +62,8 @@ final class GradientAnimationView: UIView {
             x: bounds.origin.x,
             y: bounds.origin.y,
             width: bounds.size.width,
-            height: bounds.size.height)
+            height: bounds.size.height
+        )
         gradientLayer.cornerRadius = 16
     }
 
