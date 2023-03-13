@@ -11,9 +11,16 @@ protocol AvatarInformationViewType {
 }
 
 protocol AvatarListServiceProtocol {
-    func requestAvatarList<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void)
+    func requestAvatarList<T: Decodable>(method: String,
+                                         url urlString: String,
+                                         parameters: [String: Any],
+                                         completion: @escaping (Result<T, Error>) -> Void)
 }
 
 protocol AvatarListRepositoryType {
     func fetchAvatar(completion: @escaping (Result<AvatarList, Error>) -> Void)
+}
+
+protocol AvatarListViewType {
+    func show(state: AvatarListState)
 }

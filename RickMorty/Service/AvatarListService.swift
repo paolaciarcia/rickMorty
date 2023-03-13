@@ -5,7 +5,7 @@
 //  Created by Paola Golombieski Ciarcia on 10/03/23.
 //
 
-import Foundation
+import UIKit
 import Network
 
 enum APIServiceError: Error {
@@ -17,7 +17,10 @@ enum APIServiceError: Error {
 final class AvatarListService: AvatarListServiceProtocol {
     private var task: URLSessionDataTask?
 
-    func requestAvatarList(completion: @escaping (Result<T, Error>) -> Void) {
+    func requestAvatarList<T: Decodable>(method: String,
+                                         url urlString: String,
+                                         parameters: [String: Any],
+                                         completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(APIServiceError.invalidURL))
             return

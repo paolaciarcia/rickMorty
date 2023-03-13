@@ -8,5 +8,13 @@
 import Foundation
 
 struct AvatarList: Decodable {
-    
+    let results: [Results]
+}
+
+struct Results: Decodable {
+    let name: String
+    let status: String
+    let species: String
+    let type: String?
+    let gender: String
 }

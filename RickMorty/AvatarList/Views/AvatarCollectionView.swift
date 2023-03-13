@@ -95,10 +95,6 @@ final class AvatarCollectionView: UIView {
         ])
     }
 
-    private func bindLayoutEvents() {
-
-    }
-
     @objc
     private func searchButtonTap() {
         didTapSearch?()

@@ -40,46 +40,9 @@ final class AvatarListRepository: AvatarListRepositoryType {
     }
 
     func fetchAvatar(completion: @escaping (Result<AvatarList, Error>) -> Void) {
-        service.requestAvatarList { [weak self] result in
-            self?.decodeRequestResult(result: result,
-                                      completion: completion)
-        }
+        service.requestAvatarList(method: HTTPMethodRequest.get,
+                                  url: "https://rickandmortyapi.com/api/character",
+                                  parameters: [:],
+                                  completion: completion)
     }
 }
-    extension AvatarListRepository {
-        private func decodeRequestResult<T: Decodable>(result: Result<Data, Error>,
-                                                       completion: @escaping (Result<T, Error>) -> Void) {
-            //mesma implementação do service
-            switch result {
-            case .success(let success):
-                <#code#>
-            case .failure(let failure):
-                <#code#>
-            }
-
-            guard let url = URL(string: urlString) else {
-                completion(.failure(APIServiceError.invalidURL))
-                return
-            }
-
-            URLSession.shared.dataTask(with: url) { data, _, error in
-                guard error != nil else {
-                    completion(.failure(APIServiceError.requestError))
-                    return
-                }
-
-                guard let jsonData = data else {
-                    completion(.failure(APIServiceError.jsonData))
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let decoded = try decoder.decode(T.self, from: jsonData)
-                    completion(.success(decoded))
-                } catch let error {
-                    completion(.failure(error))
-                }
-            }.resume()
-
-        }
-    }

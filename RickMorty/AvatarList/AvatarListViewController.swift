@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class AvatarViewController: UIViewController {
-    private let contentView: AvatarCollectionView
+final class AvatarListViewController: UIViewController {
+    private let contentView: AvatarListView
 
-    init(contentView: AvatarCollectionView = AvatarCollectionView()) {
+    init(contentView: AvatarListView = AvatarListView()) {
         self.contentView = contentView
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,5 +22,14 @@ final class AvatarViewController: UIViewController {
 
     override func loadView() {
         view = contentView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindLayoutEvents()
+    }
+
+    private func bindLayoutEvents() {
+        
     }
 }
