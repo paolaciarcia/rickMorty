@@ -36,6 +36,7 @@
 		C58A769829BF57F400B84279 /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769729BF57F400B84279 /* AvatarListView.swift */; };
 		C58A769A29BF615300B84279 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769929BF615300B84279 /* UINavigationController+Ext.swift */; };
 		C58A769C29BF6BE600B84279 /* AvatarListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769B29BF6BE600B84279 /* AvatarListPresenter.swift */; };
+		C58A769E29BF734200B84279 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769D29BF734200B84279 /* UIImageView+Ext.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
@@ -92,6 +93,7 @@
 		C58A769729BF57F400B84279 /* AvatarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListView.swift; sourceTree = "<group>"; };
 		C58A769929BF615300B84279 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		C58A769B29BF6BE600B84279 /* AvatarListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListPresenter.swift; sourceTree = "<group>"; };
+		C58A769D29BF734200B84279 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			children = (
 				C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */,
 				C58A769929BF615300B84279 /* UINavigationController+Ext.swift */,
+				C58A769D29BF734200B84279 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				C529DE5029B66A3E00AC8B9A /* AvatarErrorView.swift in Sources */,
 				C5D09B94299AD8B500294178 /* Assets.swift in Sources */,
 				C5D09B92299AD81F00294178 /* Strings.swift in Sources */,
+				C58A769E29BF734200B84279 /* UIImageView+Ext.swift in Sources */,
 				C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */,
 				C529DE4929B64BEE00AC8B9A /* AvatarDataSource.swift in Sources */,
 				C5D09B90299AD7A000294178 /* LocalizableStrings.strings in Sources */,

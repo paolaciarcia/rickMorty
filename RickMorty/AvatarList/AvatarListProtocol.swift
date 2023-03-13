@@ -25,7 +25,7 @@ protocol AvatarListViewType {
     func show(state: AvatarListState)
 }
 
-protocol AvatarListViewControllerType {
+protocol AvatarListViewControllerType: AnyObject {
     func show(state: AvatarListState)
 }
 

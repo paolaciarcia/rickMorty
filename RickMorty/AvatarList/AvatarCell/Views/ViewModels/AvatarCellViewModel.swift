@@ -19,7 +19,8 @@ struct AvatarListViewModel {
 }
 
 struct AvatarCellViewModel {
-    let avatarImage: UIImage?
+//    let id: Int
+    let avatarImageURL: String
     let avatarName: String
     let avatarStatus: String
     let avatarSpecie: String

@@ -81,7 +81,7 @@ final class AvatarViewCell: UICollectionViewCell {
     }
 
     func show(viewModel: AvatarCellViewModel) {
-        avatarImage.image = viewModel.avatarImage
+        avatarImage.downloadImage(url: viewModel.avatarImageURL)
         avatarLabel.text = viewModel.avatarName
     }
 }
