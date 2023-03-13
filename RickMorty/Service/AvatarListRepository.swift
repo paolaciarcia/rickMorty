@@ -35,7 +35,7 @@ enum URLRequest {
 final class AvatarListRepository: AvatarListRepositoryType {
     private let service: AvatarListService
 
-    init(service: AvatarListService) {
+    init(service: AvatarListService = AvatarListService()) {
         self.service = service
     }
 

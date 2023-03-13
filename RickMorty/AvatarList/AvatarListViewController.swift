@@ -19,10 +19,11 @@ final class AvatarListViewController: UIViewController {
     }()
 
     init(contentView: AvatarListView = AvatarListView(),
-         presenter: AvatarListPresenterType = AvatarListPresenter()) {
+         presenter: AvatarListPresenterType) {
         self.contentView = contentView
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        presenter.viewController = self
     }
 
     @available(*, unavailable)
@@ -42,7 +43,7 @@ final class AvatarListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavBar()
+        setupNavigation()
     }
 
     private func bindLayoutEvents() {
@@ -55,10 +56,7 @@ final class AvatarListViewController: UIViewController {
         }
     }
 
-    private func setupNavBar() {
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.isHidden = true
-        navigationController.applyCustomAppearence()
+    private func setupNavigation() {
         title = L10n.characters
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = searchButton
@@ -72,12 +70,8 @@ final class AvatarListViewController: UIViewController {
 
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
-        switch state {
-        case .ready:
-            navigationController?.navigationBar.isHidden = false
-            contentView.show(state: state)
-        default:
-            navigationController?.navigationBar.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.contentView.show(state: state)
         }
     }
 }

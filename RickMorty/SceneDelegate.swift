@@ -10,11 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: AvatarListCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let controller = AvatarListViewController()
+            let presenter = AvatarListPresenter(viewModel: AvatarListViewModel(cells: []))
+            let controller = AvatarListViewController(presenter: presenter)
             window.rootViewController = controller
             self.window = window
             window.makeKeyAndVisible()

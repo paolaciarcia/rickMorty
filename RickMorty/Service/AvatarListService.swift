@@ -27,7 +27,7 @@ final class AvatarListService: AvatarListServiceProtocol {
         }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard error != nil else {
+            if error != nil {
                 completion(.failure(APIServiceError.requestError))
                 return
             }

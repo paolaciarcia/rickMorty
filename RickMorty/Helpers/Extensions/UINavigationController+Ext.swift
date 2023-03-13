@@ -14,7 +14,8 @@ extension UINavigationController {
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
         navigationBar.compactAppearance = navBarAppearance
         navigationBar.standardAppearance = navBarAppearance
-        navigationBar.isTranslucent = true
+        navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationBar.isTranslucent = false
         navigationBar.prefersLargeTitles = true
     }
 }

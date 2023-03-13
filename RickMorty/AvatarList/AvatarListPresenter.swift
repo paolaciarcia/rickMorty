@@ -9,13 +9,12 @@ import Foundation
 
 final class AvatarListPresenter: AvatarListPresenterType {
     weak var viewController: AvatarListViewControllerType?
+
     private let repository: AvatarListRepositoryType
     private var viewModel: AvatarListViewModel
 
-    init(viewController: AvatarListViewControllerType,
-         repository: AvatarListRepositoryType,
+    init(repository: AvatarListRepositoryType = AvatarListRepository(),
          viewModel: AvatarListViewModel) {
-        self.viewController = viewController
         self.repository = repository
         self.viewModel = viewModel
     }
@@ -27,6 +26,7 @@ final class AvatarListPresenter: AvatarListPresenterType {
             switch result {
             case .success(let avatarResult):
                 self?.adaptAvatar(list: avatarResult.results)
+//                self?.viewController?.show(state: .error)
             case .failure:
                 self?.viewController?.show(state: .error)
             }
@@ -35,7 +35,7 @@ final class AvatarListPresenter: AvatarListPresenterType {
 
     private func adaptAvatar(list: [Results]) {
         let cells = list.map { list in
-            return AvatarCellViewModel(avatarImageURL: "https://rickandmortyapi.com/api/character/avatar/\(list.id).jpeg",
+            return AvatarCellViewModel(avatarImageURL: list.image,
                                        avatarName: list.name,
                                        avatarStatus: list.status,
                                        avatarSpecie: list.species,

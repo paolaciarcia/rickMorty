@@ -13,18 +13,21 @@ final class AvatarListView: UIView {
 
     private let readyView: AvatarCollectionView = {
         let view = AvatarCollectionView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let loadingView: AvatarLoadingView = {
         let view = AvatarLoadingView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let errorView: AvatarErrorView = {
         let view = AvatarErrorView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -46,18 +49,18 @@ final class AvatarListView: UIView {
     }
 
     private func bindLayoutEvents() {
-        readyView.didSelectItem = { [weak self] item in
-            self?.didSelectItem?(item)
+        readyView.didSelectItem = { item in
+            self.didSelectItem?(item)
         }
 
-        errorView.didSelectReloadList = { [weak self] in
-            self?.didSelectReloadList?()
+        errorView.didSelectReloadList = {
+            self.didSelectReloadList?()
         }
     }
 
     private func setupViewHierarchy() {
-        addSubview(readyView)
         addSubview(loadingView)
+        addSubview(readyView)
         addSubview(errorView)
     }
 
@@ -85,6 +88,7 @@ extension AvatarListView: AvatarListViewType {
     func show(state: AvatarListState) {
         switch state {
         case .ready(let viewModel):
+            readyView.isHidden = false
             readyView.show(viewModel: viewModel.cells)
             loadingView.isHidden = true
             errorView.isHidden = true
