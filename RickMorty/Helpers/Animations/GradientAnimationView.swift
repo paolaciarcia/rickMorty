@@ -17,12 +17,6 @@ final class GradientAnimationView: UIView {
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
 
-//        let colors = [
-//            UIColor(red: 126.0/255.0, green: 126.0/255.0, blue: 129.0/255.0, alpha: 1.0),
-//            UIColor(red: 100.0/255.0, green: 100.0/255.0, blue: 102.0/255.0, alpha: 1.0),
-//            UIColor(red: 72.0/255.0, green: 72.0/255.0, blue: 74.0/255.0, alpha: 1.0)
-//        ]
-
         let colors = [
             UIColor.systemGray2.cgColor,
             UIColor.systemGray3.cgColor,
@@ -70,25 +64,6 @@ final class GradientAnimationView: UIView {
     override func didMoveToWindow() {
         layer.addSublayer(gradientLayer)
     }
-//    private let gradient: CAGradientLayer = {
-
-//        let gradientColors = [
-//            UIColor(red: 126.0/255.0, green: 126.0/255.0, blue: 129.0/255.0, alpha: 1.0).cgColor,
-//            UIColor(red: 72.0/255.0, green: 72.0/255.0, blue: 74.0/255.0, alpha: 1.0).cgColor
-//        ]
-//        gradientChangeAnimation.duration = 1.0
-//        gradientChangeAnimation.toValue = gradientColors
-//        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
-//        gradientChangeAnimation.isRemovedOnCompletion = false
-//
-//        let gradient = CAGradientLayer()
-//        gradient.startPoint = CGPoint(x:0, y:0)
-//        gradient.endPoint = CGPoint(x:1, y:0)
-//        gradient.add(gradientChangeAnimation, forKey: "colorChange")
-//        mainView.layer.addSublayer(gradient)
-//        mainView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        return gradient
-//    }()
 
     init() {
         super.init(frame: .zero)

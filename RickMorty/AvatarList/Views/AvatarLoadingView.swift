@@ -12,7 +12,7 @@ final class AvatarLoadingView: UIView {
     private let firstSkeletonCell = GradientAnimationView()
     private let secondSkeletonCell = GradientAnimationView()
     private let thirdSkeletonCell = GradientAnimationView()
-    private let fourthSkeletonCell = SkeletonCell()
+    private let fourthSkeletonCell = GradientAnimationView()
 
     private let loadingStackView: UIStackView = {
         let stackView = UIStackView()

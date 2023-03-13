@@ -22,8 +22,7 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarViewCell.self),
-                                                            for: indexPath) as? AvatarViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarViewCell.self), for: indexPath) as? AvatarViewCell else {
             return UICollectionViewCell()
         }
 

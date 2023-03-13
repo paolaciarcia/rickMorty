@@ -8,9 +8,9 @@
 import UIKit
 
 final class AvatarViewController: UIViewController {
-    private let contentView: AvatarLoadingView
+    private let contentView: AvatarCollectionView
 
-    init(contentView: AvatarLoadingView = AvatarLoadingView()) {
+    init(contentView: AvatarCollectionView = AvatarCollectionView()) {
         self.contentView = contentView
         super.init(nibName: nil, bundle: nil)
     }

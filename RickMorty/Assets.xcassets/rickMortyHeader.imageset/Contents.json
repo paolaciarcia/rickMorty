@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "headerList@1x.png",
+      "filename" : "rickMortyHeader@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "headerList@2x.png",
+      "filename" : "rickMortyHeader@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "headerList@3x.png",
+      "filename" : "rickMortyHeader@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

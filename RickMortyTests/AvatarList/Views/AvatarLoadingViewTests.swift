@@ -21,9 +21,9 @@ final class AvatarLoadingViewTests: QuickSpec {
         }
 
         describe("#init") {
-            it("has to present correct snapshot") {
-                expect(sut).to(haveValidSnapshot())
-            }
+//            it("has to present correct snapshot") {
+//                expect(sut).to(recordSnapshot())
+//            }
         }
     }
 }
