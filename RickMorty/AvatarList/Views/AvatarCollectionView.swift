@@ -11,7 +11,6 @@ import UIKit
 final class AvatarCollectionView: UIView {
 //    var didSelectReloadList: (() -> Void)?
     var didSelectItem: ((Int) -> Void)?
-    var didTapSearch: (() -> Void)?
 
     //será colocado na viewcontroller(navigationBar)
     private let titleLabel: UILabel = {
@@ -21,15 +20,6 @@ final class AvatarCollectionView: UIView {
         label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-//será colocado na viewcontroller(navigationBar)
-    private lazy var searchButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-//        button.tintColor
-        button.addTarget(self, action: #selector(searchButtonTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
     }()
 
     private let headerImageView: UIImageView = {
@@ -93,11 +83,6 @@ final class AvatarCollectionView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14)
 //            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14),
         ])
-    }
-
-    @objc
-    private func searchButtonTap() {
-        didTapSearch?()
     }
 
     func show(viewModel: [AvatarCellViewModel]) {

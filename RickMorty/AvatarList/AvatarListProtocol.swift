@@ -24,3 +24,11 @@ protocol AvatarListRepositoryType {
 protocol AvatarListViewType {
     func show(state: AvatarListState)
 }
+
+protocol AvatarListViewControllerType {
+    func show(state: AvatarListState)
+}
+
+protocol AvatarListPresenterType: AnyObject {
+    func loadAvatarList()
+}

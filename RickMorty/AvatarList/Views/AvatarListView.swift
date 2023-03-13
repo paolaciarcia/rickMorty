@@ -9,7 +9,6 @@ import UIKit
 
 final class AvatarListView: UIView {
     var didSelectItem: ((Int) -> Void)?
-    var didTapSearch: (() -> Void)?
     var didSelectReloadList: (() -> Void)?
 
     private let readyView: AvatarCollectionView = {
@@ -49,10 +48,6 @@ final class AvatarListView: UIView {
     private func bindLayoutEvents() {
         readyView.didSelectItem = { [weak self] item in
             self?.didSelectItem?(item)
-        }
-
-        readyView.didTapSearch = { [weak self] in
-            self?.didTapSearch?()
         }
 
         errorView.didSelectReloadList = { [weak self] in
