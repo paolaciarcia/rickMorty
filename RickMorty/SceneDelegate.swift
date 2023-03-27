@@ -13,14 +13,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator: AvatarListCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            let presenter = AvatarListPresenter(viewModel: AvatarListViewModel(cells: []))
-            let controller = AvatarListViewController(presenter: presenter)
-            window.rootViewController = controller
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            let viewModel = AvatarListViewModel(cells: [])
+//            let presenter = AvatarListPresenter(viewModel: AvatarListViewModel(cells: []))
+//            let navController = UINavigationController()
+//            let controller = AvatarListViewController(presenter: presenter)
+//
+//            coordinator = AvatarListCoordinator(navigationController: navController,
+//                                                viewModel: viewModel)
+//            coordinator?.start()
+//
+//            window.rootViewController = controller
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

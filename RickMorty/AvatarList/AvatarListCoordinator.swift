@@ -26,9 +26,8 @@ final class AvatarListCoordinator {
         let presenter = AvatarListPresenter(viewModel: viewModel)
         let viewController = AvatarListViewController(presenter: presenter)
         presenter.viewController = viewController
-        //        viewController.delegate = self
-//        currentViewController = viewController
-//        navigationController.show(viewController, sender: nil)
-        navigationController.pushViewController(viewController, animated: true)
+//        viewController.delegate = self
+        currentViewController = viewController
+        navigationController.show(viewController, sender: nil)
     }
 }

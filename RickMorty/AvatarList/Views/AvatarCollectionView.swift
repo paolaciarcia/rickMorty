@@ -12,6 +12,8 @@ final class AvatarCollectionView: UIView {
 //    var didSelectReloadList: (() -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
+    private let dataSource = AvatarDataSource()
+
     //será colocado na viewcontroller(navigationBar)
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -35,16 +37,16 @@ final class AvatarCollectionView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 16
-        layout.minimumInteritemSpacing = 24
-        layout.itemSize = CGSize(width: 186, height: 244)
+        layout.minimumInteritemSpacing = 14
+        layout.itemSize = CGSize(width: 165, height: 244)
         return layout
     }()
 
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: collectionFlowLayout)
-//        collection.dataSource = AvatarDataSource(avatarList: )
-//        collection.delegate
         collection.register(AvatarViewCell.self, forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
+        collection.dataSource = dataSource
+        collection.delegate = dataSource
         collection.backgroundColor = .systemGray5
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -63,6 +65,7 @@ final class AvatarCollectionView: UIView {
     private func setup() {
         setupViewHierarchy()
         setupConstraints()
+        bindLayoutEvents()
         backgroundColor = .systemGray5
     }
 
@@ -80,19 +83,19 @@ final class AvatarCollectionView: UIView {
 
             collectionView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: 15),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14)
-//            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14)
         ])
     }
 
-    func show(viewModel: [AvatarCellViewModel]) {
-        let dataSource = AvatarDataSource(avatarList: viewModel)
-        collectionView.dataSource = dataSource
-        collectionView.delegate = dataSource
-
+    private func bindLayoutEvents() {
         dataSource.didSelect = { [weak self] cell in
             self?.didSelectItem?(cell)
         }
-        
+    }
+
+    func show(viewModel: [AvatarCellViewModel]) {
+        dataSource.setupAvatarList(avatarList: viewModel)
+        collectionView.reloadData()
     }
 }

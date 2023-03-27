@@ -11,9 +11,13 @@ import UIKit
 final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     var didSelect: ((Int) -> Void)?
 
-    private let avatarList: [AvatarCellViewModel]
+    private var avatarList: [AvatarCellViewModel]
 
-    init(avatarList: [AvatarCellViewModel]) {
+    init(avatarList: [AvatarCellViewModel] = []) {
+        self.avatarList = avatarList
+    }
+
+    func setupAvatarList(avatarList: [AvatarCellViewModel]) {
         self.avatarList = avatarList
     }
 

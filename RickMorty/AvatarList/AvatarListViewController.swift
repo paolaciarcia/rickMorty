@@ -58,7 +58,6 @@ final class AvatarListViewController: UIViewController {
 
     private func setupNavigation() {
         title = L10n.characters
-        navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = searchButton
     }
 

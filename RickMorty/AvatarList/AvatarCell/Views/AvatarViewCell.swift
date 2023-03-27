@@ -41,8 +41,8 @@ final class AvatarViewCell: UICollectionViewCell {
         return label
     }()
 
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
 
@@ -64,6 +64,8 @@ final class AvatarViewCell: UICollectionViewCell {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            mainView.heightAnchor.constraint(equalToConstant: 40),
+            mainView.widthAnchor.constraint(equalToConstant: 20),
             mainView.topAnchor.constraint(equalTo: topAnchor),
             mainView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -81,7 +83,8 @@ final class AvatarViewCell: UICollectionViewCell {
     }
 
     func show(viewModel: AvatarCellViewModel) {
-        avatarImage.downloadImage(url: viewModel.avatarImageURL)
+        avatarImage.downloadImage(url: viewModel.avatarImageURL,
+                                  placeholderImage: UIImage(asset: Asset.avatarRich))
         avatarLabel.text = viewModel.avatarName
     }
 }
