@@ -32,18 +32,13 @@ final class AvatarCollectionView: UIView {
         return image
     }()
 
-    private let collectionFlowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 16
-        layout.itemSize = CGSize(width: width * 0.44, height: 250)
-        return layout
-    }()
-
     private lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: collectionFlowLayout)
-        collection.register(AvatarViewCell.self, forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collection.register(AvatarViewCell.self,
+                            forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
+        collection.register(AvatarHeaderReusableView.self,
+                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                            withReuseIdentifier: String(describing: AvatarHeaderReusableView.self))
         collection.dataSource = dataSource
         collection.delegate = dataSource
         collection.backgroundColor = .systemGray5
@@ -61,30 +56,19 @@ final class AvatarCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = bounds
+    }
+
     private func setup() {
         setupViewHierarchy()
-        setupConstraints()
         bindLayoutEvents()
         backgroundColor = .systemGray5
     }
 
     private func setupViewHierarchy() {
-        addSubview(headerImageView)
         addSubview(collectionView)
-    }
-
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            headerImageView.topAnchor.constraint(equalTo: topAnchor),
-            headerImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
-
-            collectionView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: 15),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14)
-        ])
     }
 
     private func bindLayoutEvents() {
