@@ -83,6 +83,12 @@ final class AvatarViewCell: UICollectionViewCell {
         ])
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarLabel.text = nil
+        avatarImage.image = nil
+    }
+
     func show(viewModel: AvatarCellViewModel) {
 //        let firstWord = viewModel.avatarName.components(separatedBy: " ").first
 //        let lastWord = viewModel.avatarName.components(separatedBy: " ").last
