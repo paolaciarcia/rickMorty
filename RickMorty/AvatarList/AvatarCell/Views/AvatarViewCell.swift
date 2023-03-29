@@ -35,7 +35,8 @@ final class AvatarViewCell: UICollectionViewCell {
     private let avatarLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.numberOfLines = 0
+        label.numberOfLines = 2
+        label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -71,18 +72,22 @@ final class AvatarViewCell: UICollectionViewCell {
             mainView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            avatarLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30),
-            avatarLabel.centerXAnchor.constraint(equalTo: avatarImage.centerXAnchor),
-
-            avatarImage.topAnchor.constraint(equalTo: avatarLabel.bottomAnchor, constant: 27),
+            avatarLabel.topAnchor.constraint(lessThanOrEqualTo: mainView.topAnchor, constant: 20),
+            avatarLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 16),
+            avatarLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -16),
             avatarImage.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 27),
             avatarImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -27),
-            avatarImage.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -27)
+            avatarImage.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -27),
+            avatarImage.heightAnchor.constraint(lessThanOrEqualTo: mainView.heightAnchor, multiplier: 0.6)
 
         ])
     }
 
     func show(viewModel: AvatarCellViewModel) {
+//        let firstWord = viewModel.avatarName.components(separatedBy: " ").first
+//        let lastWord = viewModel.avatarName.components(separatedBy: " ").last
+//        let avatarAbbrName = "\(firstWord ?? "") \(lastWord ?? "")"
+        avatarLabel.text = viewModel.avatarName
         avatarImage.downloadImage(url: viewModel.avatarImageURL,
                                   placeholderImage: UIImage(asset: Asset.avatarRich))
         avatarLabel.text = viewModel.avatarName

@@ -27,6 +27,7 @@ final class AvatarListPresenter: AvatarListPresenterType {
             case .success(let avatarResult):
                 self?.adaptAvatar(list: avatarResult.results)
 //                self?.viewController?.show(state: .error)
+//                self?.viewController?.show(state: .loading)
             case .failure:
                 self?.viewController?.show(state: .error)
             }
@@ -46,4 +47,9 @@ final class AvatarListPresenter: AvatarListPresenterType {
         viewModel = AvatarListViewModel(cells: cells)
         viewController?.show(state: .ready(viewModel: viewModel))
     }
+
+//    func getViewModelInformations() {
+//
+//        viewController?.getInformation(with: viewModel)
+//    }
 }

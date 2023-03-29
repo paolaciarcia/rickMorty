@@ -66,7 +66,7 @@ final class AvatarLoadingView: UIView {
             loadingStackView.topAnchor.constraint(equalTo: secondSkeletonCell.bottomAnchor, constant: 40),
             loadingStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
             loadingStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
-            loadingStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35)
+            loadingStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14)
         ])
     }
 }

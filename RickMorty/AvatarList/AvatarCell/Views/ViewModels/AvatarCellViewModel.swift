@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-enum AvatarListState {
+enum AvatarListState: Equatable {
     case ready(viewModel: AvatarListViewModel)
     case loading
     case error
 }
 
-struct AvatarListViewModel {
+struct AvatarListViewModel: Equatable {
     let cells: [AvatarCellViewModel]
 }
 
-struct AvatarCellViewModel {
+struct AvatarCellViewModel: Equatable {
 //    let id: Int
     let avatarImageURL: String
     let avatarName: String

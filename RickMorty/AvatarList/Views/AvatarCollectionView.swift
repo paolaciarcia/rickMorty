@@ -14,7 +14,6 @@ final class AvatarCollectionView: UIView {
 
     private let dataSource = AvatarDataSource()
 
-    //será colocado na viewcontroller(navigationBar)
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.characters
@@ -35,10 +34,10 @@ final class AvatarCollectionView: UIView {
 
     private let collectionFlowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 16
-        layout.minimumInteritemSpacing = 14
-        layout.itemSize = CGSize(width: 165, height: 244)
+        layout.itemSize = CGSize(width: width * 0.44, height: 250)
         return layout
     }()
 

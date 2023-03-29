@@ -12,10 +12,12 @@ final class AvatarListViewController: UIViewController {
     private let presenter: AvatarListPresenterType
 
     private lazy var searchButton: UIBarButtonItem = {
-        return UIBarButtonItem(
+        let button = UIBarButtonItem(
             barButtonSystemItem: .search,
             target: self,
             action: #selector(searchButtonTap))
+        button.tintColor = .white
+        return button
     }()
 
     init(contentView: AvatarListView = AvatarListView(),
@@ -57,6 +59,7 @@ final class AvatarListViewController: UIViewController {
     }
 
     private func setupNavigation() {
+        navigationController?.isNavigationBarHidden = true
         title = L10n.characters
         navigationItem.rightBarButtonItem = searchButton
     }
@@ -70,6 +73,11 @@ final class AvatarListViewController: UIViewController {
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
         DispatchQueue.main.async { [weak self] in
+            if state == .error || state == .loading {
+                self?.navigationController?.isNavigationBarHidden = true
+            } else {
+                self?.navigationController?.isNavigationBarHidden = false
+            }
             self?.contentView.show(state: state)
         }
     }
