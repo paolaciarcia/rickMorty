@@ -10,12 +10,13 @@ import UIKit
 extension UINavigationController {
     func applyCustomAppearence() {
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
+        navBarAppearance.configureWithOpaqueBackground()
+
+        navBarAppearance.backgroundColor = .systemGray5
         navigationBar.compactAppearance = navBarAppearance
         navigationBar.standardAppearance = navBarAppearance
         navigationBar.scrollEdgeAppearance = navBarAppearance
+
         navigationBar.isTranslucent = false
-        navigationBar.prefersLargeTitles = true
     }
 }

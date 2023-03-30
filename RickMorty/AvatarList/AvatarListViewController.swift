@@ -59,6 +59,7 @@ final class AvatarListViewController: UIViewController {
     }
 
     private func setupNavigation() {
+        navigationController?.applyCustomAppearence()
         navigationController?.isNavigationBarHidden = true
         title = L10n.characters
         navigationItem.rightBarButtonItem = searchButton

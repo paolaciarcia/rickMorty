@@ -74,6 +74,6 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
-        return CGSize(width: width, height: height * 0.5)
+        return CGSize(width: width, height: height * 0.45)
     }
 }
