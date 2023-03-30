@@ -14,32 +14,21 @@ enum Status: String {
 }
 
 struct AvatarInformationViewModel {
-    let avatarImage: UIImage?
+    let avatarImage: String
     let name: String
-    let status: Status
+    let status: String
     let specie: String
     let gender: String
     let type: String
 
     var getIcon: UIImage? {
         switch status {
-        case .active:
+        case "Alive":
             return UIImage(asset: Asset.activeStatus)
-        case .dead:
+        case "Dead":
             return UIImage(asset: Asset.deadStatus)
-        case .unknown:
+        default:
             return UIImage(asset: Asset.unknownStatus)
-        }
-    }
-
-    var getAvatarStatus: String {
-        switch status {
-        case .active:
-            return "Ativo"
-        case .dead:
-            return "Morto"
-        case .unknown:
-            return "Desconhecido"
         }
     }
 }

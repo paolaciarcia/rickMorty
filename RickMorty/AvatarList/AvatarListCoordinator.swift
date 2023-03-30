@@ -33,7 +33,11 @@ final class AvatarListCoordinator {
 }
 
 extension AvatarListCoordinator: AvatarListViewControllerDelegate {
-    func showAvatarDetail(with: AvatarCellViewModel) {
-        <#code#>
+    func showAvatarDetail(with viewModel: AvatarCellViewModel) {
+        let presenter = AvatarDetailPresenter(viewModel: viewModel)
+        let viewController = AvatarDetailViewController(presenter: presenter)
+        presenter.viewController = viewController
+        currentViewController = viewController
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

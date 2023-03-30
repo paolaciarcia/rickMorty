@@ -37,5 +37,5 @@ protocol AvatarListPresenterType: AnyObject {
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {
-    func showAvatarDetail(with: AvatarCellViewModel)
+    func showAvatarDetail(with viewModel: AvatarCellViewModel)
 }

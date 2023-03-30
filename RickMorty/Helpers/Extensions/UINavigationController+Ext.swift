@@ -16,6 +16,7 @@ extension UINavigationController {
         navigationBar.compactAppearance = navBarAppearance
         navigationBar.standardAppearance = navBarAppearance
         navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationBar.tintColor = .white
 
         navigationBar.isTranslucent = false
     }

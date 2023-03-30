@@ -18,7 +18,6 @@ final class AvatarListViewController: UIViewController {
             barButtonSystemItem: .search,
             target: self,
             action: #selector(searchButtonTap))
-        button.tintColor = .white
         return button
     }()
 
@@ -27,7 +26,6 @@ final class AvatarListViewController: UIViewController {
         self.contentView = contentView
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        presenter.viewController = self
     }
 
     @available(*, unavailable)
@@ -62,7 +60,6 @@ final class AvatarListViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.applyCustomAppearence()
-        navigationController?.isNavigationBarHidden = true
         title = L10n.characters
         navigationItem.rightBarButtonItem = searchButton
     }
@@ -87,5 +84,6 @@ extension AvatarListViewController: AvatarListViewControllerType {
 
     func redirectToAvatarDetail(with viewModel: AvatarCellViewModel) {
         delegate?.showAvatarDetail(with: viewModel)
+        print(viewModel)
     }
 }
