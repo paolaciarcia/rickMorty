@@ -27,9 +27,15 @@ protocol AvatarListViewType {
 
 protocol AvatarListViewControllerType: AnyObject {
     func show(state: AvatarListState)
+    func redirectToAvatarDetail(with viewModel: AvatarCellViewModel)
 }
 
 protocol AvatarListPresenterType: AnyObject {
     var viewController: AvatarListViewControllerType? { get set }
     func loadAvatarList()
+    func showAvatarList(index: Int)
+}
+
+protocol AvatarListViewControllerDelegate: AnyObject {
+    func showAvatarDetail(with: AvatarCellViewModel)
 }

@@ -26,8 +26,14 @@ final class AvatarListCoordinator {
         let presenter = AvatarListPresenter(viewModel: viewModel)
         let viewController = AvatarListViewController(presenter: presenter)
         presenter.viewController = viewController
-//        viewController.delegate = self
+        viewController.delegate = self
         currentViewController = viewController
         navigationController.show(viewController, sender: nil)
+    }
+}
+
+extension AvatarListCoordinator: AvatarListViewControllerDelegate {
+    func showAvatarDetail(with: AvatarCellViewModel) {
+        <#code#>
     }
 }

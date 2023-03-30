@@ -8,6 +8,8 @@
 import UIKit
 
 final class AvatarListViewController: UIViewController {
+    weak var delegate: AvatarListViewControllerDelegate?
+
     private let contentView: AvatarListView
     private let presenter: AvatarListPresenterType
 
@@ -50,7 +52,7 @@ final class AvatarListViewController: UIViewController {
 
     private func bindLayoutEvents() {
         contentView.didSelectItem = { [weak self] item in
-            // self?.delegate?.showAvatarDetail(from: item)
+            self?.presenter.showAvatarList(index: item)
         }
 
         contentView.didSelectReloadList = { [weak self] in
@@ -81,5 +83,9 @@ extension AvatarListViewController: AvatarListViewControllerType {
             }
             self?.contentView.show(state: state)
         }
+    }
+
+    func redirectToAvatarDetail(with viewModel: AvatarCellViewModel) {
+        delegate?.showAvatarDetail(with: viewModel)
     }
 }

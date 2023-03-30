@@ -48,8 +48,9 @@ final class AvatarListPresenter: AvatarListPresenterType {
         viewController?.show(state: .ready(viewModel: viewModel))
     }
 
-//    func getViewModelInformations() {
-//
-//        viewController?.getInformation(with: viewModel)
-//    }
+    func showAvatarList(index: Int) {
+        if let cellViewModel = viewModel.cells[safe: index] {
+            viewController?.redirectToAvatarDetail(with: cellViewModel)
+        }
+    }
 }
