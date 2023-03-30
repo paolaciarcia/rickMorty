@@ -27,7 +27,7 @@ final class AvatarDetailPresenter: AvatarDetailPresenterType {
                                           status: viewModel.avatarStatus,
                                           specie: viewModel.avatarSpecie,
                                           gender: viewModel.avatarGender,
-                                          type: viewModel.avatarType ?? "No type")
+                                          type: viewModel.avatarType)
     }
 
 //    private func adaptStatus() -> Status {

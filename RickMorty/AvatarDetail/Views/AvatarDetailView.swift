@@ -61,11 +61,12 @@ final class AvatarDetailView: UIView {
             informationView.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 24),
             informationView.leadingAnchor.constraint(equalTo: rectangleView.leadingAnchor, constant: 16),
             informationView.trailingAnchor.constraint(equalTo: rectangleView.trailingAnchor, constant: -16),
+            informationView.bottomAnchor.constraint(equalTo: rectangleView.bottomAnchor, constant: -16),
 
             rectangleView.topAnchor.constraint(equalTo: avatarImage.topAnchor, constant: 142),
             rectangleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             rectangleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            rectangleView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -70)
+            rectangleView.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: -70)
         ])
     }
 }

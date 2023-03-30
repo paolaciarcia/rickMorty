@@ -40,7 +40,9 @@ final class AvatarDetailViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.applyCustomAppearence()
+        navigationController?.navigationBar.backItem?.title = "Back"
         title = L10n.characterDetail
+
     }
 }
 

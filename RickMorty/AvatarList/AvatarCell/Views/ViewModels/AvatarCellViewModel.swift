@@ -24,6 +24,6 @@ struct AvatarCellViewModel: Equatable {
     let avatarName: String
     let avatarStatus: String
     let avatarSpecie: String
-    let avatarType: String?
+    let avatarType: String
     let avatarGender: String
 }

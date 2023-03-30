@@ -40,7 +40,7 @@ final class AvatarListPresenter: AvatarListPresenterType {
                                        avatarName: list.name,
                                        avatarStatus: list.status,
                                        avatarSpecie: list.species,
-                                       avatarType: list.species,
+                                       avatarType: list.type,
                                        avatarGender: list.gender)
         }
 

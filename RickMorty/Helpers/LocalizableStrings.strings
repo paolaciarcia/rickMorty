@@ -1,7 +1,7 @@
 //Avatar list
-"errorDescription" = "Não conseguimos carregar os personagens";
-"tryAgain" = "Tentar novamente";
-"characters" = "Personagens";
+"errorDescription" = "Something went wrong and we couldn't load the characters";
+"tryAgain" = "Try again";
+"characters" = "Characters";
 
 //Avatar detail
-"characterDetail" = "Detalhe do personagem";
+"characterDetail" = "Character detail";

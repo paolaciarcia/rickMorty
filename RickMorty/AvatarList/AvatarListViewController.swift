@@ -41,6 +41,7 @@ final class AvatarListViewController: UIViewController {
         super.viewDidLoad()
         bindLayoutEvents()
         presenter.loadAvatarList()
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,8 +61,9 @@ final class AvatarListViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.applyCustomAppearence()
-        title = L10n.characters
+        navigationController?.navigationBar.backItem?.backButtonTitle = "Back"
         navigationItem.rightBarButtonItem = searchButton
+        title = L10n.characters
     }
 
     @objc
@@ -84,6 +86,5 @@ extension AvatarListViewController: AvatarListViewControllerType {
 
     func redirectToAvatarDetail(with viewModel: AvatarCellViewModel) {
         delegate?.showAvatarDetail(with: viewModel)
-        print(viewModel)
     }
 }
