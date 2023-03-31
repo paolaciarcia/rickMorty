@@ -44,6 +44,7 @@
 		C58A76AC29D5C71800B84279 /* AvatarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A76AB29D5C71800B84279 /* AvatarDetailViewController.swift */; };
 		C58A76AE29D5CA1B00B84279 /* AvatarDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A76AD29D5CA1B00B84279 /* AvatarDetailProtocol.swift */; };
 		C58A76B029D5CB0200B84279 /* AvatarDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A76AF29D5CB0200B84279 /* AvatarDetailPresenter.swift */; };
+		C58A76B229D708ED00B84279 /* AvatarEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A76B129D708ED00B84279 /* AvatarEmptyStateView.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
@@ -108,6 +109,7 @@
 		C58A76AB29D5C71800B84279 /* AvatarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailViewController.swift; sourceTree = "<group>"; };
 		C58A76AD29D5CA1B00B84279 /* AvatarDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailProtocol.swift; sourceTree = "<group>"; };
 		C58A76AF29D5CB0200B84279 /* AvatarDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailPresenter.swift; sourceTree = "<group>"; };
+		C58A76B129D708ED00B84279 /* AvatarEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarEmptyStateView.swift; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +161,7 @@
 				C529DE4D29B669A300AC8B9A /* AvatarCollectionView.swift */,
 				C529DE4F29B66A3E00AC8B9A /* AvatarErrorView.swift */,
 				C529DE5129B685B900AC8B9A /* AvatarLoadingView.swift */,
-				C58A76A729D4BA8C00B84279 /* AvatarHeaderReusableView.swift */,
+				C58A76B129D708ED00B84279 /* AvatarEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +294,7 @@
 			children = (
 				C56BF33F29B61EEA00A95AB1 /* ViewModels */,
 				C56BF34029B61F1A00A95AB1 /* AvatarViewCell.swift */,
+				C58A76A729D4BA8C00B84279 /* AvatarHeaderReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				C58A769629BBA21B00B84279 /* AvatarList.swift in Sources */,
 				C56BF34329B62D7200A95AB1 /* AvatarCellViewModel.swift in Sources */,
 				C58A76A829D4BA8C00B84279 /* AvatarHeaderReusableView.swift in Sources */,
+				C58A76B229D708ED00B84279 /* AvatarEmptyStateView.swift in Sources */,
 				C58A769429BBA07C00B84279 /* AvatarListService.swift in Sources */,
 				C58A76A029BFA67F00B84279 /* AvatarListCoordinator.swift in Sources */,
 				C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */,

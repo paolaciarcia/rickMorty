@@ -10,14 +10,18 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// Detalhe do personagem
-  internal static let characterDetail = L10n.tr("LocalizableStrings", "characterDetail", fallback: "Detalhe do personagem")
-  /// Personagens
-  internal static let characters = L10n.tr("LocalizableStrings", "characters", fallback: "Personagens")
-  /// Não conseguimos carregar os personagens
-  internal static let errorDescription = L10n.tr("LocalizableStrings", "errorDescription", fallback: "Não conseguimos carregar os personagens")
-  /// Tentar novamente
-  internal static let tryAgain = L10n.tr("LocalizableStrings", "tryAgain", fallback: "Tentar novamente")
+  /// Character detail
+  internal static let characterDetail = L10n.tr("LocalizableStrings", "characterDetail", fallback: "Character detail")
+  /// Characters
+  internal static let characters = L10n.tr("LocalizableStrings", "characters", fallback: "Characters")
+  /// Oops! We couldn't find the requested character
+  internal static let emptyStateDescription = L10n.tr("LocalizableStrings", "emptyStateDescription", fallback: "Oops! We couldn't find the requested character")
+  /// Something went wrong and we couldn't load the characters
+  internal static let errorDescription = L10n.tr("LocalizableStrings", "errorDescription", fallback: "Something went wrong and we couldn't load the characters")
+  /// New search
+  internal static let newSearch = L10n.tr("LocalizableStrings", "newSearch", fallback: "New search")
+  /// Try again
+  internal static let tryAgain = L10n.tr("LocalizableStrings", "tryAgain", fallback: "Try again")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -2,6 +2,8 @@
 "errorDescription" = "Something went wrong and we couldn't load the characters";
 "tryAgain" = "Try again";
 "characters" = "Characters";
+"newSearch" = "New search";
+"emptyStateDescription" = "Oops! We couldn't find the requested character";
 
 //Avatar detail
 "characterDetail" = "Character detail";
