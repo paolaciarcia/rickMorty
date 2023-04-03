@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct AvatarSearchViewModel {
+    let name: String
+    let status: [StatusCellViewModel]
+}
+
+struct StatusCellViewModel {
+    let statusDescription: String
+    let isSelected: Bool
+}

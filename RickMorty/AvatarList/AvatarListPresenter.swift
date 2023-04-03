@@ -11,6 +11,9 @@ final class AvatarListPresenter: AvatarListPresenterType {
     weak var viewController: AvatarListViewControllerType?
 
     private let repository: AvatarListRepositoryType
+    private let filteredName: String = ""
+    private let filteredStatus: String = ""
+
     private var viewModel: AvatarListViewModel
 
     init(repository: AvatarListRepositoryType = AvatarListRepository(),
@@ -21,6 +24,10 @@ final class AvatarListPresenter: AvatarListPresenterType {
 
     func loadAvatarList() {
         viewController?.show(state: .loading)
+        /*
+         repository.fetchAvatar(filteredName: filteredName,
+         filteredStatus: filteredStatus) { [weak self] result in
+         */
 
         repository.fetchAvatar { [weak self] result in
             switch result {

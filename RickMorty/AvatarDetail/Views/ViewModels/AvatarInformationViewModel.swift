@@ -8,7 +8,7 @@
 import UIKit
 
 enum Status: String {
-    case active
+    case alive
     case dead
     case unknown
 }

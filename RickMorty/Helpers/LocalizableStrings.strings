@@ -7,3 +7,12 @@
 
 //Avatar detail
 "characterDetail" = "Character detail";
+
+//Avatar search
+"name" = "Name";
+"textFieldDefaultName" = "Insert here the name of character";
+"status" = "Status";
+"alive" = "Alive";
+"dead" = "Dead";
+"unknown" = "Unknown";
+"filter" = "Filter";

@@ -10,18 +10,32 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Alive
+  internal static let alive = L10n.tr("LocalizableStrings", "alive", fallback: "Alive")
   /// Character detail
   internal static let characterDetail = L10n.tr("LocalizableStrings", "characterDetail", fallback: "Character detail")
   /// Characters
   internal static let characters = L10n.tr("LocalizableStrings", "characters", fallback: "Characters")
+  /// Dead
+  internal static let dead = L10n.tr("LocalizableStrings", "dead", fallback: "Dead")
   /// Oops! We couldn't find the requested character
   internal static let emptyStateDescription = L10n.tr("LocalizableStrings", "emptyStateDescription", fallback: "Oops! We couldn't find the requested character")
   /// Something went wrong and we couldn't load the characters
   internal static let errorDescription = L10n.tr("LocalizableStrings", "errorDescription", fallback: "Something went wrong and we couldn't load the characters")
+  /// Filter
+  internal static let filter = L10n.tr("LocalizableStrings", "filter", fallback: "Filter")
+  /// Name
+  internal static let name = L10n.tr("LocalizableStrings", "name", fallback: "Name")
   /// New search
   internal static let newSearch = L10n.tr("LocalizableStrings", "newSearch", fallback: "New search")
+  /// Status
+  internal static let status = L10n.tr("LocalizableStrings", "status", fallback: "Status")
+  /// Insert here the name of character
+  internal static let textFieldDefaultName = L10n.tr("LocalizableStrings", "textFieldDefaultName", fallback: "Insert here the name of character")
   /// Try again
   internal static let tryAgain = L10n.tr("LocalizableStrings", "tryAgain", fallback: "Try again")
+  /// Unknown
+  internal static let unknown = L10n.tr("LocalizableStrings", "unknown", fallback: "Unknown")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
