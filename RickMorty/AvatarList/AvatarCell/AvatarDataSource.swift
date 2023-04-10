@@ -77,3 +77,6 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height * 0.45)
     }
 }
+
+//if nextPage != nil {
+//fazer uma nova request com a página atualizada

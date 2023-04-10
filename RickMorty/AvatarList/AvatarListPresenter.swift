@@ -33,6 +33,7 @@ final class AvatarListPresenter: AvatarListPresenterType {
             switch result {
             case .success(let avatarResult):
                 self?.adaptAvatar(list: avatarResult.results)
+                print("JSONDATA: \(result)")
 //                self?.viewController?.show(state: .error)
 //                self?.viewController?.show(state: .loading)
             case .failure:

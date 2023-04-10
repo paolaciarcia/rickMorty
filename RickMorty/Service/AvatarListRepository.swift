@@ -15,7 +15,7 @@ enum HTTPMethodRequest {
 }
 
 enum URLRequest {
-    case avatarList
+    case avatarList(page: Int)
 
     var method: String {
         switch self {
@@ -41,8 +41,17 @@ final class AvatarListRepository: AvatarListRepositoryType {
 
     func fetchAvatar(completion: @escaping (Result<AvatarList, Error>) -> Void) {
         service.requestAvatarList(method: HTTPMethodRequest.get,
-                                  url: "https://rickandmortyapi.com/api/character",
+                                  url: "https://rickandmortyapi.com/api/character/?page=42",
                                   parameters: [:],
                                   completion: completion)
     }
 }
+/*
+ func fetchAvatar(pageIndex: Int,
+ completion: @escaping (Result<AvatarList, Error>) -> Void) {
+ service.requestAvatarList(method: HTTPMethodRequest.get,
+ url: "https://rickandmortyapi.com/api/character/?page=\(pageIndex)",
+ parameters: [:],
+ completion: completion)
+ }
+ */

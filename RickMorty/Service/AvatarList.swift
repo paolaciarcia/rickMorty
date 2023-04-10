@@ -8,6 +8,7 @@
 import Foundation
 
 struct AvatarList: Decodable {
+    let info: AvatarInfo
     let results: [Results]
 }
 
@@ -19,4 +20,11 @@ struct Results: Decodable {
     let type: String
     let gender: String
     let image: String
+}
+
+struct AvatarInfo: Decodable {
+    let count: Int
+    let pages: Int
+    let next: String?
+    let prev: String?
 }
