@@ -56,5 +56,3 @@ final class AvatarSearchViewCell: UICollectionViewCell {
         statusButton.setTitle(viewModel.statusDescription.capitalized, for: .normal)
     }
 }
-
-

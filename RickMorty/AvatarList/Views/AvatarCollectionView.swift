@@ -10,6 +10,8 @@ import UIKit
 
 final class AvatarCollectionView: UIView {
 //    var didSelectReloadList: (() -> Void)?
+
+    var shouldRefreshItems: ((Bool) -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
     private let dataSource = AvatarDataSource()
@@ -46,6 +48,15 @@ final class AvatarCollectionView: UIView {
         return collection
     }()
 
+//    let refreshControl = UIRefreshControl()
+
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        refreshControl.translatesAutoresizingMaskIntoConstraints = false
+        return refreshControl
+    }()
+
     init() {
         super.init(frame: .zero)
         setup()
@@ -75,10 +86,37 @@ final class AvatarCollectionView: UIView {
         dataSource.didSelect = { [weak self] cell in
             self?.didSelectItem?(cell)
         }
+
+        dataSource.shouldRefreshItems = { [weak self] isRefreshing in
+            self?.shouldRefreshItems?(isRefreshing)
+        }
+    }
+
+    @objc
+    func loadData() {
+        refreshControl.beginRefreshing()
+        refreshControl.layoutIfNeeded()
+        dataSource.shouldRefreshItems = { [weak self] isRefreshing in
+            self?.shouldRefreshItems?(isRefreshing)
+        }
+        refreshControl.endRefreshing()
     }
 
     func show(viewModel: [AvatarCellViewModel]) {
         dataSource.setupAvatarList(avatarList: viewModel)
         collectionView.reloadData()
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     }
 }
+
+//extension AvatarCollectionView: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("print")
+//        let position = scrollView.contentOffset.y
+//        if position > (collectionView.contentSize.height-100-scrollView.frame.size.height) {
+//            print("FETCH MORE DATA")
+//        }
+//    }
+//}

@@ -10,6 +10,7 @@ import UIKit
 
 final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     var didSelect: ((Int) -> Void)?
+    var shouldRefreshItems: ((Bool) -> Void)?
 
     private var avatarList: [AvatarCellViewModel]
 
@@ -36,6 +37,14 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
 
         cell.show(viewModel: avatarList[indexPath.item])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == avatarList.count - 1 {
+            shouldRefreshItems?(true)
+        } else {
+            shouldRefreshItems?(false)
+        }
     }
 }
 

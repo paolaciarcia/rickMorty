@@ -15,6 +15,11 @@ final class AvatarListPresenter: AvatarListPresenterType {
     private let filteredStatus: String = ""
 
     private var viewModel: AvatarListViewModel
+    private var currentPage: Int = 0
+    private var totalPages = 1
+    private var shouldRefresh: Bool = false
+
+    private var avatarList: [Results] = []
 
     init(repository: AvatarListRepositoryType = AvatarListRepository(),
          viewModel: AvatarListViewModel) {
@@ -22,18 +27,27 @@ final class AvatarListPresenter: AvatarListPresenterType {
         self.viewModel = viewModel
     }
 
-    func loadAvatarList() {
-        viewController?.show(state: .loading)
-        /*
-         repository.fetchAvatar(filteredName: filteredName,
-         filteredStatus: filteredStatus) { [weak self] result in
-         */
+    func showAvatarList(index: Int) {
+        if let cellViewModel = viewModel.cells[safe: index] {
+            viewController?.redirectToAvatarDetail(with: cellViewModel)
+        }
+    }
 
-        repository.fetchAvatar { [weak self] result in
+    func loadAvatarList() {
+        if currentPage < totalPages {
+            currentPage += 1
+        }
+        
+        viewController?.show(state: .loading)
+
+        repository.fetchAvatar(pageIndex: currentPage) { [weak self] result in
             switch result {
             case .success(let avatarResult):
-                self?.adaptAvatar(list: avatarResult.results)
-                print("JSONDATA: \(result)")
+                self?.totalPages = avatarResult.info.pages
+                self?.appendItems(from: avatarResult.results)
+
+//                self?.adaptAvatar(list: self?.avatarList)
+                print("PAGE: \(self?.currentPage)")
 //                self?.viewController?.show(state: .error)
 //                self?.viewController?.show(state: .loading)
             case .failure:
@@ -42,8 +56,13 @@ final class AvatarListPresenter: AvatarListPresenterType {
         }
     }
 
-    private func adaptAvatar(list: [Results]) {
-        let cells = list.map { list in
+    private func appendItems(from list: [Results]) {
+        avatarList.append(contentsOf: list)
+        adaptAvatar()
+    }
+
+    private func adaptAvatar() {
+        let cells = avatarList.map { list in
             return AvatarCellViewModel(avatarImageURL: list.image,
                                        avatarName: list.name,
                                        avatarStatus: list.status,
@@ -54,11 +73,5 @@ final class AvatarListPresenter: AvatarListPresenterType {
 
         viewModel = AvatarListViewModel(cells: cells)
         viewController?.show(state: .ready(viewModel: viewModel))
-    }
-
-    func showAvatarList(index: Int) {
-        if let cellViewModel = viewModel.cells[safe: index] {
-            viewController?.redirectToAvatarDetail(with: cellViewModel)
-        }
     }
 }

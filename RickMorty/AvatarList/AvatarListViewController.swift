@@ -57,6 +57,12 @@ final class AvatarListViewController: UIViewController {
         contentView.didSelectReloadList = { [weak self] in
             self?.presenter.loadAvatarList()
         }
+
+        contentView.didRefrashItems = { [weak self] isRefreshing in
+            if isRefreshing {
+                self?.presenter.loadAvatarList()
+            }
+        }
     }
 
     private func setupNavigation() {

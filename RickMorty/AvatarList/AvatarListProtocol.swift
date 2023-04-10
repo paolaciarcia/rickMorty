@@ -18,7 +18,8 @@ protocol AvatarListServiceProtocol {
 }
 
 protocol AvatarListRepositoryType {
-    func fetchAvatar(completion: @escaping (Result<AvatarList, Error>) -> Void)
+    func fetchAvatar(pageIndex: Int,
+                     completion: @escaping (Result<AvatarList, Error>) -> Void)
 }
 
 protocol AvatarListViewType {
