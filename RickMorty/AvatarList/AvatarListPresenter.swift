@@ -11,26 +11,16 @@ final class AvatarListPresenter: AvatarListPresenterType {
     weak var viewController: AvatarListViewControllerType?
 
     private let repository: AvatarListRepositoryType
-    private let filteredName: String = ""
-    private let filteredStatus: String = ""
 
     private var viewModel: AvatarListViewModel
     private var currentPage: Int = 0
     private var totalPages = 1
-    private var shouldRefresh: Bool = false
-
     private var avatarList: [Results] = []
 
     init(repository: AvatarListRepositoryType = AvatarListRepository(),
          viewModel: AvatarListViewModel) {
         self.repository = repository
         self.viewModel = viewModel
-    }
-
-    func showAvatarList(index: Int) {
-        if let cellViewModel = viewModel.cells[safe: index] {
-            viewController?.redirectToAvatarDetail(with: cellViewModel)
-        }
     }
 
     func loadAvatarList() {
@@ -44,21 +34,20 @@ final class AvatarListPresenter: AvatarListPresenterType {
             switch result {
             case .success(let avatarResult):
                 self?.totalPages = avatarResult.info.pages
-                self?.appendItems(from: avatarResult.results)
+                self?.avatarList.append(contentsOf: avatarResult.results)
+                self?.adaptAvatar()
 
-//                self?.adaptAvatar(list: self?.avatarList)
                 print("PAGE: \(self?.currentPage)")
-//                self?.viewController?.show(state: .error)
-//                self?.viewController?.show(state: .loading)
             case .failure:
                 self?.viewController?.show(state: .error)
             }
         }
     }
 
-    private func appendItems(from list: [Results]) {
-        avatarList.append(contentsOf: list)
-        adaptAvatar()
+    func getAvatarDetail(index: Int) {
+        if let cellViewModel = viewModel.cells[safe: index] {
+            viewController?.redirectToAvatarDetail(with: cellViewModel)
+        }
     }
 
     private func adaptAvatar() {

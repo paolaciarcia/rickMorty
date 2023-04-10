@@ -51,7 +51,7 @@ final class AvatarListViewController: UIViewController {
 
     private func bindLayoutEvents() {
         contentView.didSelectItem = { [weak self] item in
-            self?.presenter.showAvatarList(index: item)
+            self?.presenter.getAvatarDetail(index: item)
         }
 
         contentView.didSelectReloadList = { [weak self] in

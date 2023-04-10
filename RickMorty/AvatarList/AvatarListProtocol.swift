@@ -34,7 +34,7 @@ protocol AvatarListViewControllerType: AnyObject {
 protocol AvatarListPresenterType: AnyObject {
     var viewController: AvatarListViewControllerType? { get set }
     func loadAvatarList()
-    func showAvatarList(index: Int)
+    func getAvatarDetail(index: Int)
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {

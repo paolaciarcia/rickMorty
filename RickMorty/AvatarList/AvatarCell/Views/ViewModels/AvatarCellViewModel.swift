@@ -18,8 +18,6 @@ struct AvatarListViewModel: Equatable {
     let cells: [AvatarCellViewModel]
     let filteredName: String = ""
     let filteredStatus: String = ""
-    var currentPage: Int = 0
-    var totalPages: Int = 1
 }
 
 struct AvatarCellViewModel: Equatable {

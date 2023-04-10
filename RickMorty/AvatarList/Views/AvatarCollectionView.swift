@@ -110,13 +110,3 @@ final class AvatarCollectionView: UIView {
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     }
 }
-
-//extension AvatarCollectionView: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("print")
-//        let position = scrollView.contentOffset.y
-//        if position > (collectionView.contentSize.height-100-scrollView.frame.size.height) {
-//            print("FETCH MORE DATA")
-//        }
-//    }
-//}
