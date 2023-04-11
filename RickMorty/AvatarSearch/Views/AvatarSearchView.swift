@@ -25,6 +25,8 @@ final class AvatarSearchView: UIView {
     private lazy var searchTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.textFieldDefaultName
+        textField.backgroundColor = .secondarySystemFill
+        textField.layer.cornerRadius = 4
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -59,9 +61,9 @@ final class AvatarSearchView: UIView {
 
     private lazy var filterButton: UIButton = {
         let button = UIButton()
-        button.setTitle(L10n.filter.uppercased(), for: .normal)
+        button.setTitle(L10n.filter, for: .normal)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 22
+        button.layer.cornerRadius = 16
         button.addTarget(self, action: #selector(handleFilterButton), for: .touchUpInside)
         button.accessibilityIdentifier = "filterButton"
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +103,7 @@ final class AvatarSearchView: UIView {
             searchTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 15),
             searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            searchTextField.heightAnchor.constraint(equalToConstant: 45),
 
             statusLabel.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 40),
             statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -112,7 +115,8 @@ final class AvatarSearchView: UIView {
 
             filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            filterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
+            filterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            filterButton.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
 

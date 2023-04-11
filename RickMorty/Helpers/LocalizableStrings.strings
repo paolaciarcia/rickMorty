@@ -10,7 +10,7 @@
 
 //Avatar search
 "name" = "Name";
-"textFieldDefaultName" = "Insert here the name of character";
+"textFieldDefaultName" = "Character name";
 "status" = "Status";
 "alive" = "Alive";
 "dead" = "Dead";

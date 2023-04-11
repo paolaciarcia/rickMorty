@@ -74,13 +74,13 @@ final class AvatarListViewController: UIViewController {
 
     @objc
     private func searchButtonTap() {
-        //self?.delegate?.openAvatarFilter()
+        delegate?.openAvatarFilter()
     }
 }
 
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             if state == .error || state == .loading {
                 self?.navigationController?.isNavigationBarHidden = true
             } else {
