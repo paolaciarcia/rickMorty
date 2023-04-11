@@ -13,6 +13,8 @@ final class AvatarSearchView: UIView {
 
     private let dataSource = AvatarSearchDataSource()
 
+    private var bottomButtonConstraint = NSLayoutConstraint()
+
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.name
@@ -27,6 +29,7 @@ final class AvatarSearchView: UIView {
         textField.placeholder = L10n.textFieldDefaultName
         textField.backgroundColor = .secondarySystemFill
         textField.layer.cornerRadius = 4
+        textField.clearButtonMode = .whileEditing
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -84,6 +87,7 @@ final class AvatarSearchView: UIView {
         backgroundColor = .systemGray5
         setupViewHierarchy()
         setupConstraints()
+        setupKeyboard()
     }
 
     private func setupViewHierarchy() {
@@ -115,9 +119,49 @@ final class AvatarSearchView: UIView {
 
             filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            filterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             filterButton.heightAnchor.constraint(equalToConstant: 55)
         ])
+
+        bottomButtonConstraint = filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
+        bottomButtonConstraint.isActive = true
+    }
+
+    private func setupKeyboard() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+
+    @objc
+    private func keyboardWillShow(_ notification: NSNotification) {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        let keyboardHeight = keyboardSize.cgRectValue.height
+        bottomButtonConstraint.constant -= keyboardHeight
+
+        let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        UIView.animate(withDuration: animationDuration) {
+            self.layoutIfNeeded()
+        }
+    }
+
+    @objc
+    private func keyboardWillHide(_ notification: NSNotification) {
+        bottomButtonConstraint.constant = -20
+
+        let userInfo = notification.userInfo
+        let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        UIView.animate(withDuration: animationDuration) {
+            self.layoutIfNeeded()
+        }
     }
 
     private func bindLayoutEvents() {
@@ -136,8 +180,15 @@ final class AvatarSearchView: UIView {
 
 extension AvatarSearchView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        endEditing(true)
+    }
 }
