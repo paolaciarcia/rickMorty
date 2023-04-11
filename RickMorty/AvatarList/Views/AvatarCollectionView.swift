@@ -39,9 +39,6 @@ final class AvatarCollectionView: UIView {
         collection.register(AvatarViewCell.self,
                             forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
 
-//        collection.register(AvatarIndicatorViewCell.self,
-//                            forCellWithReuseIdentifier: String(describing: AvatarIndicatorViewCell.self))
-
         collection.register(AvatarIndicatorReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                             withReuseIdentifier: String(describing: AvatarIndicatorReusableView.self))
@@ -55,15 +52,6 @@ final class AvatarCollectionView: UIView {
         collection.backgroundColor = .systemGray5
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
-    }()
-
-//    let refreshControl = UIRefreshControl()
-
-    private lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        refreshControl.translatesAutoresizingMaskIntoConstraints = false
-        return refreshControl
     }()
 
     init() {
@@ -101,21 +89,8 @@ final class AvatarCollectionView: UIView {
         }
     }
 
-    @objc
-    func loadData() {
-        refreshControl.beginRefreshing()
-        refreshControl.layoutIfNeeded()
-        dataSource.shouldRefreshItems = { [weak self] isRefreshing in
-            self?.shouldRefreshItems?(isRefreshing)
-        }
-        refreshControl.endRefreshing()
-    }
-
     func show(viewModel: [AvatarCellViewModel]) {
         dataSource.setupAvatarList(avatarList: viewModel)
         collectionView.reloadData()
-        collectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     }
 }

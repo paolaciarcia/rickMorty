@@ -9,6 +9,7 @@ import UIKit
 
 final class AvatarSearchView: UIView {
     var didSelectStatus: ((_ isSelected: Bool) -> Void)?
+    var didTapFilter: (() -> Void)?
 
     private let dataSource = AvatarSearchDataSource()
 
@@ -24,8 +25,8 @@ final class AvatarSearchView: UIView {
     private lazy var searchTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.textFieldDefaultName
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
@@ -56,14 +57,15 @@ final class AvatarSearchView: UIView {
 
     }()
 
-    private let filterButton: UIButton = {
+    private lazy var filterButton: UIButton = {
         let button = UIButton()
         button.setTitle(L10n.filter.uppercased(), for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 22
+        button.addTarget(self, action: #selector(handleFilterButton), for: .touchUpInside)
+        button.accessibilityIdentifier = "filterButton"
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-
     }()
 
     init() {
@@ -92,7 +94,25 @@ final class AvatarSearchView: UIView {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
+            searchTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 15),
+            searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+            statusLabel.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 40),
+            statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+            statusCollectionView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
+            statusCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            statusCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+            filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            filterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
         ])
     }
 
@@ -100,8 +120,12 @@ final class AvatarSearchView: UIView {
 
     }
 
+    @objc
+    private func handleFilterButton() {
+        didTapFilter?()
+    }
+
     func show() {
-        
         statusCollectionView.reloadData()
     }
 }
@@ -111,7 +135,5 @@ extension AvatarSearchView: UITextFieldDelegate {
         return true
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
 }
