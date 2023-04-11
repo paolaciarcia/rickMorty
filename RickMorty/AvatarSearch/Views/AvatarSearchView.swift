@@ -119,7 +119,6 @@ final class AvatarSearchView: UIView {
 
             filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-//            filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true,
             filterButton.heightAnchor.constraint(equalToConstant: 55)
         ])
 
@@ -141,17 +140,21 @@ final class AvatarSearchView: UIView {
             object: nil)
     }
 
+    private func setupAnimation(notification: NSNotification) {
+        let userInfo = notification.userInfo
+        guard let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else { return }
+        UIView.animate(withDuration: animationDuration) {
+            self.layoutIfNeeded()
+        }
+    }
+
     @objc
     private func keyboardWillShow(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let keyboardHeight = keyboardSize.height
+            let keyboardHeight = keyboardSize.height
             bottomButtonConstraint.constant -= keyboardHeight
 
-            let userInfo = notification.userInfo
-            let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-            UIView.animate(withDuration: animationDuration) {
-                self.layoutIfNeeded()
-            }
+            setupAnimation(notification: notification)
         }
     }
 
@@ -159,23 +162,13 @@ final class AvatarSearchView: UIView {
     private func keyboardWillHide(_ notification: NSNotification) {
         bottomButtonConstraint.constant = -20
 
-        let userInfo = notification.userInfo
-        let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        UIView.animate(withDuration: animationDuration) {
-            self.layoutIfNeeded()
-        }
-    }
-    
-    private func bindLayoutEvents() {
-
+        setupAnimation(notification: notification)
     }
 
     @objc
     private func handleFilterButton() {
         didTapFilter?()
     }
-
-
 
     func show() {
         statusCollectionView.reloadData()
