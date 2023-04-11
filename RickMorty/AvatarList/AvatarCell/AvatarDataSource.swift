@@ -31,16 +31,16 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarViewCell.self), for: indexPath) as? AvatarViewCell else {
-            return UICollectionViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarViewCell.self), for: indexPath) as? AvatarViewCell else {
+                return UICollectionViewCell()
+            }
+
+            cell.show(viewModel: avatarList[indexPath.item])
+            return cell
         }
 
-        cell.show(viewModel: avatarList[indexPath.item])
-        return cell
-    }
-
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == avatarList.count - 1 {
+        if indexPath.row == avatarList.count - 1 {
             shouldRefreshItems?(true)
         } else {
             shouldRefreshItems?(false)
@@ -76,6 +76,14 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
                 return UICollectionReusableView()
             }
             return header
+
+        } else if kind == UICollectionView.elementKindSectionFooter {
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                               withReuseIdentifier: String(describing: AvatarIndicatorViewCell.self),
+                                                                               for: indexPath) as? AvatarIndicatorViewCell else {
+                return UICollectionReusableView()
+            }
+            return footer
         }
         return UICollectionReusableView()
     }
@@ -85,7 +93,10 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
         let height = UIScreen.main.bounds.height
         return CGSize(width: width, height: height * 0.45)
     }
-}
 
-//if nextPage != nil {
-//fazer uma nova request com a página atualizada
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+        return CGSize(width: width, height: height * 0.10)
+    }
+}

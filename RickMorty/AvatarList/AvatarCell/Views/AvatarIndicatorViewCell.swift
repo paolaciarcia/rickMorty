@@ -7,11 +7,14 @@
 
 import UIKit
 
-final class IndicatorCell: UICollectionViewCell {
+final class AvatarIndicatorViewCell: UICollectionReusableView {
 
-    private var inidicatorView : UIActivityIndicatorView = {
+    private let indicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
-        view.style = .large
+        view.startAnimating()
+        view.style = .medium
+        view.layoutIfNeeded()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
@@ -21,13 +24,22 @@ final class IndicatorCell: UICollectionViewCell {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setup() {
-        contentView.addSubview(inidicatorView)
-        inidicatorView.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
-        inidicatorView.startAnimating()
+        setupViewHierarchy()
+        setupConstraints()
+    }
+
+    private func setupViewHierarchy() {
+        addSubview(indicatorView)
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            indicatorView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            indicatorView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 }

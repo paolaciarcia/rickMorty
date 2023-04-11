@@ -38,9 +38,18 @@ final class AvatarCollectionView: UIView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collection.register(AvatarViewCell.self,
                             forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
+
+//        collection.register(AvatarIndicatorViewCell.self,
+//                            forCellWithReuseIdentifier: String(describing: AvatarIndicatorViewCell.self))
+
+        collection.register(AvatarIndicatorViewCell.self,
+                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                            withReuseIdentifier: String(describing: AvatarIndicatorViewCell.self))
+
         collection.register(AvatarHeaderReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: String(describing: AvatarHeaderReusableView.self))
+
         collection.dataSource = dataSource
         collection.delegate = dataSource
         collection.backgroundColor = .systemGray5

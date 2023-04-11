@@ -80,7 +80,7 @@ final class AvatarListViewController: UIViewController {
 
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
             if state == .error || state == .loading {
                 self?.navigationController?.isNavigationBarHidden = true
             } else {
