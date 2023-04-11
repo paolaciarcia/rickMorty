@@ -119,6 +119,7 @@ final class AvatarSearchView: UIView {
 
             filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true,
             filterButton.heightAnchor.constraint(equalToConstant: 55)
         ])
 
@@ -142,14 +143,15 @@ final class AvatarSearchView: UIView {
 
     @objc
     private func keyboardWillShow(_ notification: NSNotification) {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
-        let keyboardHeight = keyboardSize.cgRectValue.height
-        bottomButtonConstraint.constant -= keyboardHeight
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+            bottomButtonConstraint.constant -= keyboardHeight
 
-        let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        UIView.animate(withDuration: animationDuration) {
-            self.layoutIfNeeded()
+            let userInfo = notification.userInfo
+            let animationDuration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+            UIView.animate(withDuration: animationDuration) {
+                self.layoutIfNeeded()
+            }
         }
     }
 
@@ -163,7 +165,7 @@ final class AvatarSearchView: UIView {
             self.layoutIfNeeded()
         }
     }
-
+    
     private func bindLayoutEvents() {
 
     }
@@ -172,6 +174,8 @@ final class AvatarSearchView: UIView {
     private func handleFilterButton() {
         didTapFilter?()
     }
+
+
 
     func show() {
         statusCollectionView.reloadData()
