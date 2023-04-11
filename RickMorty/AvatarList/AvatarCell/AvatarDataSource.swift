@@ -79,8 +79,8 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
 
         } else if kind == UICollectionView.elementKindSectionFooter {
             guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                               withReuseIdentifier: String(describing: AvatarIndicatorViewCell.self),
-                                                                               for: indexPath) as? AvatarIndicatorViewCell else {
+                                                                               withReuseIdentifier: String(describing: AvatarIndicatorReusableView.self),
+                                                                               for: indexPath) as? AvatarIndicatorReusableView else {
                 return UICollectionReusableView()
             }
             return footer

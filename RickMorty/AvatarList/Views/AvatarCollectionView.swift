@@ -42,9 +42,9 @@ final class AvatarCollectionView: UIView {
 //        collection.register(AvatarIndicatorViewCell.self,
 //                            forCellWithReuseIdentifier: String(describing: AvatarIndicatorViewCell.self))
 
-        collection.register(AvatarIndicatorViewCell.self,
+        collection.register(AvatarIndicatorReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                            withReuseIdentifier: String(describing: AvatarIndicatorViewCell.self))
+                            withReuseIdentifier: String(describing: AvatarIndicatorReusableView.self))
 
         collection.register(AvatarHeaderReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
