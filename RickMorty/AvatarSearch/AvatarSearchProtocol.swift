@@ -8,9 +8,17 @@
 import Foundation
 
 protocol AvatarSearchViewControllerType: AnyObject {
-    func show(viewModel: [StatusCellViewModel])
+    func filterAvatar(avatarName: String?,
+                      avatarStatus: String?)
 }
 
-protocol AvatarSearchPresenterType {}
+protocol AvatarSearchPresenterType: AnyObject {
+    func filterAvatar(name: String?)
+    func filterAvatar(status: String?)
+    func filterAvatar()
+}
 
-protocol AvatarSearchViewControllerDelegate: AnyObject {}
+protocol AvatarSearchViewControllerDelegate: AnyObject {
+    func showFilteredAvatar(avatarName: String?,
+                            avatarStatus: String?)
+}

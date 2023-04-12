@@ -29,19 +29,4 @@ final class AvatarDetailPresenter: AvatarDetailPresenterType {
                                           gender: viewModel.avatarGender,
                                           type: viewModel.avatarType)
     }
-
-//    private func adaptStatus() -> Status {
-//        var status = Status.unknown
-//
-//        if viewModel.avatarStatus == "active" {
-//            status = .active
-//        }
-//        if viewModel.avatarStatus == "dead" {
-//            status = .dead
-//        }
-//        if viewModel.avatarStatus == "unknown" {
-//            status = .unknown
-//        }
-//        return status
-//    }
 }

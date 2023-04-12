@@ -29,6 +29,11 @@ final class AvatarSearchViewController: UIViewController {
         view = contentView
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindLayoutEvents()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigation()
@@ -40,8 +45,25 @@ final class AvatarSearchViewController: UIViewController {
         title = L10n.filters
 
     }
+
+    private func bindLayoutEvents() {
+        contentView.textFieldInput = { [weak self] name in
+            self?.presenter.filterAvatar(name: name)
+        }
+
+        contentView.selectedStatus = { [weak self] status in
+            self?.presenter.filterAvatar(status: status)
+        }
+
+        contentView.didTapFilter = { [weak self] in
+            self?.presenter.filterAvatar()
+        }
+    }
 }
 
 extension AvatarSearchViewController: AvatarSearchViewControllerType {
-    func show(viewModel: [StatusCellViewModel]) {}
+    func filterAvatar(avatarName: String?, avatarStatus: String?) {
+        delegate?.showFilteredAvatar(avatarName: avatarName,
+                                     avatarStatus: avatarStatus)
+    }
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 final class AvatarSearchView: UIView {
-    var textFieldInput: ((String) -> Void)?
-    var selectedStatus: ((String) -> Void)?
+    var textFieldInput: ((String?) -> Void)?
+    var selectedStatus: ((String?) -> Void)?
     var didTapFilter: (() -> Void)?
 
     private var bottomButtonConstraint = NSLayoutConstraint()

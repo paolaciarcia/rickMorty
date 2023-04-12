@@ -8,7 +8,7 @@
 import UIKit
 
 final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
-    var selectedStatus: ((String) -> Void)?
+    var selectedStatus: ((String?) -> Void)?
 
     private var statusArray = ["Dead", "Alive", "Unknown"]
     private var selectedItems: [String] = []
