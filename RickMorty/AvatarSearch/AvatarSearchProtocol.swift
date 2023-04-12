@@ -10,3 +10,7 @@ import Foundation
 protocol AvatarSearchViewControllerType: AnyObject {
     func show(viewModel: [StatusCellViewModel])
 }
+
+protocol AvatarSearchPresenterType {}
+
+protocol AvatarSearchViewControllerDelegate: AnyObject {}

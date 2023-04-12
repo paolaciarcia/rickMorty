@@ -32,7 +32,8 @@ final class AvatarListCoordinator {
     }
 
     private func redirectToAvatarFilter() {
-        let viewController = AvatarSearchViewController()
+        let presenter = AvatarSearchPresenter()
+        let viewController = AvatarSearchViewController(presenter: presenter)
         currentViewController = viewController
         navigationController.pushViewController(viewController, animated: true)
     }

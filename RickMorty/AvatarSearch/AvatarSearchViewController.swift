@@ -9,9 +9,14 @@ import UIKit
 
 final class AvatarSearchViewController: UIViewController {
     private let contentView: AvatarSearchView
+    private let presenter: AvatarSearchPresenterType
 
-    init(contentView: AvatarSearchView = AvatarSearchView()) {
+    weak var delegate: AvatarSearchViewControllerDelegate?
+
+    init(contentView: AvatarSearchView = AvatarSearchView(),
+         presenter: AvatarSearchPresenterType) {
         self.contentView = contentView
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -21,8 +26,19 @@ final class AvatarSearchViewController: UIViewController {
     }
 
     override func loadView() {
-        super.loadView()
         view = contentView
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigation()
+    }
+
+    private func setupNavigation() {
+        navigationController?.applyCustomAppearence()
+        navigationController?.navigationBar.backItem?.title = "Back"
+        title = L10n.filters
+
     }
 }
 

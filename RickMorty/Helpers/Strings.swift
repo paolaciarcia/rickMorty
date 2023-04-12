@@ -24,14 +24,16 @@ internal enum L10n {
   internal static let errorDescription = L10n.tr("LocalizableStrings", "errorDescription", fallback: "Something went wrong and we couldn't load the characters")
   /// Filter
   internal static let filter = L10n.tr("LocalizableStrings", "filter", fallback: "Filter")
+  /// Filters
+  internal static let filters = L10n.tr("LocalizableStrings", "filters", fallback: "Filters")
   /// Name
   internal static let name = L10n.tr("LocalizableStrings", "name", fallback: "Name")
   /// New search
   internal static let newSearch = L10n.tr("LocalizableStrings", "newSearch", fallback: "New search")
   /// Status
   internal static let status = L10n.tr("LocalizableStrings", "status", fallback: "Status")
-  /// Insert here the name of character
-  internal static let textFieldDefaultName = L10n.tr("LocalizableStrings", "textFieldDefaultName", fallback: "Insert here the name of character")
+  /// Character name
+  internal static let textFieldDefaultName = L10n.tr("LocalizableStrings", "textFieldDefaultName", fallback: "Character name")
   /// Try again
   internal static let tryAgain = L10n.tr("LocalizableStrings", "tryAgain", fallback: "Try again")
   /// Unknown

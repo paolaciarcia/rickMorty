@@ -30,7 +30,6 @@ final class AvatarDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadAvatarDetail()
-        setupNavigation()
     }
 
     override func viewWillAppear(_ animated: Bool) {

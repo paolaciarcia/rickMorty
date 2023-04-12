@@ -53,6 +53,7 @@
 		C58A770329E5AC7600B84279 /* AvatarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */; };
 		C58A770529E6004800B84279 /* AvatarSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */; };
 		C58A770A29E6E8B700B84279 /* AvatarSearchViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */; };
+		C58A770C29E7390000B84279 /* AvatarSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770B29E7390000B84279 /* AvatarSearchPresenter.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
@@ -126,6 +127,7 @@
 		C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewController.swift; sourceTree = "<group>"; };
 		C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchProtocol.swift; sourceTree = "<group>"; };
 		C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewCellTests.swift; sourceTree = "<group>"; };
+		C58A770B29E7390000B84279 /* AvatarSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchPresenter.swift; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -346,10 +348,11 @@
 		C58A76F329D7735C00B84279 /* AvatarSearch */ = {
 			isa = PBXGroup;
 			children = (
-				C58A76FE29DB6ECF00B84279 /* AvatarSearchDataSource.swift */,
+				C58A770B29E7390000B84279 /* AvatarSearchPresenter.swift */,
 				C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */,
-				C58A76F429D7736B00B84279 /* Views */,
 				C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */,
+				C58A770D29E7392000B84279 /* AvatarStatusCell */,
+				C58A76F429D7736B00B84279 /* Views */,
 			);
 			path = AvatarSearch;
 			sourceTree = "<group>";
@@ -358,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				C58A76F829D775EC00B84279 /* AvatarSearchView.swift */,
-				C58A76FC29DB5D8500B84279 /* AvatarSearchViewCell.swift */,
 				C58A76F529D7737900B84279 /* ViewModels */,
 			);
 			path = Views;
@@ -384,6 +386,23 @@
 			isa = PBXGroup;
 			children = (
 				C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C58A770D29E7392000B84279 /* AvatarStatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				C58A76FE29DB6ECF00B84279 /* AvatarSearchDataSource.swift */,
+				C58A770E29E7392E00B84279 /* Views */,
+			);
+			path = AvatarStatusCell;
+			sourceTree = "<group>";
+		};
+		C58A770E29E7392E00B84279 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C58A76FC29DB5D8500B84279 /* AvatarSearchViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -723,6 +742,7 @@
 				C58A76AA29D5C4B200B84279 /* Array+Ext.swift in Sources */,
 				C58A76F929D775EC00B84279 /* AvatarSearchView.swift in Sources */,
 				C56BF31A29A8F7DD00A95AB1 /* AvatarInformationView.swift in Sources */,
+				C58A770C29E7390000B84279 /* AvatarSearchPresenter.swift in Sources */,
 				C58A770329E5AC7600B84279 /* AvatarSearchViewController.swift in Sources */,
 				C56BF31E29A8FE7C00A95AB1 /* AvatarDetailView.swift in Sources */,
 			);

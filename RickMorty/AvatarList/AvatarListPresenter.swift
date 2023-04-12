@@ -16,11 +16,17 @@ final class AvatarListPresenter: AvatarListPresenterType {
     private var currentPage: Int = 0
     private var totalPages = 1
     private var avatarList: [Results] = []
+    private var avatarName = ""
+    private var avatarStatus = ""
 
     init(repository: AvatarListRepositoryType = AvatarListRepository(),
          viewModel: AvatarListViewModel) {
         self.repository = repository
         self.viewModel = viewModel
+    }
+
+    private func foo() {
+
     }
 
     func loadAvatarList() {
@@ -30,7 +36,9 @@ final class AvatarListPresenter: AvatarListPresenterType {
             currentPage += 1
         }
 
-        repository.fetchAvatar(pageIndex: currentPage) { [weak self] result in
+        repository.fetchAvatar(pageIndex: currentPage,
+                               name: nil,
+                               status: nil) { [weak self] result in
             switch result {
             case .success(let avatarResult):
                 self?.totalPages = avatarResult.info.pages
