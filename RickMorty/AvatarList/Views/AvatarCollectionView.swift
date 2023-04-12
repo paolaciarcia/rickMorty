@@ -16,24 +16,6 @@ final class AvatarCollectionView: UIView {
 
     private let dataSource = AvatarDataSource()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = L10n.characters
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let headerImageView: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(asset: Asset.rickMortyHeader)
-        image.contentMode = .scaleToFill
-        image.clipsToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collection.register(AvatarViewCell.self,

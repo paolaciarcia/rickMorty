@@ -51,6 +51,8 @@
 		C58A76FF29DB6ECF00B84279 /* AvatarSearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A76FE29DB6ECF00B84279 /* AvatarSearchDataSource.swift */; };
 		C58A770129E4B2DF00B84279 /* AvatarIndicatorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770029E4B2DF00B84279 /* AvatarIndicatorReusableView.swift */; };
 		C58A770329E5AC7600B84279 /* AvatarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */; };
+		C58A770529E6004800B84279 /* AvatarSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */; };
+		C58A770A29E6E8B700B84279 /* AvatarSearchViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B782996DC6C00294178 /* SceneDelegate.swift */; };
@@ -122,6 +124,8 @@
 		C58A76FE29DB6ECF00B84279 /* AvatarSearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchDataSource.swift; sourceTree = "<group>"; };
 		C58A770029E4B2DF00B84279 /* AvatarIndicatorReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIndicatorReusableView.swift; sourceTree = "<group>"; };
 		C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewController.swift; sourceTree = "<group>"; };
+		C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchProtocol.swift; sourceTree = "<group>"; };
+		C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewCellTests.swift; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 		C56BF32B29A934E300A95AB1 /* RickMortyTests */ = {
 			isa = PBXGroup;
 			children = (
+				C58A770629E6E87600B84279 /* AvatarSearch */,
 				C529DE5329B699CD00AC8B9A /* AvatarList */,
 				C56BF33329A934F800A95AB1 /* AvatarDetail */,
 			);
@@ -344,6 +349,7 @@
 				C58A76FE29DB6ECF00B84279 /* AvatarSearchDataSource.swift */,
 				C58A770229E5AC7600B84279 /* AvatarSearchViewController.swift */,
 				C58A76F429D7736B00B84279 /* Views */,
+				C58A770429E6004800B84279 /* AvatarSearchProtocol.swift */,
 			);
 			path = AvatarSearch;
 			sourceTree = "<group>";
@@ -364,6 +370,22 @@
 				C58A76F629D7739200B84279 /* AvatarSearchViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C58A770629E6E87600B84279 /* AvatarSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C58A770729E6E89400B84279 /* Views */,
+			);
+			path = AvatarSearch;
+			sourceTree = "<group>";
+		};
+		C58A770729E6E89400B84279 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C58A770929E6E8B700B84279 /* AvatarSearchViewCellTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C5B2E52029B77EFA00A6B2AD /* Extensions */ = {
@@ -654,6 +676,7 @@
 				C529DE5929B69A5E00AC8B9A /* AvatarErrorViewTests.swift in Sources */,
 				C529DE5B29B69A7500AC8B9A /* AvatarLoadingViewTests.swift in Sources */,
 				C56BF33B29A9587500A95AB1 /* AvatarDetailViewTests.swift in Sources */,
+				C58A770A29E6E8B700B84279 /* AvatarSearchViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +714,7 @@
 				C5D09B94299AD8B500294178 /* Assets.swift in Sources */,
 				C5D09B92299AD81F00294178 /* Strings.swift in Sources */,
 				C58A769E29BF734200B84279 /* UIImageView+Ext.swift in Sources */,
+				C58A770529E6004800B84279 /* AvatarSearchProtocol.swift in Sources */,
 				C58A76AE29D5CA1B00B84279 /* AvatarDetailProtocol.swift in Sources */,
 				C5D09B792996DC6C00294178 /* SceneDelegate.swift in Sources */,
 				C58A76FF29DB6ECF00B84279 /* AvatarSearchDataSource.swift in Sources */,

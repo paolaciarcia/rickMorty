@@ -8,12 +8,16 @@
 import UIKit
 
 final class AvatarSearchView: UIView {
-    var didSelectStatus: ((_ isSelected: Bool) -> Void)?
-    var didTapFilter: (() -> Void)?
+    var didSelectStatus: ((Int) -> Void)?
+    var didTapFilter: ((String) -> Void)?
+    var isSelected: ((Bool) -> Void)?
 
     private let dataSource = AvatarSearchDataSource()
 
     private var bottomButtonConstraint = NSLayoutConstraint()
+    private var avatarName: String = ""
+
+    private let searchViewCell = AvatarSearchViewCell()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -47,8 +51,9 @@ final class AvatarSearchView: UIView {
     private let collectionViewLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        flowLayout.minimumLineSpacing = 20
-        flowLayout.itemSize = CGSize(width: width * 0.2, height: 34)
+        flowLayout.minimumLineSpacing = 15
+        flowLayout.minimumInteritemSpacing = 15
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return flowLayout
     }()
 
@@ -57,6 +62,8 @@ final class AvatarSearchView: UIView {
         collection.register(AvatarSearchViewCell.self, forCellWithReuseIdentifier: String(describing: AvatarSearchViewCell.self))
         collection.dataSource = dataSource
         collection.delegate = dataSource
+        collection.allowsMultipleSelection = true
+        collection.backgroundColor = .systemGray5
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
 
@@ -87,6 +94,7 @@ final class AvatarSearchView: UIView {
         backgroundColor = .systemGray5
         setupViewHierarchy()
         setupConstraints()
+        bindLayoutEvents()
         setupKeyboard()
     }
 
@@ -116,6 +124,7 @@ final class AvatarSearchView: UIView {
             statusCollectionView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
             statusCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             statusCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            statusCollectionView.heightAnchor.constraint(equalToConstant: 100),
 
             filterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             filterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -124,6 +133,16 @@ final class AvatarSearchView: UIView {
 
         bottomButtonConstraint = filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         bottomButtonConstraint.isActive = true
+    }
+
+    private func bindLayoutEvents() {
+        dataSource.statusIsSelected = { [weak self] index in
+            self?.didSelectStatus?(index)
+        }
+
+        dataSource.isSelected = { [weak self] isSelected in
+            self?.searchViewCell.didSelectStatus?(isSelected)
+        }
     }
 
     private func setupKeyboard() {
@@ -167,12 +186,13 @@ final class AvatarSearchView: UIView {
 
     @objc
     private func handleFilterButton() {
-        didTapFilter?()
+        didTapFilter?(avatarName)
     }
 
-    func show() {
-        statusCollectionView.reloadData()
-    }
+//    func show(viewModel: [StatusCellViewModel]) {
+//        dataSource.setupFilter(statusViewModel: viewModel)
+//        statusCollectionView.reloadData()
+//    }
 }
 
 extension AvatarSearchView: UITextFieldDelegate {
@@ -183,6 +203,12 @@ extension AvatarSearchView: UITextFieldDelegate {
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let textField = textField.text {
+            avatarName = textField
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

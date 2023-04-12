@@ -25,3 +25,7 @@ final class AvatarSearchViewController: UIViewController {
         view = contentView
     }
 }
+
+extension AvatarSearchViewController: AvatarSearchViewControllerType {
+    func show(viewModel: [StatusCellViewModel]) {}
+}

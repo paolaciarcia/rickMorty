@@ -8,13 +8,11 @@
 import UIKit
 
 final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
-    var statusIsSelected: ((Bool) -> Void)?
+    var statusIsSelected: ((Int) -> Void)?
+    var isSelected: ((Bool) -> Void)?
 
-    private let statusArray: [StatusCellViewModel]
-
-    init(statusArray: [StatusCellViewModel] = []) {
-        self.statusArray = statusArray
-    }
+    private var statusArray = ["Dead", "Alive", "Unknown"]
+    private var selectedItems: [String] = []
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         statusArray.count
@@ -24,11 +22,28 @@ final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AvatarSearchViewCell.self), for: indexPath) as? AvatarSearchViewCell else {
             return UICollectionViewCell()
         }
-        cell.show(viewModel: statusArray[indexPath.row])
+        let item = statusArray[indexPath.item]
+        cell.show(avatarStatus: item)
+        print("selectedItems:\(selectedItems)")
         return cell
     }
 }
 
 extension AvatarSearchDataSource: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedItems.append(statusArray[indexPath.item])
+        print(selectedItems)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let index = selectedItems.firstIndex(of: statusArray[indexPath.item]) {
+            selectedItems.remove(at: index)
+            print("removed: \(index)")
+        }
+    }
 }
+//aqui precisa levar o status como string selectionada
+
+//quando seleciona o status tem que levar a string do index selecionado e salvar o index
+//quando tira a seleção, precisa remover a string do array

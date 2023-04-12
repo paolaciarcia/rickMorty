@@ -14,5 +14,4 @@ struct AvatarSearchViewModel {
 
 struct StatusCellViewModel {
     let statusDescription: String
-    let isSelected: Bool
 }

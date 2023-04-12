@@ -10,16 +10,24 @@ import UIKit
 final class AvatarSearchViewCell: UICollectionViewCell {
     var didSelectStatus: ((_ isSelected: Bool) -> Void)?
 
-    private lazy var statusButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 16
-        return button
+    override var isSelected: Bool {
+        didSet {
+            backgroundColor = isSelected ? .secondarySystemFill : .systemGray4
+            nameLabel.textColor = isSelected ? .systemBlue : .systemGray
+        }
+    }
+
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
 
     @available(*, unavailable)
@@ -27,32 +35,32 @@ final class AvatarSearchViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        statusButton.frame = bounds
+    private func setup() {
+        layer.cornerRadius = 16
+        backgroundColor = .systemGray4
+        setupViewHierarchy()
+        setupConstraints()
+        bindLayoutEvents()
     }
 
-    @objc
-    private func buttonTap() {
-        didSelectStatus = { isSelected in
-            self.didSelectStatus?(isSelected)
-            self.setupButtonAppearence(isSelected: isSelected)
-            
-        }
+    private func setupViewHierarchy() {
+        addSubview(nameLabel)
     }
 
-    private func setupButtonAppearence(isSelected: Bool) {
-        statusButton.isSelected = isSelected
-        if isSelected {
-            statusButton.setTitleColor(.systemBlue, for: .normal)
-            statusButton.backgroundColor = .secondarySystemFill
-        } else {
-            statusButton.setTitleColor(.systemGray, for: .normal)
-            statusButton.backgroundColor = .secondaryLabel
-        }
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+        ])
     }
 
-    func show(viewModel: StatusCellViewModel) {
-        statusButton.setTitle(viewModel.statusDescription.capitalized, for: .normal)
+    private func bindLayoutEvents() {
+
+    }
+
+    func show(avatarStatus: String) {
+        nameLabel.text = avatarStatus
     }
 }
