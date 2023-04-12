@@ -8,15 +8,13 @@
 import UIKit
 
 final class AvatarSearchView: UIView {
-    var didSelectStatus: ((Int) -> Void)?
-    var didTapFilter: ((String) -> Void)?
-    var isSelected: ((Bool) -> Void)?
-
-    private let dataSource = AvatarSearchDataSource()
+    var textFieldInput: ((String) -> Void)?
+    var selectedStatus: ((String) -> Void)?
+    var didTapFilter: (() -> Void)?
 
     private var bottomButtonConstraint = NSLayoutConstraint()
-    private var avatarName: String = ""
 
+    private let dataSource = AvatarSearchDataSource()
     private let searchViewCell = AvatarSearchViewCell()
 
     private let nameLabel: UILabel = {
@@ -136,13 +134,9 @@ final class AvatarSearchView: UIView {
     }
 
     private func bindLayoutEvents() {
-//        dataSource.statusIsSelected = { [weak self] index in
-//            self?.didSelectStatus?(index)
-//        }
-
-//        dataSource.isSelected = { [weak self] isSelected in
-//            self?.searchViewCell.didSelectStatus?(isSelected)
-//        }
+        dataSource.selectedStatus = { [weak self] status in
+            self?.selectedStatus?(status)
+        }
     }
 
     private func setupKeyboard() {
@@ -186,7 +180,7 @@ final class AvatarSearchView: UIView {
 
     @objc
     private func handleFilterButton() {
-        didTapFilter?(avatarName)
+        didTapFilter?()
     }
 
 //    func show(viewModel: [StatusCellViewModel]) {
@@ -206,8 +200,8 @@ extension AvatarSearchView: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let textField = textField.text {
-            avatarName = textField
+        if let text = textField.text, !text.isEmpty {
+            textFieldInput?(text)
         }
     }
 

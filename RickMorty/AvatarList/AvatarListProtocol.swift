@@ -19,6 +19,8 @@ protocol AvatarListServiceProtocol {
 
 protocol AvatarListRepositoryType {
     func fetchAvatar(pageIndex: Int,
+                     name: String,
+                     status: String,
                      completion: @escaping (Result<AvatarList, Error>) -> Void)
 }
 
