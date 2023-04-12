@@ -54,3 +54,9 @@ extension AvatarListCoordinator: AvatarListViewControllerDelegate {
         redirectToAvatarFilter()
     }
 }
+
+extension AvatarListCoordinator: AvatarSearchViewControllerDelegate {
+    func showFilteredAvatar(avatarName: String?, avatarStatus: String?) {
+        //direcionar para a AvatarListViewController
+    }
+}
