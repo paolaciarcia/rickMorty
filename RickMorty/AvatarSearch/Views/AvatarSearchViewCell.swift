@@ -40,7 +40,6 @@ final class AvatarSearchViewCell: UICollectionViewCell {
         backgroundColor = .systemGray4
         setupViewHierarchy()
         setupConstraints()
-        bindLayoutEvents()
     }
 
     private func setupViewHierarchy() {
@@ -54,10 +53,6 @@ final class AvatarSearchViewCell: UICollectionViewCell {
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
-    }
-
-    private func bindLayoutEvents() {
-
     }
 
     func show(avatarStatus: String) {

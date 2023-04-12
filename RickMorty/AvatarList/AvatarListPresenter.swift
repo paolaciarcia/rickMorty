@@ -36,8 +36,6 @@ final class AvatarListPresenter: AvatarListPresenterType {
                 self?.totalPages = avatarResult.info.pages
                 self?.avatarList.append(contentsOf: avatarResult.results)
                 self?.adaptAvatar()
-
-                print("PAGE: \(self?.currentPage)")
             case .failure:
                 self?.viewController?.show(state: .error)
             }

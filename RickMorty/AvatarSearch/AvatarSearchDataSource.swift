@@ -8,8 +8,7 @@
 import UIKit
 
 final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
-    var statusIsSelected: ((Int) -> Void)?
-    var isSelected: ((Bool) -> Void)?
+    var selectedStatus: ((String) -> Void)?
 
     private var statusArray = ["Dead", "Alive", "Unknown"]
     private var selectedItems: [String] = []
@@ -32,16 +31,19 @@ final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
 extension AvatarSearchDataSource: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedItems.append(statusArray[indexPath.item])
-        print(selectedItems)
+        let item = statusArray[indexPath.item]
+            selectedStatus?(item)
+
+//        selectedItems.append(statusArray[indexPath.item])
+        print("item: \(item)")
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let index = selectedItems.firstIndex(of: statusArray[indexPath.item]) {
-            selectedItems.remove(at: index)
-            print("removed: \(index)")
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        if let index = selectedItems.firstIndex(of: statusArray[indexPath.item]) {
+//            selectedItems.remove(at: index)
+//            print("removed: \(index)")
+//        }
+//    }
 }
 //aqui precisa levar o status como string selectionada
 

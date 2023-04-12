@@ -62,7 +62,7 @@ final class AvatarSearchView: UIView {
         collection.register(AvatarSearchViewCell.self, forCellWithReuseIdentifier: String(describing: AvatarSearchViewCell.self))
         collection.dataSource = dataSource
         collection.delegate = dataSource
-        collection.allowsMultipleSelection = true
+//        collection.allowsMultipleSelection = true
         collection.backgroundColor = .systemGray5
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -136,13 +136,13 @@ final class AvatarSearchView: UIView {
     }
 
     private func bindLayoutEvents() {
-        dataSource.statusIsSelected = { [weak self] index in
-            self?.didSelectStatus?(index)
-        }
+//        dataSource.statusIsSelected = { [weak self] index in
+//            self?.didSelectStatus?(index)
+//        }
 
-        dataSource.isSelected = { [weak self] isSelected in
-            self?.searchViewCell.didSelectStatus?(isSelected)
-        }
+//        dataSource.isSelected = { [weak self] isSelected in
+//            self?.searchViewCell.didSelectStatus?(isSelected)
+//        }
     }
 
     private func setupKeyboard() {
