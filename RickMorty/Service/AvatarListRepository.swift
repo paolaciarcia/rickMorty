@@ -45,20 +45,10 @@ final class AvatarListRepository: AvatarListRepositoryType {
                      completion: @escaping (Result<AvatarList, Error>) -> Void) {
 //        guard let name = name,
 //              let status = status else { return }
-        service.requestAvatarList(method: HTTPMethodRequest.get,
-                                  url: "https://rickandmortyapi.com/api/character/?page=\(pageIndex)&?name=\(name ?? "")&status=\(status ?? "")",
-                                  parameters: [:],
-                                  completion: completion)
-    }
-
-    func fetchFilteredAvatar(pageIndex: Int,
-                             name: String,
-                             status: String,
-                             completion: @escaping (Result<AvatarList, Error>) -> Void) {
-
-        service.requestAvatarList(method: HTTPMethodRequest.get,
-                                  url: "https://rickandmortyapi.com/api/character/?page=\(pageIndex)&?name=\(name)&status=\(status)",
-                                  parameters: [:],
-                                  completion: completion)
+        service.requestAvatarList(
+            method: HTTPMethodRequest.get,
+            url: "https://rickandmortyapi.com/api/character/?page=\(pageIndex)&?name=\(name ?? "")&status=\(status ?? "")",
+            parameters: [:],
+            completion: completion)
     }
 }

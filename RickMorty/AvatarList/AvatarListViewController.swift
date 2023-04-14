@@ -45,6 +45,7 @@ final class AvatarListViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+//        presenter.loadAvatarList()
         super.viewWillAppear(animated)
         setupNavigation()
     }
@@ -74,7 +75,7 @@ final class AvatarListViewController: UIViewController {
 
     @objc
     private func searchButtonTap() {
-        delegate?.openAvatarFilter()
+        delegate?.openAvatarFilter(filterDelegate: self)
     }
 }
 
@@ -92,5 +93,11 @@ extension AvatarListViewController: AvatarListViewControllerType {
 
     func redirectToAvatarDetail(with viewModel: AvatarCellViewModel) {
         delegate?.showAvatarDetail(with: viewModel)
+    }
+}
+
+extension AvatarListViewController: AvatarSearchFilterDelegate {
+    func didUpdateFilterOptions(name: String?, status: String?) {
+        presenter.updateFilterOptions(name: name, status: status)
     }
 }

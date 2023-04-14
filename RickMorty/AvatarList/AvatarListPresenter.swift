@@ -8,6 +8,7 @@
 import Foundation
 
 final class AvatarListPresenter: AvatarListPresenterType {
+
     weak var viewController: AvatarListViewControllerType?
 
     private let repository: AvatarListRepositoryType
@@ -16,17 +17,11 @@ final class AvatarListPresenter: AvatarListPresenterType {
     private var currentPage: Int = 0
     private var totalPages = 1
     private var avatarList: [Results] = []
-    private var avatarName = ""
-    private var avatarStatus = ""
 
     init(repository: AvatarListRepositoryType = AvatarListRepository(),
          viewModel: AvatarListViewModel) {
         self.repository = repository
         self.viewModel = viewModel
-    }
-
-    private func foo() {
-
     }
 
     func loadAvatarList() {
@@ -37,8 +32,8 @@ final class AvatarListPresenter: AvatarListPresenterType {
         }
 
         repository.fetchAvatar(pageIndex: currentPage,
-                               name: nil,
-                               status: nil) { [weak self] result in
+                               name: viewModel.filteredName,
+                               status: viewModel.filteredStatus) { [weak self] result in
             switch result {
             case .success(let avatarResult):
                 self?.totalPages = avatarResult.info.pages
@@ -56,6 +51,13 @@ final class AvatarListPresenter: AvatarListPresenterType {
         }
     }
 
+    func updateFilterOptions(name: String?, status: String?) {
+        viewModel.filteredName = name
+        viewModel.filteredStatus = status
+        cleanAvatarList()
+        loadAvatarList()
+    }
+
     private func adaptAvatar() {
         let cells = avatarList.map { list in
             return AvatarCellViewModel(avatarImageURL: list.image,
@@ -66,7 +68,13 @@ final class AvatarListPresenter: AvatarListPresenterType {
                                        avatarGender: list.gender)
         }
 
-        viewModel = AvatarListViewModel(cells: cells)
+        viewModel.cells = cells
         viewController?.show(state: .ready(viewModel: viewModel))
+    }
+
+    private func cleanAvatarList() {
+        currentPage = 0
+        totalPages = 1
+        avatarList.removeAll()
     }
 }

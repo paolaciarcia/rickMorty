@@ -8,8 +8,7 @@
 import Foundation
 
 protocol AvatarSearchViewControllerType: AnyObject {
-    func filterAvatar(avatarName: String?,
-                      avatarStatus: String?)
+    func filterAvatar(name: String?, status: String?)
 }
 
 protocol AvatarSearchPresenterType: AnyObject {
@@ -18,7 +17,10 @@ protocol AvatarSearchPresenterType: AnyObject {
     func filterAvatar()
 }
 
+protocol AvatarSearchFilterDelegate: AnyObject {
+    func didUpdateFilterOptions(name: String?, status: String?)
+}
+
 protocol AvatarSearchViewControllerDelegate: AnyObject {
-    func showFilteredAvatar(avatarName: String?,
-                            avatarStatus: String?)
+    func showFilteredAvatar()
 }

@@ -180,13 +180,9 @@ final class AvatarSearchView: UIView {
 
     @objc
     private func handleFilterButton() {
+        textFieldInput?(searchTextField.text)
         didTapFilter?()
     }
-
-//    func show(viewModel: [StatusCellViewModel]) {
-//        dataSource.setupFilter(statusViewModel: viewModel)
-//        statusCollectionView.reloadData()
-//    }
 }
 
 extension AvatarSearchView: UITextFieldDelegate {
@@ -197,12 +193,6 @@ extension AvatarSearchView: UITextFieldDelegate {
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let text = textField.text, !text.isEmpty {
-            textFieldInput?(text)
-        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

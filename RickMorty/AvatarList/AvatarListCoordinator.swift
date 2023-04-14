@@ -9,8 +9,11 @@ import UIKit
 import Network
 
 final class AvatarListCoordinator {
-    var currentViewController: UIViewController?
     var navigationController: UINavigationController
+
+    var currentViewController: UIViewController? {
+        navigationController.children.last
+    }
 
 //    weak var currentActionSheet: UIActionSheet?
 
@@ -27,16 +30,21 @@ final class AvatarListCoordinator {
         let viewController = AvatarListViewController(presenter: presenter)
         presenter.viewController = viewController
         viewController.delegate = self
-        currentViewController = viewController
+//        currentViewController = viewController
         navigationController.show(viewController, sender: nil)
     }
 
-    private func redirectToAvatarFilter() {
+    private func presentAvatarList() {
+
+    }
+
+    private func redirectToAvatarFilter(filterDelegate: AvatarSearchFilterDelegate) {
         let presenter = AvatarSearchPresenter()
         let viewController = AvatarSearchViewController(presenter: presenter)
         presenter.viewController = viewController
         viewController.delegate = self
-        currentViewController = viewController
+        viewController.filterDelegate = filterDelegate
+//        currentViewController = viewController
         navigationController.pushViewController(viewController, animated: true)
     }
 }
@@ -46,17 +54,17 @@ extension AvatarListCoordinator: AvatarListViewControllerDelegate {
         let presenter = AvatarDetailPresenter(viewModel: viewModel)
         let viewController = AvatarDetailViewController(presenter: presenter)
         presenter.viewController = viewController
-        currentViewController = viewController
+//        currentViewController = viewController
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func openAvatarFilter() {
-        redirectToAvatarFilter()
+    func openAvatarFilter(filterDelegate: AvatarSearchFilterDelegate) {
+        redirectToAvatarFilter(filterDelegate: filterDelegate)
     }
 }
 
 extension AvatarListCoordinator: AvatarSearchViewControllerDelegate {
-    func showFilteredAvatar(avatarName: String?, avatarStatus: String?) {
-        //direcionar para a AvatarListViewController
+    func showFilteredAvatar() {
+        navigationController.popViewController(animated: true)
     }
 }

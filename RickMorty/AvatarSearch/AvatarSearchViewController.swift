@@ -11,7 +11,8 @@ final class AvatarSearchViewController: UIViewController {
     private let contentView: AvatarSearchView
     private let presenter: AvatarSearchPresenterType
 
-    weak var delegate: AvatarSearchViewControllerDelegate?
+    weak var delegate: AvatarSearchViewControllerDelegate? // navegação
+    weak var filterDelegate: AvatarSearchFilterDelegate? // transferir filtros
 
     init(contentView: AvatarSearchView = AvatarSearchView(),
          presenter: AvatarSearchPresenterType) {
@@ -62,8 +63,8 @@ final class AvatarSearchViewController: UIViewController {
 }
 
 extension AvatarSearchViewController: AvatarSearchViewControllerType {
-    func filterAvatar(avatarName: String?, avatarStatus: String?) {
-        delegate?.showFilteredAvatar(avatarName: avatarName,
-                                     avatarStatus: avatarStatus)
+    func filterAvatar(name: String?, status: String?) {
+        filterDelegate?.didUpdateFilterOptions(name: name, status: status)
+        delegate?.showFilteredAvatar()
     }
 }

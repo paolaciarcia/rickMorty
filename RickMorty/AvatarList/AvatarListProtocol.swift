@@ -37,9 +37,10 @@ protocol AvatarListPresenterType: AnyObject {
     var viewController: AvatarListViewControllerType? { get set }
     func loadAvatarList()
     func getAvatarDetail(index: Int)
+    func updateFilterOptions(name: String?, status: String?)
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {
     func showAvatarDetail(with viewModel: AvatarCellViewModel)
-    func openAvatarFilter()
+    func openAvatarFilter(filterDelegate: AvatarSearchFilterDelegate)
 }

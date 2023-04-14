@@ -10,19 +10,18 @@ import Foundation
 final class AvatarSearchPresenter: AvatarSearchPresenterType {
     weak var viewController: AvatarSearchViewControllerType?
 
-    var avatarName: String?
-    var avatarStatus: String?
+    private var filterName: String?
+    private var filterStatus: String?
 
     func filterAvatar(name: String?) {
-        avatarName = name
+        filterName = name
     }
 
     func filterAvatar(status: String?) {
-        avatarStatus = status
+        filterStatus = status
     }
 
     func filterAvatar() {
-        viewController?.filterAvatar(avatarName: avatarName,
-                                     avatarStatus: avatarStatus)
+        viewController?.filterAvatar(name: filterName, status: filterStatus)
     }
 }

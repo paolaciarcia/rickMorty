@@ -23,7 +23,6 @@ final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
         }
         let item = statusArray[indexPath.item]
         cell.show(avatarStatus: item)
-        print("selectedItems:\(selectedItems)")
         return cell
     }
 }
@@ -33,19 +32,5 @@ extension AvatarSearchDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = statusArray[indexPath.item]
             selectedStatus?(item)
-
-//        selectedItems.append(statusArray[indexPath.item])
-        print("item: \(item)")
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        if let index = selectedItems.firstIndex(of: statusArray[indexPath.item]) {
-//            selectedItems.remove(at: index)
-//            print("removed: \(index)")
-//        }
-//    }
 }
-//aqui precisa levar o status como string selectionada
-
-//quando seleciona o status tem que levar a string do index selecionado e salvar o index
-//quando tira a seleção, precisa remover a string do array
