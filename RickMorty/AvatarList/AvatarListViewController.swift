@@ -64,8 +64,9 @@ final class AvatarListViewController: UIViewController {
     }
 
     private func setupNavigation() {
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.applyCustomAppearence()
-        navigationController?.navigationBar.backItem?.backButtonTitle = "Back"
+        navigationItem.backBarButtonItem = backButton
         navigationItem.rightBarButtonItem = searchButton
         title = L10n.characters
     }

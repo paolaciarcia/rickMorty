@@ -41,11 +41,12 @@ final class AvatarIndicatorReusableView: UICollectionReusableView {
         ])
     }
 
-    func show(viewModel: AvatarListViewModel) {
-        if viewModel.isFetching {
+    func show(isFetching: Bool) {
+        if isFetching {
             indicatorView.startAnimating()
         } else {
             indicatorView.stopAnimating()
+            indicatorView.isHidden = true
         }
     }
 }

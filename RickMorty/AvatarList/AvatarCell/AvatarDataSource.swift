@@ -80,7 +80,7 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
                 return UICollectionReusableView()
             }
 
-            footer.show(viewModel: avatarList)
+            footer.show(isFetching: avatarList.isFetching)
             return footer
         }
         return UICollectionReusableView()

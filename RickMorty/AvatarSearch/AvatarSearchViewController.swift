@@ -11,8 +11,8 @@ final class AvatarSearchViewController: UIViewController {
     private let contentView: AvatarSearchView
     private let presenter: AvatarSearchPresenterType
 
-    weak var delegate: AvatarSearchViewControllerDelegate? // navegação
-    weak var filterDelegate: AvatarSearchFilterDelegate? // transferir filtros
+    weak var delegate: AvatarSearchViewControllerDelegate?
+    weak var filterDelegate: AvatarSearchFilterDelegate?
 
     init(contentView: AvatarSearchView = AvatarSearchView(),
          presenter: AvatarSearchPresenterType) {
@@ -42,7 +42,6 @@ final class AvatarSearchViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.applyCustomAppearence()
-        navigationController?.navigationBar.backItem?.title = "Back"
         title = L10n.filters
 
     }
