@@ -22,7 +22,7 @@ final class AvatarCollectionViewTests: QuickSpec {
 
         describe("show(viewModel:)") {
             beforeEach {
-                let viewModel = [
+                let cells = [
                     AvatarCellViewModel(avatarImageURL: "",
                                         avatarName: "Rich",
                                         avatarStatus: "Dead",
@@ -48,7 +48,9 @@ final class AvatarCollectionViewTests: QuickSpec {
                                         avatarType: "Type",
                                         avatarGender: "Gender")
                 ]
-                sut.show(viewModel: viewModel)
+
+                let avatarListViewModel = AvatarListViewModel(cells: cells)
+                sut.show(viewModel: avatarListViewModel)
             }
 
             it("has to present correct snapshot") {

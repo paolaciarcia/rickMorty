@@ -27,7 +27,7 @@ final class AvatarDetailViewTests: QuickSpec {
                 }
 
                 it("has to present correct snapshot") {
-                    expect(sut).to(haveValidSnapshot())
+                    expect(sut).toAlways(haveValidSnapshot())
                 }
             }
         }

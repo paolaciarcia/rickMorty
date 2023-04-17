@@ -9,6 +9,7 @@ import UIKit
 
 struct AvatarInformationViewModel {
     let avatarImage: String
+    let placeholderImage: UIImage?
     let name: String
     let status: String
     let specie: String

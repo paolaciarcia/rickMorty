@@ -10,9 +10,10 @@ import UIKit
 
 extension AvatarInformationViewModel {
     static func stub() -> AvatarInformationViewModel {
-        return AvatarInformationViewModel(avatarImage: UIImage(asset: Asset.avatarRich),
+        return AvatarInformationViewModel(avatarImage: "",
+                                          placeholderImage: UIImage(asset: Asset.placeholderCharacter),
                                           name: "Voiceoverian",
-                                          status: .dead,
+                                          status: "Dead",
                                           specie: "Alien",
                                           gender: "Male",
                                           type: "Parasite")

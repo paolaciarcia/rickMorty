@@ -12,8 +12,8 @@ extension UIImageView {
                        placeholderImage: UIImage? = nil) {
         DispatchQueue.global().async { [weak self] in
             guard let url = URL(string: url),
-            let data = try? Data(contentsOf: url),
-            let downloadedImage = UIImage(data: data) else {
+                  let data = try? Data(contentsOf: url),
+                  let downloadedImage = UIImage(data: data) else {
                 self?.setImage(placeholderImage)
                 return
             }

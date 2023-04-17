@@ -5,7 +5,7 @@
 //  Created by Paola Golombieski Ciarcia on 30/03/23.
 //
 
-import Foundation
+import UIKit
 
 final class AvatarDetailPresenter: AvatarDetailPresenterType {
     weak var viewController: AvatarDetailViewControllerType?
@@ -23,6 +23,7 @@ final class AvatarDetailPresenter: AvatarDetailPresenterType {
 
     private func adaptViewModels() -> AvatarInformationViewModel {
         return AvatarInformationViewModel(avatarImage: viewModel.avatarImageURL,
+                                          placeholderImage: UIImage(asset: Asset.placeholderCharacter),
                                           name: viewModel.avatarName,
                                           status: viewModel.avatarStatus,
                                           specie: viewModel.avatarSpecie,

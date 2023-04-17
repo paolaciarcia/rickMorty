@@ -30,6 +30,7 @@ internal enum Asset {
   internal static let deadStatus = ImageAsset(name: "deadStatus")
   internal static let emptyState = ImageAsset(name: "emptyState")
   internal static let errorImage = ImageAsset(name: "errorImage")
+  internal static let placeholderCharacter = ImageAsset(name: "placeholderCharacter")
   internal static let reloadIcon = ImageAsset(name: "reloadIcon")
   internal static let rickMortyHeader = ImageAsset(name: "rickMortyHeader")
   internal static let unknownStatus = ImageAsset(name: "unknownStatus")
