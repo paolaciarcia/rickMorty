@@ -106,7 +106,7 @@ extension AvatarInformationView: AvatarInformationViewType {
     func show(viewModel: AvatarInformationViewModel) {
         nameLabel.text = viewModel.name
         statusImage.image = viewModel.getIcon
-        informationLabel.text = "\(viewModel.status) - \(viewModel.specie)"
+        informationLabel.text = L10n.detailConnection(viewModel.status, viewModel.specie)
         genderLabel.text = viewModel.gender
         typeLabel.text = viewModel.type
     }

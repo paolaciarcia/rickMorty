@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum Status: String {
-    case alive
-    case dead
-    case unknown
-}
-
 struct AvatarInformationViewModel {
     let avatarImage: String
     let name: String
@@ -23,9 +17,9 @@ struct AvatarInformationViewModel {
 
     var getIcon: UIImage? {
         switch status {
-        case "Alive":
+        case L10n.alive:
             return UIImage(asset: Asset.activeStatus)
-        case "Dead":
+        case L10n.dead:
             return UIImage(asset: Asset.deadStatus)
         default:
             return UIImage(asset: Asset.unknownStatus)

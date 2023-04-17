@@ -18,6 +18,10 @@ internal enum L10n {
   internal static let characters = L10n.tr("LocalizableStrings", "characters", fallback: "Characters")
   /// Dead
   internal static let dead = L10n.tr("LocalizableStrings", "dead", fallback: "Dead")
+  /// %@ - %@
+  internal static func detailConnection(_ p1: Any, _ p2: Any) -> String {
+    return L10n.tr("LocalizableStrings", "detailConnection", String(describing: p1), String(describing: p2), fallback: "%@ - %@")
+  }
   /// Oops! We couldn't find the requested character
   internal static let emptyStateDescription = L10n.tr("LocalizableStrings", "emptyStateDescription", fallback: "Oops! We couldn't find the requested character")
   /// Something went wrong and we couldn't load the characters

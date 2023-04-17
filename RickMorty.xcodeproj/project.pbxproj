@@ -221,9 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				C58A76AD29D5CA1B00B84279 /* AvatarDetailProtocol.swift */,
+				C58A76AF29D5CB0200B84279 /* AvatarDetailPresenter.swift */,
 				C58A76AB29D5C71800B84279 /* AvatarDetailViewController.swift */,
 				C56BF31829A8F74D00A95AB1 /* Views */,
-				C58A76AF29D5CB0200B84279 /* AvatarDetailPresenter.swift */,
 			);
 			path = AvatarDetail;
 			sourceTree = "<group>";
@@ -454,9 +454,9 @@
 		C5D09B8C299AD6F900294178 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C5D09B8F299AD7A000294178 /* LocalizableStrings.strings */,
 				C5B2E52029B77EFA00A6B2AD /* Extensions */,
 				C56BF34629B6330D00A95AB1 /* Animations */,
-				C5D09B8F299AD7A000294178 /* LocalizableStrings.strings */,
 				C5D09B91299AD81F00294178 /* Strings.swift */,
 				C5D09B93299AD8B500294178 /* Assets.swift */,
 				C56BF31B29A8FC1A00A95AB1 /* Colors.swift */,
