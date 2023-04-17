@@ -22,13 +22,7 @@ final class AvatarViewCellTests: QuickSpec {
 
         describe("#init") {
             beforeEach {
-                let viewModel = AvatarCellViewModel(avatarImageURL: "",
-                                                    avatarName: "Rich",
-                                                    avatarStatus: "Dead",
-                                                    avatarSpecie: "Specie",
-                                                    avatarType: "Type",
-                                                    avatarGender: "Gender")
-                sut.show(viewModel: viewModel)
+                sut.show(viewModel: .stub())
             }
             it("has to present correct snapshot") {
                 expect(sut).toEventually(haveValidSnapshot())

@@ -22,34 +22,7 @@ final class AvatarCollectionViewTests: QuickSpec {
 
         describe("show(viewModel:)") {
             beforeEach {
-                let cells = [
-                    AvatarCellViewModel(avatarImageURL: "",
-                                        avatarName: "Rich",
-                                        avatarStatus: "Dead",
-                                        avatarSpecie: "Specie",
-                                        avatarType: "Type",
-                                        avatarGender: "Gender"),
-                    AvatarCellViewModel(avatarImageURL: "",
-                                        avatarName: "Rich",
-                                        avatarStatus: "Dead",
-                                        avatarSpecie: "Specie",
-                                        avatarType: "Type",
-                                        avatarGender: "Gender"),
-                    AvatarCellViewModel(avatarImageURL: "",
-                                        avatarName: "Rich",
-                                        avatarStatus: "Dead",
-                                        avatarSpecie: "Specie",
-                                        avatarType: "Type",
-                                        avatarGender: "Gender"),
-                    AvatarCellViewModel(avatarImageURL: "",
-                                        avatarName: "Rich",
-                                        avatarStatus: "Dead",
-                                        avatarSpecie: "Specie",
-                                        avatarType: "Type",
-                                        avatarGender: "Gender")
-                ]
-
-                let avatarListViewModel = AvatarListViewModel(cells: cells)
+                let avatarListViewModel = AvatarListViewModel(cells: [.stub(), .stub(), .stub(), .stub()])
                 sut.show(viewModel: avatarListViewModel)
             }
 
