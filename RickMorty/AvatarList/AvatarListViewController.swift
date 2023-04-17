@@ -58,10 +58,8 @@ final class AvatarListViewController: UIViewController {
             self?.presenter.loadAvatarList()
         }
 
-        contentView.fetchNewItems = { [weak self] isFetching in
-            if isFetching {
-                self?.presenter.loadAvatarList()
-            }
+        contentView.fetchNewItems = { [weak self] indexPath in
+            self?.presenter.fetchMoreItems(with: indexPath)
         }
     }
 

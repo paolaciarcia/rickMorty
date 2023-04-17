@@ -15,10 +15,10 @@ enum AvatarListState: Equatable {
 }
 
 struct AvatarListViewModel: Equatable {
-    var cells: [AvatarCellViewModel]
-    var filteredName: String?
-    var filteredStatus: String?
-    var isRefreshing: Bool = false
+    var cells: [AvatarCellViewModel] = []
+    var filteredName: String? = ""
+    var filteredStatus: String? = ""
+    var isFetching: Bool = false
 }
 
 struct AvatarCellViewModel: Equatable {

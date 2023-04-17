@@ -10,15 +10,15 @@ import UIKit
 
 final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     var didSelect: ((Int) -> Void)?
-    var shouldFetchNewItems: ((Bool) -> Void)?
+    var shouldFetchNewItems: ((Int) -> Void)?
 
-    private var avatarList: [AvatarCellViewModel]
+    private var avatarList: AvatarListViewModel
 
-    init(avatarList: [AvatarCellViewModel] = []) {
+    init(avatarList: AvatarListViewModel = AvatarListViewModel()) {
         self.avatarList = avatarList
     }
 
-    func setupAvatarList(avatarList: [AvatarCellViewModel]) {
+    func setupAvatarList(avatarList: AvatarListViewModel) {
         self.avatarList = avatarList
     }
 
@@ -27,7 +27,7 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return avatarList.count
+        return avatarList.cells.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -35,16 +35,12 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
 
-            cell.show(viewModel: avatarList[indexPath.item])
+        cell.show(viewModel: avatarList.cells[indexPath.item])
             return cell
         }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == avatarList.count - 1 {
-            shouldFetchNewItems?(true)
-        } else {
-            shouldFetchNewItems?(false)
-        }
+        shouldFetchNewItems?(indexPath.row)
     }
 }
 
@@ -83,6 +79,8 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
                                                                                for: indexPath) as? AvatarIndicatorReusableView else {
                 return UICollectionReusableView()
             }
+
+            footer.show(viewModel: avatarList)
             return footer
         }
         return UICollectionReusableView()

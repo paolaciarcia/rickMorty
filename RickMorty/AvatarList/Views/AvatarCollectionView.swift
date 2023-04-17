@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class AvatarCollectionView: UIView {
-    var shouldFetchNewItems: ((Bool) -> Void)?
+    var shouldFetchNewItems: ((Int) -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
     private let dataSource = AvatarDataSource()
@@ -64,12 +64,12 @@ final class AvatarCollectionView: UIView {
             self?.didSelectItem?(cell)
         }
 
-        dataSource.shouldFetchNewItems = { [weak self] isFetching in
-            self?.shouldFetchNewItems?(isFetching)
+        dataSource.shouldFetchNewItems = { [weak self] indexPath in
+            self?.shouldFetchNewItems?(indexPath)
         }
     }
 
-    func show(viewModel: [AvatarCellViewModel]) {
+    func show(viewModel: AvatarListViewModel) {
         dataSource.setupAvatarList(avatarList: viewModel)
         collectionView.reloadData()
     }

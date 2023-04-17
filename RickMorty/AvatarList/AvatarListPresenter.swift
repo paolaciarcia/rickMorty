@@ -24,10 +24,17 @@ final class AvatarListPresenter: AvatarListPresenterType {
         self.viewModel = viewModel
     }
 
-    func loadAvatarList() {
-        guard currentPage < totalPages else { return }
-        viewController?.show(state: .loading)
+    func fetchMoreItems(with indexPath: Int) {
+        guard indexPath == viewModel.cells.count - 1 && currentPage < totalPages else {
+            viewModel.isFetching = false
+            return
+        }
+        viewModel.isFetching = true
+        loadAvatarList()
+    }
 
+    func loadAvatarList() {
+        viewController?.show(state: .loading)
         currentPage += 1
 
         repository.fetchAvatar(pageIndex: currentPage,

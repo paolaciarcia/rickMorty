@@ -8,10 +8,8 @@
 import UIKit
 
 final class AvatarIndicatorReusableView: UICollectionReusableView {
-
     private let indicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
-        view.startAnimating()
         view.style = .medium
         view.layoutIfNeeded()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -41,5 +39,13 @@ final class AvatarIndicatorReusableView: UICollectionReusableView {
             indicatorView.centerXAnchor.constraint(equalTo: centerXAnchor),
             indicatorView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+
+    func show(viewModel: AvatarListViewModel) {
+        if viewModel.isFetching {
+            indicatorView.startAnimating()
+        } else {
+            indicatorView.stopAnimating()
+        }
     }
 }
