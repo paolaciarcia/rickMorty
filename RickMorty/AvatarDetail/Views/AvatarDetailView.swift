@@ -71,7 +71,7 @@ final class AvatarDetailView: UIView {
     }
 }
 
-extension AvatarDetailView: AvatarInformationViewType {
+extension AvatarDetailView: AvatarDetailViewType {
     func show(viewModel: AvatarInformationViewModel) {
         avatarImage.downloadImage(url: viewModel.avatarImage,
                                   placeholderImage: viewModel.placeholderImage)

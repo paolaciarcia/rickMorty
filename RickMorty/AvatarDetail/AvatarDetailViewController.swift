@@ -8,10 +8,10 @@
 import UIKit
 
 final class AvatarDetailViewController: UIViewController {
-    private let contentView: AvatarDetailView
+    private let contentView: AvatarDetailViewType
     private let presenter: AvatarDetailPresenterType
 
-    init(contentView: AvatarDetailView = AvatarDetailView(),
+    init(contentView: AvatarDetailViewType = AvatarDetailView(),
          presenter: AvatarDetailPresenterType) {
         self.contentView = contentView
         self.presenter = presenter

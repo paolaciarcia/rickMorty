@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AvatarInformationViewModel {
+struct AvatarInformationViewModel: Equatable {
     let avatarImage: String
     let placeholderImage: UIImage?
     let name: String

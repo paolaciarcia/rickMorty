@@ -6,10 +6,6 @@
 //
 import Foundation
 
-protocol AvatarInformationViewType {
-    func show(viewModel: AvatarInformationViewModel)
-}
-
 protocol AvatarListServiceProtocol {
     func requestAvatarList<T: Decodable>(method: String,
                                          url urlString: String,
