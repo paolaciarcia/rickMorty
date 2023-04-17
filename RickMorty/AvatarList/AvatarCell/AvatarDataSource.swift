@@ -10,7 +10,7 @@ import UIKit
 
 final class AvatarDataSource: NSObject, UICollectionViewDataSource {
     var didSelect: ((Int) -> Void)?
-    var shouldFetchNewItems: ((Int) -> Void)?
+    var shouldFetchNewItems: (() -> Void)?
 
     private var avatarList: AvatarListViewModel
 
@@ -40,7 +40,8 @@ final class AvatarDataSource: NSObject, UICollectionViewDataSource {
         }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        shouldFetchNewItems?(indexPath.row)
+        guard indexPath.item == avatarList.cells.count - 1 && avatarList.hasMorePages else { return }
+        shouldFetchNewItems?()
     }
 }
 
@@ -95,6 +96,11 @@ extension AvatarDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
+
+        guard avatarList.hasMorePages else {
+            return CGSize(width: width, height: 10)
+        }
+
         return CGSize(width: width, height: height * 0.10)
     }
 }

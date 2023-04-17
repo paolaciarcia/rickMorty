@@ -10,7 +10,7 @@ import UIKit
 final class AvatarListView: UIView {
     var didSelectItem: ((Int) -> Void)?
     var didSelectReloadList: (() -> Void)?
-    var fetchNewItems: ((Int) -> Void)?
+    var fetchNewItems: (() -> Void)?
 
     private let readyView: AvatarCollectionView = {
         let view = AvatarCollectionView()
@@ -54,8 +54,8 @@ final class AvatarListView: UIView {
             self.didSelectItem?(item)
         }
 
-        readyView.shouldFetchNewItems = { indexPath in
-            self.fetchNewItems?(indexPath)
+        readyView.shouldFetchNewItems = {
+            self.fetchNewItems?()
         }
 
         errorView.didSelectReloadList = {

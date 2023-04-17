@@ -34,7 +34,7 @@ protocol AvatarListPresenterType: AnyObject {
     func loadAvatarList()
     func getAvatarDetail(index: Int)
     func updateFilterOptions(name: String?, status: String?)
-    func fetchMoreItems(with indexPath: Int)
+    func fetchMoreItems()
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {

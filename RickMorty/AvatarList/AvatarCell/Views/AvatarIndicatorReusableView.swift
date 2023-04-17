@@ -46,7 +46,6 @@ final class AvatarIndicatorReusableView: UICollectionReusableView {
             indicatorView.startAnimating()
         } else {
             indicatorView.stopAnimating()
-            indicatorView.isHidden = true
         }
     }
 }

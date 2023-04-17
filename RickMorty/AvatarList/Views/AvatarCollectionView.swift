@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class AvatarCollectionView: UIView {
-    var shouldFetchNewItems: ((Int) -> Void)?
+    var shouldFetchNewItems: (() -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
     private let dataSource = AvatarDataSource()
@@ -64,8 +64,8 @@ final class AvatarCollectionView: UIView {
             self?.didSelectItem?(cell)
         }
 
-        dataSource.shouldFetchNewItems = { [weak self] indexPath in
-            self?.shouldFetchNewItems?(indexPath)
+        dataSource.shouldFetchNewItems = { [weak self] in
+            self?.shouldFetchNewItems?()
         }
     }
 

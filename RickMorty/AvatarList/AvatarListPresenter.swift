@@ -24,9 +24,12 @@ final class AvatarListPresenter: AvatarListPresenterType {
         self.viewModel = viewModel
     }
 
-    func fetchMoreItems(with indexPath: Int) {
-        guard indexPath == viewModel.cells.count - 1 && currentPage < totalPages else {
-            print("viewModel.isFetching = false")
+    func fetchMoreItems() {
+        viewModel.hasMorePages = currentPage < totalPages
+
+        guard viewModel.hasMorePages else {
+            viewModel.isFetching = false
+            viewController?.show(state: .ready(viewModel: viewModel))
             return
         }
         viewModel.isFetching = true

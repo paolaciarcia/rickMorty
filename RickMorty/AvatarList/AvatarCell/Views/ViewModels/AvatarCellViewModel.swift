@@ -18,7 +18,8 @@ struct AvatarListViewModel: Equatable {
     var cells: [AvatarCellViewModel] = []
     var filteredName: String? = ""
     var filteredStatus: String? = ""
-    var isFetching: Bool = false
+    var isFetching: Bool = true
+    var hasMorePages: Bool = true
 }
 
 struct AvatarCellViewModel: Equatable {
