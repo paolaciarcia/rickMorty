@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 final class AvatarCollectionView: UIView {
-//    var didSelectReloadList: (() -> Void)?
-
-    var shouldRefreshItems: ((Bool) -> Void)?
+    var shouldFetchNewItems: ((Bool) -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
     private let dataSource = AvatarDataSource()
@@ -66,8 +64,8 @@ final class AvatarCollectionView: UIView {
             self?.didSelectItem?(cell)
         }
 
-        dataSource.shouldRefreshItems = { [weak self] isRefreshing in
-            self?.shouldRefreshItems?(isRefreshing)
+        dataSource.shouldFetchNewItems = { [weak self] isFetching in
+            self?.shouldFetchNewItems?(isFetching)
         }
     }
 

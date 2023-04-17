@@ -18,10 +18,10 @@ struct AvatarListViewModel: Equatable {
     var cells: [AvatarCellViewModel]
     var filteredName: String?
     var filteredStatus: String?
+    var isRefreshing: Bool = false
 }
 
 struct AvatarCellViewModel: Equatable {
-//    let id: Int
     let avatarImageURL: String
     let avatarName: String
     let avatarStatus: String

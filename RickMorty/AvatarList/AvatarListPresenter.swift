@@ -25,11 +25,10 @@ final class AvatarListPresenter: AvatarListPresenterType {
     }
 
     func loadAvatarList() {
+        guard currentPage < totalPages else { return }
         viewController?.show(state: .loading)
 
-        if currentPage < totalPages {
-            currentPage += 1
-        }
+        currentPage += 1
 
         repository.fetchAvatar(pageIndex: currentPage,
                                name: viewModel.filteredName,

@@ -45,7 +45,6 @@ final class AvatarListViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        presenter.loadAvatarList()
         super.viewWillAppear(animated)
         setupNavigation()
     }
@@ -59,8 +58,8 @@ final class AvatarListViewController: UIViewController {
             self?.presenter.loadAvatarList()
         }
 
-        contentView.didRefrashItems = { [weak self] isRefreshing in
-            if isRefreshing {
+        contentView.fetchNewItems = { [weak self] isFetching in
+            if isFetching {
                 self?.presenter.loadAvatarList()
             }
         }
@@ -81,7 +80,7 @@ final class AvatarListViewController: UIViewController {
 
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             if state == .error || state == .loading {
                 self?.navigationController?.isNavigationBarHidden = true
             } else {

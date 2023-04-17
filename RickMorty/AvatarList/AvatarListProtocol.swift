@@ -38,6 +38,7 @@ protocol AvatarListPresenterType: AnyObject {
     func loadAvatarList()
     func getAvatarDetail(index: Int)
     func updateFilterOptions(name: String?, status: String?)
+//    func setupActivityIndicator(shouldShowLoading: Bool)
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {
