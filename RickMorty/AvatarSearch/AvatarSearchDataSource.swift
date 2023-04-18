@@ -11,7 +11,6 @@ final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
     var selectedStatus: ((String?) -> Void)?
 
     private var statusArray = ["Dead", "Alive", "Unknown"]
-    private var selectedItems: [String] = []
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         statusArray.count
@@ -28,7 +27,6 @@ final class AvatarSearchDataSource: NSObject, UICollectionViewDataSource {
 }
 
 extension AvatarSearchDataSource: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = statusArray[indexPath.item]
             selectedStatus?(item)

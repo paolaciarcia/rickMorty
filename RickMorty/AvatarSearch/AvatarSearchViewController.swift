@@ -62,7 +62,7 @@ final class AvatarSearchViewController: UIViewController {
 }
 
 extension AvatarSearchViewController: AvatarSearchViewControllerType {
-    func filterAvatar(name: String?, status: String?) {
+    func filterAvatar(name: String, status: String) {
         filterDelegate?.didUpdateFilterOptions(name: name, status: status)
         delegate?.showFilteredAvatar()
     }

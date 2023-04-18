@@ -8,8 +8,6 @@
 import UIKit
 
 final class AvatarSearchViewCell: UICollectionViewCell {
-    var didSelectStatus: ((_ isSelected: Bool) -> Void)?
-
     override var isSelected: Bool {
         didSet {
             backgroundColor = isSelected ? .secondarySystemFill : .systemGray4

@@ -54,13 +54,20 @@ final class AvatarListPresenter: AvatarListPresenterType {
         }
     }
 
+    func reloadAvatarList() {
+        viewModel.filteredName = ""
+        viewModel.filteredStatus = ""
+        cleanAvatarList()
+        loadAvatarList()
+    }
+
     func getAvatarDetail(index: Int) {
         if let cellViewModel = viewModel.cells[safe: index] {
             viewController?.redirectToAvatarDetail(with: cellViewModel)
         }
     }
 
-    func updateFilterOptions(name: String?, status: String?) {
+    func updateFilterOptions(name: String, status: String) {
         viewModel.filteredName = name
         viewModel.filteredStatus = status
         cleanAvatarList()

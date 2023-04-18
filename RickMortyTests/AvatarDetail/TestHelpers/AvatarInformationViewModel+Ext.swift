@@ -9,11 +9,11 @@ import UIKit
 @testable import RickMorty
 
 extension AvatarInformationViewModel {
-    static func stub() -> AvatarInformationViewModel {
+    static func stub(status: String = "Dead") -> AvatarInformationViewModel {
         return AvatarInformationViewModel(avatarImage: "",
                                           placeholderImage: UIImage(asset: Asset.placeholderCharacter),
                                           name: "Voiceoverian",
-                                          status: "Dead",
+                                          status: status,
                                           specie: "Alien",
                                           gender: "Male",
                                           type: "Parasite")

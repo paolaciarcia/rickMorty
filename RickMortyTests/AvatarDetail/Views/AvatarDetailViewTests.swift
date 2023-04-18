@@ -20,9 +20,31 @@ final class AvatarDetailViewTests: QuickSpec {
         }
 
         describe("#AvatarInformationViewType") {
-            context("#show(viewModel:)") {
+            context("#show(viewModel:) when status is Dead") {
                 beforeEach {
                     sut.show(viewModel: .stub())
+                    sut.frame.size = CGSize(width: 375, height: 600)
+                }
+
+                it("has to present correct snapshot") {
+                    expect(sut).toAlways(haveValidSnapshot())
+                }
+            }
+
+            context("#show(viewModel:) when status is Alive") {
+                beforeEach {
+                    sut.show(viewModel: .stub(status: "Alive"))
+                    sut.frame.size = CGSize(width: 375, height: 600)
+                }
+
+                it("has to present correct snapshot") {
+                    expect(sut).toAlways(haveValidSnapshot())
+                }
+            }
+
+            context("#show(viewModel:) when status is Unknown") {
+                beforeEach {
+                    sut.show(viewModel: .stub(status: "Unknown"))
                     sut.frame.size = CGSize(width: 375, height: 600)
                 }
 

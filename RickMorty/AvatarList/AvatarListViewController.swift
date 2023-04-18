@@ -55,7 +55,7 @@ final class AvatarListViewController: UIViewController {
         }
 
         contentView.didSelectReloadList = { [weak self] in
-            self?.presenter.loadAvatarList()
+            self?.presenter.reloadAvatarList()
         }
 
         contentView.fetchNewItems = { [weak self] in
@@ -95,7 +95,7 @@ extension AvatarListViewController: AvatarListViewControllerType {
 }
 
 extension AvatarListViewController: AvatarSearchFilterDelegate {
-    func didUpdateFilterOptions(name: String?, status: String?) {
+    func didUpdateFilterOptions(name: String, status: String) {
         presenter.updateFilterOptions(name: name, status: status)
     }
 }

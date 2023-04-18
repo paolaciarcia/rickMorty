@@ -60,7 +60,6 @@ final class AvatarSearchView: UIView {
         collection.register(AvatarSearchViewCell.self, forCellWithReuseIdentifier: String(describing: AvatarSearchViewCell.self))
         collection.dataSource = dataSource
         collection.delegate = dataSource
-//        collection.allowsMultipleSelection = true
         collection.backgroundColor = .systemGray5
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection

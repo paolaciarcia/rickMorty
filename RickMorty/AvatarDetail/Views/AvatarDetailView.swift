@@ -13,8 +13,7 @@ final class AvatarDetailView: UIView {
         let image = UIImageView()
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        image.layer.borderWidth = 2
-        image.layer.borderColor = CGColor(red: 0, green: 100, blue: 0, alpha: 100)
+        image.layer.borderWidth = 3
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -22,8 +21,7 @@ final class AvatarDetailView: UIView {
     private let rectangleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.secondarySystemFill
-        view.layer.borderWidth = 2
-        view.layer.borderColor = CGColor(red: 0, green: 100, blue: 0, alpha: 100)
+        view.layer.borderWidth = 4
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -76,5 +74,7 @@ extension AvatarDetailView: AvatarDetailViewType {
         avatarImage.downloadImage(url: viewModel.avatarImage,
                                   placeholderImage: viewModel.placeholderImage)
         informationView.show(viewModel: viewModel)
+        avatarImage.layer.borderColor = viewModel.getStatusColor
+        rectangleView.layer.borderColor = viewModel.getStatusColor
     }
 }

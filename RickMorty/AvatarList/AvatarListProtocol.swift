@@ -15,8 +15,8 @@ protocol AvatarListServiceProtocol {
 
 protocol AvatarListRepositoryType {
     func fetchAvatar(pageIndex: Int,
-                     name: String?,
-                     status: String?,
+                     name: String,
+                     status: String,
                      completion: @escaping (Result<AvatarList, Error>) -> Void)
 }
 
@@ -33,8 +33,9 @@ protocol AvatarListPresenterType: AnyObject {
     var viewController: AvatarListViewControllerType? { get set }
     func loadAvatarList()
     func getAvatarDetail(index: Int)
-    func updateFilterOptions(name: String?, status: String?)
+    func updateFilterOptions(name: String, status: String)
     func fetchMoreItems()
+    func reloadAvatarList()
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {

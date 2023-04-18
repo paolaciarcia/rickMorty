@@ -11,12 +11,6 @@ import Network
 final class AvatarListCoordinator {
     var navigationController: UINavigationController
 
-    var currentViewController: UIViewController? {
-        navigationController.children.last
-    }
-
-//    weak var currentActionSheet: UIActionSheet?
-
     private let viewModel: AvatarListViewModel
 
     init(navigationController: UINavigationController,
@@ -30,7 +24,6 @@ final class AvatarListCoordinator {
         let viewController = AvatarListViewController(presenter: presenter)
         presenter.viewController = viewController
         viewController.delegate = self
-//        currentViewController = viewController
         navigationController.show(viewController, sender: nil)
     }
     
@@ -40,7 +33,6 @@ final class AvatarListCoordinator {
         presenter.viewController = viewController
         viewController.delegate = self
         viewController.filterDelegate = filterDelegate
-//        currentViewController = viewController
         navigationController.pushViewController(viewController, animated: true)
     }
 }
@@ -50,7 +42,6 @@ extension AvatarListCoordinator: AvatarListViewControllerDelegate {
         let presenter = AvatarDetailPresenter(viewModel: viewModel)
         let viewController = AvatarDetailViewController(presenter: presenter)
         presenter.viewController = viewController
-//        currentViewController = viewController
         navigationController.pushViewController(viewController, animated: true)
     }
 

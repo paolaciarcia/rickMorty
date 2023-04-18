@@ -22,6 +22,6 @@ final class AvatarSearchPresenter: AvatarSearchPresenterType {
     }
 
     func filterAvatar() {
-        viewController?.filterAvatar(name: filterName, status: filterStatus)
+        viewController?.filterAvatar(name: filterName ?? "", status: filterStatus ?? "")
     }
 }

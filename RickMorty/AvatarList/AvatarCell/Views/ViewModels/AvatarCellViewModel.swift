@@ -16,8 +16,8 @@ enum AvatarListState: Equatable {
 
 struct AvatarListViewModel: Equatable {
     var cells: [AvatarCellViewModel] = []
-    var filteredName: String? = ""
-    var filteredStatus: String? = ""
+    var filteredName: String = ""
+    var filteredStatus: String = ""
     var isFetching: Bool = true
     var hasMorePages: Bool = true
 }
