@@ -39,7 +39,7 @@ final class AvatarSearchViewTests: QuickSpec {
         describe("#textFieldInput") {
             var textFieldInputCount = 0
             var expectedText: String?
-            
+
             beforeEach {
                 let textField = sut.view(withId: "textFieldSearchName") as? UITextField
                 textField?.text = "rick"
