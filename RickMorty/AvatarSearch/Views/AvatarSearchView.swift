@@ -33,6 +33,7 @@ final class AvatarSearchView: UIView {
         textField.layer.cornerRadius = 4
         textField.clearButtonMode = .whileEditing
         textField.delegate = self
+        textField.accessibilityIdentifier = "textFieldSearchName"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

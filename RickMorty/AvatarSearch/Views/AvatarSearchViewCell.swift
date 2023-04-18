@@ -15,7 +15,7 @@ final class AvatarSearchViewCell: UICollectionViewCell {
         }
     }
 
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
         label.textAlignment = .center

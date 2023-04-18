@@ -21,12 +21,26 @@ final class AvatarSearchViewCellTests: QuickSpec {
         }
 
         describe("#init") {
-            beforeEach {
-                sut.nameLabel.text = "Alive"
+            context("when status is selected") {
+                beforeEach {
+                    sut.isSelected = true
+                    sut.show(avatarStatus: "Dead")
+                }
+
+                it("has to present correct snapshot") {
+                    expect(sut).to(haveValidSnapshot())
+                }
             }
 
-            it("has to present correct snapshot") {
-                expect(sut).to(recordSnapshot())
+            context("when status is not selected") {
+                beforeEach {
+                    sut.isSelected = false
+                    sut.show(avatarStatus: "Dead")
+                }
+
+                it("has to present correct snapshot") {
+                    expect(sut).to(haveValidSnapshot())
+                }
             }
         }
     }
