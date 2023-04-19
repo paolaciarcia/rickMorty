@@ -55,7 +55,11 @@ final class AvatarListViewController: UIViewController {
         }
 
         contentView.didSelectReloadList = { [weak self] in
-            self?.presenter.reloadAvatarList()
+            self?.presenter.loadAvatarList()
+        }
+
+        contentView.didSelectNewSearch = { [weak self] in
+            self?.presenter.newSearchFromAvatarList()
         }
 
         contentView.fetchNewItems = { [weak self] in
@@ -80,12 +84,22 @@ final class AvatarListViewController: UIViewController {
 extension AvatarListViewController: AvatarListViewControllerType {
     func show(state: AvatarListState) {
         DispatchQueue.main.async { [weak self] in
-            if state == .error || state == .loading {
-                self?.navigationController?.isNavigationBarHidden = true
-            } else {
+            switch state {
+            case .ready:
                 self?.navigationController?.isNavigationBarHidden = false
+            case .loading, .error, .emptyState:
+                self?.navigationController?.isNavigationBarHidden = true
             }
+
             self?.contentView.show(state: state)
+
+
+//            if state == .error || state == .loading || state == .emptyState {
+//                self?.navigationController?.isNavigationBarHidden = true
+//            } else {
+//                self?.navigationController?.isNavigationBarHidden = false
+//            }
+//            self?.contentView.show(state: state)
         }
     }
 

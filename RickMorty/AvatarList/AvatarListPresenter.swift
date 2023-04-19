@@ -48,13 +48,13 @@ final class AvatarListPresenter: AvatarListPresenterType {
                 self?.totalPages = avatarResult.info.pages
                 self?.avatarList.append(contentsOf: avatarResult.results)
                 self?.adaptAvatar()
-            case .failure:
-                self?.viewController?.show(state: .error)
+            case .failure(let error):
+                self?.handleError(error: error)
             }
         }
     }
 
-    func reloadAvatarList() {
+    func newSearchFromAvatarList() {
         viewModel.filteredName = ""
         viewModel.filteredStatus = ""
         cleanAvatarList()
@@ -92,5 +92,13 @@ final class AvatarListPresenter: AvatarListPresenterType {
         currentPage = 0
         totalPages = 1
         avatarList.removeAll()
+    }
+
+    private func handleError(error: APIServiceError) {
+        if error == .notFound {
+            viewController?.show(state: .emptyState)
+        } else {
+            viewController?.show(state: .error)
+        }
     }
 }

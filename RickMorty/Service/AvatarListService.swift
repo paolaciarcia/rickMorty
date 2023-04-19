@@ -12,6 +12,8 @@ enum APIServiceError: Error {
     case invalidURL
     case requestError
     case jsonData
+    case notFound
+    case decodeFailure
 }
 
 final class AvatarListService: AvatarListServiceProtocol {
@@ -20,15 +22,24 @@ final class AvatarListService: AvatarListServiceProtocol {
     func requestAvatarList<T: Decodable>(method: String,
                                          url urlString: String,
                                          parameters: [String: Any],
-                                         completion: @escaping (Result<T, Error>) -> Void) {
+                                         completion: @escaping (Result<T, APIServiceError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(APIServiceError.invalidURL))
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             if error != nil {
                 completion(.failure(APIServiceError.requestError))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return
+            }
+
+            guard httpResponse.statusCode != 404 else {
+                completion(.failure(APIServiceError.notFound))
                 return
             }
 
@@ -40,8 +51,9 @@ final class AvatarListService: AvatarListServiceProtocol {
                 let decoder = JSONDecoder()
                 let decoded = try decoder.decode(T.self, from: jsonData)
                 completion(.success(decoded))
-            } catch let error {
-                completion(.failure(error))
+            } catch {
+                completion(.failure(APIServiceError.decodeFailure))
+                print("statusCode\(httpResponse.statusCode)")
             }
         }.resume()
     }

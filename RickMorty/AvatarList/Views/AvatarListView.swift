@@ -10,6 +10,7 @@ import UIKit
 final class AvatarListView: UIView {
     var didSelectItem: ((Int) -> Void)?
     var didSelectReloadList: (() -> Void)?
+    var didSelectNewSearch: (() -> Void)?
     var fetchNewItems: (() -> Void)?
 
     private let readyView: AvatarCollectionView = {
@@ -28,6 +29,13 @@ final class AvatarListView: UIView {
 
     private let errorView: AvatarErrorView = {
         let view = AvatarErrorView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let emptyStateView: AvatarEmptyStateView = {
+        let view = AvatarEmptyStateView()
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -61,12 +69,17 @@ final class AvatarListView: UIView {
         errorView.didSelectReloadList = {
             self.didSelectReloadList?()
         }
+
+        emptyStateView.didSelectNewSearch = {
+            self.didSelectNewSearch?()
+        }
     }
 
     private func setupViewHierarchy() {
         addSubview(loadingView)
         addSubview(readyView)
         addSubview(errorView)
+        addSubview(emptyStateView)
     }
 
     private func setupConstraints() {
@@ -84,7 +97,12 @@ final class AvatarListView: UIView {
             errorView.topAnchor.constraint(equalTo: topAnchor),
             errorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             errorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            errorView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            emptyStateView.topAnchor.constraint(equalTo: topAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyStateView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
@@ -97,12 +115,20 @@ extension AvatarListView: AvatarListViewType {
             readyView.show(viewModel: viewModel)
             loadingView.isHidden = true
             errorView.isHidden = true
+            emptyStateView.isHidden = true
         case .loading:
             loadingView.isHidden = false
             readyView.isHidden = true
             errorView.isHidden = true
+            emptyStateView.isHidden = true
         case .error:
             errorView.isHidden = false
+            readyView.isHidden = true
+            loadingView.isHidden = true
+            emptyStateView.isHidden = true
+        case .emptyState:
+            emptyStateView.isHidden = false
+            errorView.isHidden = true
             readyView.isHidden = true
             loadingView.isHidden = true
         }

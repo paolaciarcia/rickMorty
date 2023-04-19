@@ -12,6 +12,7 @@ enum AvatarListState: Equatable {
     case ready(viewModel: AvatarListViewModel)
     case loading
     case error
+    case emptyState
 }
 
 struct AvatarListViewModel: Equatable {

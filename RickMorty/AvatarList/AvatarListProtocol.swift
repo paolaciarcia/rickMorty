@@ -10,14 +10,14 @@ protocol AvatarListServiceProtocol {
     func requestAvatarList<T: Decodable>(method: String,
                                          url urlString: String,
                                          parameters: [String: Any],
-                                         completion: @escaping (Result<T, Error>) -> Void)
+                                         completion: @escaping (Result<T, APIServiceError>) -> Void)
 }
 
 protocol AvatarListRepositoryType {
     func fetchAvatar(pageIndex: Int,
                      name: String,
                      status: String,
-                     completion: @escaping (Result<AvatarList, Error>) -> Void)
+                     completion: @escaping (Result<AvatarList, APIServiceError>) -> Void)
 }
 
 protocol AvatarListViewType {
@@ -35,7 +35,7 @@ protocol AvatarListPresenterType: AnyObject {
     func getAvatarDetail(index: Int)
     func updateFilterOptions(name: String, status: String)
     func fetchMoreItems()
-    func reloadAvatarList()
+    func newSearchFromAvatarList()
 }
 
 protocol AvatarListViewControllerDelegate: AnyObject {
