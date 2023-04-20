@@ -19,9 +19,9 @@ final class AvatarCollectionView: UIView {
         collection.register(AvatarViewCell.self,
                             forCellWithReuseIdentifier: String(describing: AvatarViewCell.self))
 
-        collection.register(AvatarIndicatorReusableView.self,
+        collection.register(AvatarActivityIndicatorReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                            withReuseIdentifier: String(describing: AvatarIndicatorReusableView.self))
+                            withReuseIdentifier: String(describing: AvatarActivityIndicatorReusableView.self))
 
         collection.register(AvatarHeaderReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,

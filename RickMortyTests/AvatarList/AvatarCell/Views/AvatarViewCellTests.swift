@@ -25,7 +25,7 @@ final class AvatarViewCellTests: QuickSpec {
                 sut.show(viewModel: .stub())
             }
             it("has to present correct snapshot") {
-                expect(sut).toEventually(haveValidSnapshot())
+                expect(sut).toAlways(haveValidSnapshot())
             }
         }
     }

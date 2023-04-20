@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AvatarIndicatorReusableView: UICollectionReusableView {
+final class AvatarActivityIndicatorReusableView: UICollectionReusableView {
     private let indicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .medium
