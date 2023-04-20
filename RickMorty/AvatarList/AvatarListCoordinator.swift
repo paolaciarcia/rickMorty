@@ -26,15 +26,6 @@ final class AvatarListCoordinator {
         viewController.delegate = self
         navigationController.show(viewController, sender: nil)
     }
-    
-    private func redirectToAvatarFilter(filterDelegate: AvatarSearchFilterDelegate) {
-        let presenter = AvatarSearchPresenter()
-        let viewController = AvatarSearchViewController(presenter: presenter)
-        presenter.viewController = viewController
-        viewController.delegate = self
-        viewController.filterDelegate = filterDelegate
-        navigationController.pushViewController(viewController, animated: true)
-    }
 }
 
 extension AvatarListCoordinator: AvatarListViewControllerDelegate {
@@ -46,7 +37,12 @@ extension AvatarListCoordinator: AvatarListViewControllerDelegate {
     }
 
     func openAvatarFilter(filterDelegate: AvatarSearchFilterDelegate) {
-        redirectToAvatarFilter(filterDelegate: filterDelegate)
+        let presenter = AvatarSearchPresenter()
+        let viewController = AvatarSearchViewController(presenter: presenter)
+        presenter.viewController = viewController
+        viewController.delegate = self
+        viewController.filterDelegate = filterDelegate
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
 
