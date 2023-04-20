@@ -12,7 +12,7 @@ final class AvatarCollectionView: UIView {
     var shouldFetchNewItems: (() -> Void)?
     var didSelectItem: ((Int) -> Void)?
 
-    private let dataSource = AvatarDataSource()
+    private let dataSource: AvatarDataSource
 
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -34,7 +34,8 @@ final class AvatarCollectionView: UIView {
         return collection
     }()
 
-    init() {
+    init(dataSource: AvatarDataSource = AvatarDataSource()) {
+        self.dataSource = dataSource
         super.init(frame: .zero)
         setup()
     }
