@@ -66,7 +66,7 @@
 		C58A772C29F171CA00B84279 /* AvatarSearchPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A772B29F171CA00B84279 /* AvatarSearchPresenterSpy.swift */; };
 		C58A772E29F1734000B84279 /* AvatarSearchViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A772D29F1734000B84279 /* AvatarSearchViewControllerDelegateSpy.swift */; };
 		C58A773029F173B800B84279 /* AvatarSearchFilterDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A772F29F173B800B84279 /* AvatarSearchFilterDelegateSpy.swift */; };
-		C58A773229F17E6000B84279 /* AvatarSearchViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A773129F17E6000B84279 /* AvatarSearchViewSpy.swift */; };
+		C58A773229F17E6000B84279 /* AvatarSearchViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A773129F17E6000B84279 /* AvatarSearchViewControllerSpy.swift */; };
 		C5B2E52229B77F0C00A6B2AD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */; };
 		C5D09B772996DC6C00294178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D09B762996DC6C00294178 /* AppDelegate.swift */; };
 		C5D09B7E2996DC6C00294178 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D09B7C2996DC6C00294178 /* Main.storyboard */; };
@@ -151,7 +151,7 @@
 		C58A772B29F171CA00B84279 /* AvatarSearchPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchPresenterSpy.swift; sourceTree = "<group>"; };
 		C58A772D29F1734000B84279 /* AvatarSearchViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		C58A772F29F173B800B84279 /* AvatarSearchFilterDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchFilterDelegateSpy.swift; sourceTree = "<group>"; };
-		C58A773129F17E6000B84279 /* AvatarSearchViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewSpy.swift; sourceTree = "<group>"; };
+		C58A773129F17E6000B84279 /* AvatarSearchViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSearchViewControllerSpy.swift; sourceTree = "<group>"; };
 		C5B2E52129B77F0C00A6B2AD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		C5D09B732996DC6C00294178 /* RickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D09B762996DC6C00294178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -421,7 +421,7 @@
 				C58A772B29F171CA00B84279 /* AvatarSearchPresenterSpy.swift */,
 				C58A772D29F1734000B84279 /* AvatarSearchViewControllerDelegateSpy.swift */,
 				C58A772F29F173B800B84279 /* AvatarSearchFilterDelegateSpy.swift */,
-				C58A773129F17E6000B84279 /* AvatarSearchViewSpy.swift */,
+				C58A773129F17E6000B84279 /* AvatarSearchViewControllerSpy.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -711,7 +711,7 @@
 				C58A771C29EDF75C00B84279 /* AvatarDetailViewControllerSpy.swift in Sources */,
 				C56BF33629A9352300A95AB1 /* AvatarInformationViewTests.swift in Sources */,
 				C58A771229EDD25400B84279 /* AvatarDetailViewControllerTests.swift in Sources */,
-				C58A773229F17E6000B84279 /* AvatarSearchViewSpy.swift in Sources */,
+				C58A773229F17E6000B84279 /* AvatarSearchViewControllerSpy.swift in Sources */,
 				C58A76A629D220A700B84279 /* AvatarCollectionViewTests.swift in Sources */,
 				C58A771829EDF23400B84279 /* AvatarDetailViewSpy.swift in Sources */,
 				C529DE5729B69A4400AC8B9A /* AvatarListViewTests.swift in Sources */,
