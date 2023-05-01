@@ -52,9 +52,17 @@ final class AvatarListViewControllerTests: QuickSpec {
         }
 
         describe("#viewWillAppear") {
+            let action = sut.navigationItem.rightBarButtonItem?.action
+
             beforeEach {
                 sut.viewWillAppear(true)
+                sut.perform(action)
+
                 navigationController.applyCustomAppearence()
+            }
+
+            it("has to call openAvatarFilter(filterDelegate:) from delegate once") {
+                expect(delegateSpy.openAvatarFilterCallerCount) == 1
             }
 
             it("has to call correct parameters") {
@@ -111,16 +119,6 @@ final class AvatarListViewControllerTests: QuickSpec {
 
             it("has to call fetchMoreItems from presenter once") {
                 expect(presenterSpy.fetchMoreItemsCallerCount) == 1
-            }
-        }
-
-        xdescribe("#searchButtonTap") {
-            beforeEach {
-                sut.navigationItem.rightBarButtonItem?.simulateTap()
-            }
-
-            it("has to call openAvatarFilter(filterDelegate:) from delegate once") {
-                expect(delegateSpy.openAvatarFilterCallerCount) == 1
             }
         }
 

@@ -33,7 +33,6 @@
 		C58082322A0005AC002B2A4E /* AvatarListPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082312A0005AC002B2A4E /* AvatarListPresenterSpy.swift */; };
 		C58082342A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082332A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift */; };
 		C58082362A0007A6002B2A4E /* AvatarListViewDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */; };
-		C58082382A0014C6002B2A4E /* UIBarButtonItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082372A0014C6002B2A4E /* UIBarButtonItem+Ext.swift */; };
 		C58A768F29BA7A8500B84279 /* AvatarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */; };
 		C58A769229BBA06D00B84279 /* AvatarListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769129BBA06D00B84279 /* AvatarListRepository.swift */; };
 		C58A769429BBA07C00B84279 /* AvatarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769329BBA07C00B84279 /* AvatarListService.swift */; };
@@ -129,7 +128,6 @@
 		C58082312A0005AC002B2A4E /* AvatarListPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListPresenterSpy.swift; sourceTree = "<group>"; };
 		C58082332A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewDummy.swift; sourceTree = "<group>"; };
-		C58082372A0014C6002B2A4E /* UIBarButtonItem+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Ext.swift"; sourceTree = "<group>"; };
 		C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewController.swift; sourceTree = "<group>"; };
 		C58A769129BBA06D00B84279 /* AvatarListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepository.swift; sourceTree = "<group>"; };
 		C58A769329BBA07C00B84279 /* AvatarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListService.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 				C58A769929BF615300B84279 /* UINavigationController+Ext.swift */,
 				C58A769D29BF734200B84279 /* UIImageView+Ext.swift */,
 				C58A76A929D5C4B200B84279 /* Array+Ext.swift */,
-				C58082372A0014C6002B2A4E /* UIBarButtonItem+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -823,7 +820,6 @@
 				C56BF31A29A8F7DD00A95AB1 /* AvatarInformationView.swift in Sources */,
 				C58A770C29E7390000B84279 /* AvatarSearchPresenter.swift in Sources */,
 				C58A770329E5AC7600B84279 /* AvatarSearchViewController.swift in Sources */,
-				C58082382A0014C6002B2A4E /* UIBarButtonItem+Ext.swift in Sources */,
 				C56BF31E29A8FE7C00A95AB1 /* AvatarDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
