@@ -16,6 +16,7 @@ final class AvatarListView: UIView {
     private let readyView: AvatarCollectionView = {
         let view = AvatarCollectionView()
         view.isHidden = true
+        view.accessibilityIdentifier = "viewReady"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -23,6 +24,7 @@ final class AvatarListView: UIView {
     private let loadingView: AvatarLoadingView = {
         let view = AvatarLoadingView()
         view.isHidden = true
+        view.accessibilityIdentifier = "viewLoading"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,6 +32,7 @@ final class AvatarListView: UIView {
     private let errorView: AvatarErrorView = {
         let view = AvatarErrorView()
         view.isHidden = true
+        view.accessibilityIdentifier = "viewError"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -37,6 +40,7 @@ final class AvatarListView: UIView {
     private let emptyStateView: AvatarEmptyStateView = {
         let view = AvatarEmptyStateView()
         view.isHidden = true
+        view.accessibilityIdentifier = "viewEmptyState"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
