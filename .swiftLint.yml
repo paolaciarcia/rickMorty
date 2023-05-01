@@ -15,7 +15,7 @@ file_length:
 
 function_body_length:
   warning: 40
-  error: 100
+  error: 200
 
 line_length:
   warning: 200

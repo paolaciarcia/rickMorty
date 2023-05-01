@@ -18,6 +18,7 @@ final class AvatarListViewController: UIViewController {
             barButtonSystemItem: .search,
             target: self,
             action: #selector(searchButtonTap))
+        button.accessibilityIdentifier = "buttonSearch"
         return button
     }()
 
