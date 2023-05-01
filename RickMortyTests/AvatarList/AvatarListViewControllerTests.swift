@@ -23,9 +23,10 @@ final class AvatarListViewControllerTests: QuickSpec {
             presenterSpy = AvatarListPresenterSpy()
             delegateSpy = AvatarListViewControllerDelegateSpy()
             viewDummy = AvatarListViewDummy()
-            navigationController = UINavigationController()
             sut = AvatarListViewController(contentView: viewDummy,
                                            presenter: presenterSpy)
+
+            navigationController = UINavigationController(rootViewController: sut)
             sut.delegate = delegateSpy
             _ = sut.view
         }
@@ -43,6 +44,10 @@ final class AvatarListViewControllerTests: QuickSpec {
         describe("#viewDidLoad") {
             it("has to call loadAvatarList from presenter once") {
                 expect(presenterSpy.loadAvatarListCallerCount) == 1
+            }
+
+            it("has to set isNavigationBarHidden equal true") {
+                expect(sut.navigationController?.isNavigationBarHidden) == true
             }
         }
 
@@ -109,7 +114,7 @@ final class AvatarListViewControllerTests: QuickSpec {
             }
         }
 
-        xdescribe("#searchButtonTap") {
+        describe("#searchButtonTap") {
             beforeEach {
                 sut.navigationItem.rightBarButtonItem?.simulateTap()
             }
@@ -121,6 +126,67 @@ final class AvatarListViewControllerTests: QuickSpec {
 
         describe("#AvatarListViewControllerType") {
             describe("#show(state:)") {
+                context("when state is ready") {
+                    let listViewModel: AvatarListViewModel = .stub()
+
+                    beforeEach {
+                        sut.show(state: .ready(viewModel: listViewModel))
+                    }
+
+                    it("has to call show(state:) from contentView once") {
+                        expect(viewDummy.showReadyStateCallerCount).toEventually(equal(1))
+                    }
+
+                    it("has to present viewModel properly") {
+                        expect(viewDummy.expectedViewModel).toEventually(equal(listViewModel))
+                    }
+
+                    it("isNavigationBarHidden must be false") {
+                        expect(sut.navigationController?.isNavigationBarHidden).toEventually(beFalse())
+                    }
+                }
+
+                context("when state is loading") {
+                    beforeEach {
+                        sut.show(state: .loading)
+                    }
+
+                    it("has to call show(state:) from contentView once") {
+                        expect(viewDummy.showLoadingStateCallerCount).toEventually(equal(1))
+                    }
+
+                    it("isNavigationBarHidden must be true") {
+                        expect(sut.navigationController?.isNavigationBarHidden).toEventually(beTrue())
+                    }
+                }
+
+                context("when state is error") {
+                    beforeEach {
+                        sut.show(state: .error)
+                    }
+
+                    it("has to call show(state:) from contentView once") {
+                        expect(viewDummy.showErrorStateCallerCount).toEventually(equal(1))
+                    }
+
+                    it("isNavigationBarHidden must be true") {
+                        expect(sut.navigationController?.isNavigationBarHidden).toEventually(beTrue())
+                    }
+                }
+
+                context("when state is emptyState") {
+                    beforeEach {
+                        sut.show(state: .emptyState)
+                    }
+
+                    it("has to call show(state:) from contentView once") {
+                        expect(viewDummy.showEmptyStateCallerCount).toEventually(equal(1))
+                    }
+
+                    it("isNavigationBarHidden must be true") {
+                        expect(sut.navigationController?.isNavigationBarHidden).toEventually(beTrue())
+                    }
+                }
             }
 
             describe("redirectToAvatarDetail(with viewModel:") {
