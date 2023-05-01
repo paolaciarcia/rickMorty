@@ -10,7 +10,7 @@ import UIKit
 final class AvatarListViewController: UIViewController {
     weak var delegate: AvatarListViewControllerDelegate?
 
-    private let contentView: AvatarListView
+    private let contentView: AvatarListViewType
     private let presenter: AvatarListPresenterType
 
     private lazy var searchButton: UIBarButtonItem = {
@@ -21,7 +21,7 @@ final class AvatarListViewController: UIViewController {
         return button
     }()
 
-    init(contentView: AvatarListView = AvatarListView(),
+    init(contentView: AvatarListViewType = AvatarListView(),
          presenter: AvatarListPresenterType) {
         self.contentView = contentView
         self.presenter = presenter
@@ -92,14 +92,6 @@ extension AvatarListViewController: AvatarListViewControllerType {
             }
 
             self?.contentView.show(state: state)
-
-
-//            if state == .error || state == .loading || state == .emptyState {
-//                self?.navigationController?.isNavigationBarHidden = true
-//            } else {
-//                self?.navigationController?.isNavigationBarHidden = false
-//            }
-//            self?.contentView.show(state: state)
         }
     }
 

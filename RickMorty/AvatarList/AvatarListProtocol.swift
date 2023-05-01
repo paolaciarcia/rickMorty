@@ -4,7 +4,7 @@
 //
 //  Created by Paola Golombieski Ciarcia on 24/02/23.
 //
-import Foundation
+import UIKit
 
 protocol AvatarListServiceProtocol {
     func requestAvatarList<T: Decodable>(method: String,
@@ -20,7 +20,12 @@ protocol AvatarListRepositoryType {
                      completion: @escaping (Result<AvatarList, APIServiceError>) -> Void)
 }
 
-protocol AvatarListViewType {
+protocol AvatarListViewType: UIView {
+    var didSelectItem: ((Int) -> Void)? { get set }
+    var didSelectReloadList: (() -> Void)? { get set }
+    var didSelectNewSearch: (() -> Void)? { get set }
+    var fetchNewItems: (() -> Void)? { get set }
+
     func show(state: AvatarListState)
 }
 
