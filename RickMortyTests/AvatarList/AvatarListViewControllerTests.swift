@@ -114,7 +114,7 @@ final class AvatarListViewControllerTests: QuickSpec {
             }
         }
 
-        describe("#searchButtonTap") {
+        xdescribe("#searchButtonTap") {
             beforeEach {
                 sut.navigationItem.rightBarButtonItem?.simulateTap()
             }

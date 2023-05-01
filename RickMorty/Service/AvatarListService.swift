@@ -19,11 +19,9 @@ enum APIServiceError: Error {
 final class AvatarListService: AvatarListServiceProtocol {
     private var task: URLSessionDataTask?
 
-    func requestAvatarList<T: Decodable>(method: String,
-                                         url urlString: String,
-                                         parameters: [String: Any],
+    func requestAvatarList<T: Decodable>(urlEndpoints: URLEndpoints,
                                          completion: @escaping (Result<T, APIServiceError>) -> Void) {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: urlEndpoints.path) else {
             completion(.failure(APIServiceError.invalidURL))
             return
         }
@@ -43,6 +41,11 @@ final class AvatarListService: AvatarListServiceProtocol {
                 return
             }
 
+            guard (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(APIServiceError.requestError))
+                return
+            }
+
             guard let jsonData = data else {
                 completion(.failure(APIServiceError.jsonData))
                 return
@@ -53,7 +56,6 @@ final class AvatarListService: AvatarListServiceProtocol {
                 completion(.success(decoded))
             } catch {
                 completion(.failure(APIServiceError.decodeFailure))
-                print("statusCode\(httpResponse.statusCode)")
             }
         }.resume()
     }

@@ -7,9 +7,7 @@
 import UIKit
 
 protocol AvatarListServiceProtocol {
-    func requestAvatarList<T: Decodable>(method: String,
-                                         url urlString: String,
-                                         parameters: [String: Any],
+    func requestAvatarList<T: Decodable>(urlEndpoints: URLEndpoints,
                                          completion: @escaping (Result<T, APIServiceError>) -> Void)
 }
 
