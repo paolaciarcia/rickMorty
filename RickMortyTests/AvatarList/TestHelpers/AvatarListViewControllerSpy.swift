@@ -15,7 +15,6 @@ final class AvatarListViewControllerSpy: AvatarListViewControllerType {
     private(set) var showEmptyStateCallerCount = 0
     private(set) var expectedAvatarListViewModel: AvatarListViewModel?
 
-
     func show(state: AvatarListState) {
         switch state {
         case .ready(let viewModel):

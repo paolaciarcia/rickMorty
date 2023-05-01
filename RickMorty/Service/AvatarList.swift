@@ -13,7 +13,6 @@ struct AvatarList: Decodable {
 }
 
 struct Results: Decodable {
-    let id: Int
     let name: String
     let status: String
     let species: String
@@ -23,8 +22,5 @@ struct Results: Decodable {
 }
 
 struct AvatarInfo: Decodable {
-    let count: Int
     let pages: Int
-    let next: String?
-    let prev: String?
 }

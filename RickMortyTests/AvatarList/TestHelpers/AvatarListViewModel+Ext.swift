@@ -8,10 +8,13 @@
 @testable import RickMorty
 
 extension AvatarListViewModel {
-    static func stub() -> AvatarListViewModel {
+    static func stub(isFetching: Bool = true,
+                     hasMorePages: Bool = true) -> AvatarListViewModel {
         return AvatarListViewModel(cells: [.stub(),
                                            .stub(),
                                            .stub(),
-                                           .stub()])
+                                           .stub()],
+                                   isFetching: isFetching,
+                                   hasMorePages: hasMorePages)
     }
 }
