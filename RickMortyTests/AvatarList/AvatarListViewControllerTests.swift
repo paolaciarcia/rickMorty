@@ -52,12 +52,11 @@ final class AvatarListViewControllerTests: QuickSpec {
         }
 
         describe("#viewWillAppear") {
-            let action = sut.navigationItem.rightBarButtonItem?.action
-
             beforeEach {
                 sut.viewWillAppear(true)
-                sut.perform(action)
+                let action = sut.navigationItem.rightBarButtonItem?.action
 
+                sut.perform(action)
                 navigationController.applyCustomAppearence()
             }
 

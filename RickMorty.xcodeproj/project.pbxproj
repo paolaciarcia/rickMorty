@@ -33,6 +33,8 @@
 		C58082322A0005AC002B2A4E /* AvatarListPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082312A0005AC002B2A4E /* AvatarListPresenterSpy.swift */; };
 		C58082342A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082332A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift */; };
 		C58082362A0007A6002B2A4E /* AvatarListViewDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */; };
+		C580823A2A003A44002B2A4E /* AvatarListViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */; };
+		C580823C2A003B6A002B2A4E /* AvatarListRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */; };
 		C58A768F29BA7A8500B84279 /* AvatarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */; };
 		C58A769229BBA06D00B84279 /* AvatarListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769129BBA06D00B84279 /* AvatarListRepository.swift */; };
 		C58A769429BBA07C00B84279 /* AvatarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769329BBA07C00B84279 /* AvatarListService.swift */; };
@@ -128,6 +130,8 @@
 		C58082312A0005AC002B2A4E /* AvatarListPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListPresenterSpy.swift; sourceTree = "<group>"; };
 		C58082332A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewDummy.swift; sourceTree = "<group>"; };
+		C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewControllerSpy.swift; sourceTree = "<group>"; };
+		C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepositoryMock.swift; sourceTree = "<group>"; };
 		C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewController.swift; sourceTree = "<group>"; };
 		C58A769129BBA06D00B84279 /* AvatarListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepository.swift; sourceTree = "<group>"; };
 		C58A769329BBA07C00B84279 /* AvatarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListService.swift; sourceTree = "<group>"; };
@@ -460,6 +464,8 @@
 				C58082312A0005AC002B2A4E /* AvatarListPresenterSpy.swift */,
 				C58082332A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift */,
 				C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */,
+				C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */,
+				C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -751,6 +757,8 @@
 				C58A771C29EDF75C00B84279 /* AvatarDetailViewControllerSpy.swift in Sources */,
 				C56BF33629A9352300A95AB1 /* AvatarInformationViewTests.swift in Sources */,
 				C58A771229EDD25400B84279 /* AvatarDetailViewControllerTests.swift in Sources */,
+				C580823C2A003B6A002B2A4E /* AvatarListRepositoryMock.swift in Sources */,
+				C580823A2A003A44002B2A4E /* AvatarListViewControllerSpy.swift in Sources */,
 				C58A773F29F1B97900B84279 /* AvatarListViewModel+Ext.swift in Sources */,
 				C58082342A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift in Sources */,
 				C580822E2A000374002B2A4E /* AvatarListViewControllerTests.swift in Sources */,
