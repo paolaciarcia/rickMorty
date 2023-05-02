@@ -90,12 +90,8 @@ final class AvatarViewCell: UICollectionViewCell {
     }
 
     func show(viewModel: AvatarCellViewModel) {
-//        let firstWord = viewModel.avatarName.components(separatedBy: " ").first
-//        let lastWord = viewModel.avatarName.components(separatedBy: " ").last
-//        let avatarAbbrName = "\(firstWord ?? "") \(lastWord ?? "")"
         avatarLabel.text = viewModel.avatarName
         avatarImage.downloadImage(url: viewModel.avatarImageURL,
                                   placeholderImage: UIImage(asset: Asset.avatarRich))
-        avatarLabel.text = viewModel.avatarName
     }
 }
