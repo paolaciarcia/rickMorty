@@ -10,16 +10,16 @@ import Network
 
 enum APIServiceError: Error {
     case invalidURL
-    case requestError
-    case jsonData
-    case notFound
-    case decodeFailure
+    case requestError//ok
+    case jsonData//ok
+    case notFound//ok
+    case decodeFailure//ok
 }
 
 final class AvatarListService: AvatarListServiceProtocol {
     private var session: URLSession
 
-    init(session: URLSession = URLSession(configuration: URLSessionConfiguration.default)) {
+    init(session: URLSession = .shared) {
         self.session = session
     }
 
@@ -29,8 +29,6 @@ final class AvatarListService: AvatarListServiceProtocol {
             completion(.failure(APIServiceError.invalidURL))
             return
         }
-
-        session = URLSession.shared
 
         session.dataTask(with: url) { data, response, error in
             if error != nil {

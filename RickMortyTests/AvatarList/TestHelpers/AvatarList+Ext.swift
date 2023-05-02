@@ -7,7 +7,7 @@
 
 @testable import RickMorty
 
-extension AvatarList: Equatable, Decodable {
+extension AvatarList {
     static func stub(totalPages: Int = 4) -> AvatarList {
         let info = AvatarInfo(pages: totalPages)
         let result = Results(name: "Rich",

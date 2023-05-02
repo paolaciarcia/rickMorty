@@ -47,20 +47,21 @@ final class MockURLSession: URLSession {
     var data: Data?
     var error: Error?
     var statusCode: Int = 200
-    var passedRequest: URLRequest?
+    var passedUrl: URL?
     var response: HTTPURLResponse? = .stub()
 
-    override func dataTask(with request: URLRequest, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
-        passedRequest = request
-        return URLSessionDataTaskMock { [weak self] in
-            completionHandler(self?.data, self?.response, self?.error)
+    override func dataTask(
+        with url: URL,
+        completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
+            passedUrl = url
+            return URLSessionDataTaskMock { [weak self] in
+                completionHandler(self?.data, self?.response, self?.error)
+            }
         }
-    }
 }
 
 final class AvatarListServiceTests: QuickSpec {
     override func spec() {
-//        var result: Result<AvatarList, APIServiceError>?
         var mockSession: MockURLSession!
         var sut: AvatarListService!
 
@@ -70,11 +71,9 @@ final class AvatarListServiceTests: QuickSpec {
         }
 
         describe("#requestAvatarList") {
-            xcontext("when given a valid URL") {
+            context("when request succeeds") {
                 beforeEach {
-                    mockSession.data = """
-                    {"name": "Avatar 1", "status": "Active"}
-                    """.data(using: .utf8)!
+                    mockSession.data = avatarListStub.data(using: .utf8)!
                 }
 
                 it("returns the expected result") {
@@ -82,19 +81,19 @@ final class AvatarListServiceTests: QuickSpec {
                         switch result {
                         case .success(let result):
                             expect(result) == .stub()
-                        case .failure:
-                            fail("The request did fail because the Object couldn't be parsed")
+                        case let .failure(error):
+                            fail("The request should not fail: \(error)")
                         }
                     }
                 }
             }
 
-            xcontext("and the request fails with requestError") {
+            context("when request fails with requestError") {
                 beforeEach {
                     mockSession.response = nil
                 }
 
-                it("should return a decoding error") {
+                it("should return a request error") {
                     sut.requestAvatarList(urlEndpoints: URLEndpoints.avatarList(pageIndex: 1, name: "Rick", status: "Dead")) { (result: Result<AvatarList, APIServiceError>) in
                         switch result {
                         case .success:
@@ -106,12 +105,12 @@ final class AvatarListServiceTests: QuickSpec {
                 }
             }
 
-            context("and the request fails with notFound") {
+            context("when request fails with notFound") {
                 beforeEach {
-                    mockSession.error = NSError(domain: "AvatarListServiceTests", code: 404, userInfo: [:])
+                    mockSession.response = .stub(statusCode: 404)
                 }
 
-                it("should return a decoding error") {
+                it("should return an error") {
                     sut.requestAvatarList(urlEndpoints: URLEndpoints.avatarList(pageIndex: 1, name: "Rick", status: "Dead")) { (result: Result<AvatarList, APIServiceError>) in
                         switch result {
                         case .success:
@@ -123,12 +122,12 @@ final class AvatarListServiceTests: QuickSpec {
                 }
             }
 
-            context("and the request returns an invalid data") {
+            context("when request fails with invalid data") {
                 beforeEach {
                     mockSession.data = nil
                 }
 
-                it("should return an api error") {
+                it("should return an error") {
                     sut.requestAvatarList(urlEndpoints: URLEndpoints.avatarList(pageIndex: 1, name: "Rick", status: "Dead")) { (result: Result<AvatarList, APIServiceError>) in
                         switch result {
                         case .success:
@@ -139,22 +138,79 @@ final class AvatarListServiceTests: QuickSpec {
                     }
                 }
             }
+
+            context("when request fails with invalidURL") {
+                let expectedURL = "https://rickandmortyapi.com/api/character/?page=1&name=Rick&status=Dead"
+
+                beforeEach {
+                    sut.requestAvatarList(urlEndpoints: URLEndpoints.avatarList(pageIndex: 1, name: "Rick", status: "Dead")) { (_: Result<AvatarList, APIServiceError>) in }
+                }
+
+                it("should return an error") {
+                    expect(mockSession.passedUrl) == URL(string: expectedURL)
+                }
+            }
+
+            context("when request fails with decodeFailure") {
+                beforeEach {
+                    mockSession.data = """
+                    {"name": "Avatar 1", "status": "Active"}
+                    """.data(using: .utf8)!
+                }
+
+                it("should return an error") {
+                    sut.requestAvatarList(urlEndpoints: URLEndpoints.avatarList(pageIndex: 1, name: "Rick", status: "Dead")) { (result: Result<AvatarList, APIServiceError>) in
+                        switch result {
+                        case .success:
+                            fail("The request should not be successfull")
+                        case let .failure(error):
+                            expect(error) == .decodeFailure
+                        }
+                    }
+                }
+            }
         }
     }
 }
-            /*
-                    {
-                    "info": {
-                    "pages": 4
-                    },
-                    "results": [
-                    {
-                    "name": "Rick Sanchez",
-                    "status": "Alive",
-                    "species": "Human",
-                    "type": "",
-                    "gender": "Male",
-                    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                    }]
-                    }
-*/
+
+private let avatarListStub = """
+{
+    "info": {
+        "pages": 4
+    },
+    "results": [
+        {
+            "name": "Rich",
+            "status": "Dead",
+            "species": "Specie",
+            "type": "Type",
+            "gender": "Gender",
+            "image": ""
+        },
+        {
+            "name": "Rich",
+            "status": "Dead",
+            "species": "Specie",
+            "type": "Type",
+            "gender": "Gender",
+            "image": ""
+        },
+        {
+            "name": "Rich",
+            "status": "Dead",
+            "species": "Specie",
+            "type": "Type",
+            "gender": "Gender",
+            "image": ""
+        },
+        {
+            "name": "Rich",
+            "status": "Dead",
+            "species": "Specie",
+            "type": "Type",
+            "gender": "Gender",
+            "image": ""
+        }
+     ]
+}
+"""
