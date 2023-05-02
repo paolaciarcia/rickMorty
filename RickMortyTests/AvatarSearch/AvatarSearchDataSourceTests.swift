@@ -50,7 +50,7 @@ final class AvatarSearchDataSourceTests: QuickSpec {
         describe("#didSelectItemAt") {
             var selectedStatusCount = 0
             var expectedStatus: String?
-            var indexPath = IndexPath(item: 1, section: 0)
+            let indexPath = IndexPath(item: 1, section: 0)
 
             beforeEach {
                 sut.selectedStatus = { status in
