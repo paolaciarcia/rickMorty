@@ -184,16 +184,7 @@ final class AvatarListPresenterTests: QuickSpec {
         }
 
         func stubSuccessAvatarRequest(totalPages: Int = 4) {
-            let info = AvatarInfo(pages: totalPages)
-            let result = Results(name: "Rich",
-                                 status: "Dead",
-                                 species: "Specie",
-                                 type: "Type",
-                                 gender: "Gender",
-                                 image: "")
-
-            let avatarList = AvatarList(info: info,
-                                        results: [result, result, result, result])
+            let avatarList: AvatarList = .stub(totalPages: totalPages)
             repositoryMock.expectedResult = .success(avatarList)
         }
 

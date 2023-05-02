@@ -17,7 +17,11 @@ enum APIServiceError: Error {
 }
 
 final class AvatarListService: AvatarListServiceProtocol {
-    private var task: URLSessionDataTask?
+    private var session: URLSession
+
+    init(session: URLSession = URLSession(configuration: URLSessionConfiguration.default)) {
+        self.session = session
+    }
 
     func requestAvatarList<T: Decodable>(urlEndpoints: URLEndpoints,
                                          completion: @escaping (Result<T, APIServiceError>) -> Void) {
@@ -26,7 +30,9 @@ final class AvatarListService: AvatarListServiceProtocol {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        session = URLSession.shared
+
+        session.dataTask(with: url) { data, response, error in
             if error != nil {
                 completion(.failure(APIServiceError.requestError))
                 return

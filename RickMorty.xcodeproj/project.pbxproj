@@ -35,6 +35,9 @@
 		C58082362A0007A6002B2A4E /* AvatarListViewDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */; };
 		C580823A2A003A44002B2A4E /* AvatarListViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */; };
 		C580823C2A003B6A002B2A4E /* AvatarListRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */; };
+		C580823F2A0170A6002B2A4E /* AvatarListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580823E2A0170A6002B2A4E /* AvatarListRepositoryTests.swift */; };
+		C58082412A0170B5002B2A4E /* AvatarListServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082402A0170B5002B2A4E /* AvatarListServiceTests.swift */; };
+		C58082432A0175FB002B2A4E /* AvatarList+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */; };
 		C58A768F29BA7A8500B84279 /* AvatarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */; };
 		C58A769229BBA06D00B84279 /* AvatarListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769129BBA06D00B84279 /* AvatarListRepository.swift */; };
 		C58A769429BBA07C00B84279 /* AvatarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769329BBA07C00B84279 /* AvatarListService.swift */; };
@@ -132,6 +135,9 @@
 		C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewDummy.swift; sourceTree = "<group>"; };
 		C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewControllerSpy.swift; sourceTree = "<group>"; };
 		C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepositoryMock.swift; sourceTree = "<group>"; };
+		C580823E2A0170A6002B2A4E /* AvatarListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepositoryTests.swift; sourceTree = "<group>"; };
+		C58082402A0170B5002B2A4E /* AvatarListServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListServiceTests.swift; sourceTree = "<group>"; };
+		C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvatarList+Ext.swift"; sourceTree = "<group>"; };
 		C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewController.swift; sourceTree = "<group>"; };
 		C58A769129BBA06D00B84279 /* AvatarListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepository.swift; sourceTree = "<group>"; };
 		C58A769329BBA07C00B84279 /* AvatarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListService.swift; sourceTree = "<group>"; };
@@ -306,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				C58A770629E6E87600B84279 /* AvatarSearch */,
+				C580823D2A017091002B2A4E /* Service */,
 				C529DE5329B699CD00AC8B9A /* AvatarList */,
 				C56BF33329A934F800A95AB1 /* AvatarDetail */,
 			);
@@ -393,6 +400,15 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		C580823D2A017091002B2A4E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C580823E2A0170A6002B2A4E /* AvatarListRepositoryTests.swift */,
+				C58082402A0170B5002B2A4E /* AvatarListServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		C58A769029BB9F8B00B84279 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +482,7 @@
 				C58082352A0007A6002B2A4E /* AvatarListViewDummy.swift */,
 				C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */,
 				C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */,
+				C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -747,6 +764,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58082412A0170B5002B2A4E /* AvatarListServiceTests.swift in Sources */,
+				C58082432A0175FB002B2A4E /* AvatarList+Ext.swift in Sources */,
+				C580823F2A0170A6002B2A4E /* AvatarListRepositoryTests.swift in Sources */,
 				C58082302A000414002B2A4E /* AvatarListPresenterTests.swift in Sources */,
 				C58A771429EDD27300B84279 /* AvatarDetailPresenterTests.swift in Sources */,
 				C58A771629EDD31D00B84279 /* AvatarDetailPresenterSpy.swift in Sources */,

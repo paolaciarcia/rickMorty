@@ -14,7 +14,7 @@ enum HTTPRequestMethod {
     static let delete = "DELETE"
 }
 
-enum URLEndpoints {
+enum URLEndpoints: Equatable {
     case avatarList(pageIndex: Int, name: String, status: String)
 
     var method: String {
@@ -33,9 +33,9 @@ enum URLEndpoints {
 }
 
 final class AvatarListRepository: AvatarListRepositoryType {
-    private let service: AvatarListService
+    private let service: AvatarListServiceProtocol
 
-    init(service: AvatarListService = AvatarListService()) {
+    init(service: AvatarListServiceProtocol = AvatarListService()) {
         self.service = service
     }
 

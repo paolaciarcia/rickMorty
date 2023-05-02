@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AvatarList: Decodable {
+struct AvatarList: Equatable, Decodable {
     let info: AvatarInfo
     let results: [Results]
 }
 
-struct Results: Decodable {
+struct Results: Equatable, Decodable {
     let name: String
     let status: String
     let species: String
@@ -21,6 +21,6 @@ struct Results: Decodable {
     let image: String
 }
 
-struct AvatarInfo: Decodable {
+struct AvatarInfo: Equatable, Decodable {
     let pages: Int
 }
