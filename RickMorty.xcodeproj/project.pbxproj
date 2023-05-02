@@ -38,6 +38,10 @@
 		C580823F2A0170A6002B2A4E /* AvatarListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580823E2A0170A6002B2A4E /* AvatarListRepositoryTests.swift */; };
 		C58082412A0170B5002B2A4E /* AvatarListServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082402A0170B5002B2A4E /* AvatarListServiceTests.swift */; };
 		C58082432A0175FB002B2A4E /* AvatarList+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */; };
+		C58082452A01CBBE002B2A4E /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082442A01CBBE002B2A4E /* URLSessionMock.swift */; };
+		C58082472A01CBFA002B2A4E /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082462A01CBFA002B2A4E /* URLSessionDataTaskMock.swift */; };
+		C58082492A01CC1C002B2A4E /* HTTPURLResponse+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58082482A01CC1C002B2A4E /* HTTPURLResponse+Ext.swift */; };
+		C580824B2A01CC38002B2A4E /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580824A2A01CC38002B2A4E /* URL+Ext.swift */; };
 		C58A768F29BA7A8500B84279 /* AvatarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */; };
 		C58A769229BBA06D00B84279 /* AvatarListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769129BBA06D00B84279 /* AvatarListRepository.swift */; };
 		C58A769429BBA07C00B84279 /* AvatarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A769329BBA07C00B84279 /* AvatarListService.swift */; };
@@ -138,6 +142,10 @@
 		C580823E2A0170A6002B2A4E /* AvatarListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepositoryTests.swift; sourceTree = "<group>"; };
 		C58082402A0170B5002B2A4E /* AvatarListServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListServiceTests.swift; sourceTree = "<group>"; };
 		C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvatarList+Ext.swift"; sourceTree = "<group>"; };
+		C58082442A01CBBE002B2A4E /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		C58082462A01CBFA002B2A4E /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		C58082482A01CC1C002B2A4E /* HTTPURLResponse+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Ext.swift"; sourceTree = "<group>"; };
+		C580824A2A01CC38002B2A4E /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		C58A768E29BA7A8500B84279 /* AvatarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewController.swift; sourceTree = "<group>"; };
 		C58A769129BBA06D00B84279 /* AvatarListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListRepository.swift; sourceTree = "<group>"; };
 		C58A769329BBA07C00B84279 /* AvatarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListService.swift; sourceTree = "<group>"; };
@@ -483,6 +491,10 @@
 				C58082392A003A44002B2A4E /* AvatarListViewControllerSpy.swift */,
 				C580823B2A003B6A002B2A4E /* AvatarListRepositoryMock.swift */,
 				C58082422A0175FB002B2A4E /* AvatarList+Ext.swift */,
+				C58082442A01CBBE002B2A4E /* URLSessionMock.swift */,
+				C58082462A01CBFA002B2A4E /* URLSessionDataTaskMock.swift */,
+				C58082482A01CC1C002B2A4E /* HTTPURLResponse+Ext.swift */,
+				C580824A2A01CC38002B2A4E /* URL+Ext.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -764,7 +776,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58082452A01CBBE002B2A4E /* URLSessionMock.swift in Sources */,
 				C58082412A0170B5002B2A4E /* AvatarListServiceTests.swift in Sources */,
+				C580824B2A01CC38002B2A4E /* URL+Ext.swift in Sources */,
+				C58082492A01CC1C002B2A4E /* HTTPURLResponse+Ext.swift in Sources */,
 				C58082432A0175FB002B2A4E /* AvatarList+Ext.swift in Sources */,
 				C580823F2A0170A6002B2A4E /* AvatarListRepositoryTests.swift in Sources */,
 				C58082302A000414002B2A4E /* AvatarListPresenterTests.swift in Sources */,
@@ -778,6 +793,7 @@
 				C56BF33629A9352300A95AB1 /* AvatarInformationViewTests.swift in Sources */,
 				C58A771229EDD25400B84279 /* AvatarDetailViewControllerTests.swift in Sources */,
 				C580823C2A003B6A002B2A4E /* AvatarListRepositoryMock.swift in Sources */,
+				C58082472A01CBFA002B2A4E /* URLSessionDataTaskMock.swift in Sources */,
 				C580823A2A003A44002B2A4E /* AvatarListViewControllerSpy.swift in Sources */,
 				C58A773F29F1B97900B84279 /* AvatarListViewModel+Ext.swift in Sources */,
 				C58082342A0006A0002B2A4E /* AvatarListViewControllerDelegateSpy.swift in Sources */,

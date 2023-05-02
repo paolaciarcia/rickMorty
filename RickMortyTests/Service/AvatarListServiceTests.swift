@@ -12,61 +12,13 @@ import Network
 
 @testable import RickMorty
 
-extension URL {
-    static func stub() -> URL {
-        return URL(string: "https://stub.url.com")!
-    }
-}
-
-extension HTTPURLResponse {
-    static func stub(url: URL = .stub(), statusCode: Int = 200) -> HTTPURLResponse? {
-        return HTTPURLResponse(
-            url: url,
-            statusCode: statusCode,
-            httpVersion: nil,
-            headerFields: nil
-        )
-    }
-}
-
-final class URLSessionDataTaskMock: URLSessionDataTask {
-    private let closure: () -> Void
-
-    init(closure: @escaping () -> Void) {
-        self.closure = closure
-    }
-
-    override func resume() {
-        closure()
-    }
-}
-
-final class MockURLSession: URLSession {
-    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-
-    var data: Data?
-    var error: Error?
-    var statusCode: Int = 200
-    var passedUrl: URL?
-    var response: HTTPURLResponse? = .stub()
-
-    override func dataTask(
-        with url: URL,
-        completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
-            passedUrl = url
-            return URLSessionDataTaskMock { [weak self] in
-                completionHandler(self?.data, self?.response, self?.error)
-            }
-        }
-}
-
 final class AvatarListServiceTests: QuickSpec {
     override func spec() {
-        var mockSession: MockURLSession!
+        var mockSession: URLSessionMock!
         var sut: AvatarListService!
 
         beforeEach {
-            mockSession = MockURLSession()
+            mockSession = URLSessionMock()
             sut = AvatarListService(session: mockSession)
         }
 
